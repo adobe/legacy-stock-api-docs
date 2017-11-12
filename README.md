@@ -1,1 +1,0 @@
-# Adobe Stock API Documentation

@@ -1,14 +1,25 @@
-# Getting Started with the Adobe Stock API
+# Getting started with the Adobe Stock API
 
-:rocket: _**Tl;dr version:** (1) register for an Adobe Stock API key at [console.adobe.io](https://console.adobe.io/), (2) use [curl](https://curl.haxx.se/) to make your first search query, (3) return here to learn more!_
+_**Tl;dr version:** (1) register for an Adobe Stock API key at [console.adobe.io](https://console.adobe.io/), (2) use [curl](https://curl.haxx.se/) to make your first search query, (3) return here to learn more!_
 
 ```bash
-curl 'https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=kittens' \
-  -H 'x-api-key: <<myAPIKey>>'  \
-  -H 'x-product: myTestApp1.0'
+curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_parameters%5Bwords%5D=kittens 
+  -H 'x-api-key:myAPIKey' 
+  -H 'x-product:myTestApp1.0'
 ```
 
-The Adobe Stock API provides programmatic access to the Adobe Stock content. You can integrate this API into your organization's applications and processes. You can use the API in scripts or programs to search for and retrieve Adobe Stock assets such as photos, videos, and vector files, and to license assets for your users.
+## Contents
+<!-- MarkdownTOC -->
+
+- [Overview](#overview)
+- [Design phase](#design-phase)
+- [Next steps](#next-steps)
+- [More topics](#more-topics)
+
+<!-- /MarkdownTOC -->
+
+
+The Adobe Stock API provides programmatic access to [Adobe Stock](https://stock.adobe.com/) content. You can integrate this API into your organization's applications and processes. You can use the API in scripts or programs to search for and retrieve Adobe Stock assets such as photos, videos, and vector files, and to license assets for your users.
 
 You interact with the Adobe Stock API via HTTP requests, rather than through a user interface. You can create applications that perform these actions:
 
@@ -21,25 +32,26 @@ You interact with the Adobe Stock API via HTTP requests, rather than through a u
  
 
 
+<a name="overview"></a>
 ## Overview
 
-![API workflow](./app-process.png)
+![API workflow](images/app-process-3-steps.png)
 
 At its simplest, all Stock API integrations include these steps:
 
 
 
-1.  Identify your business use case, which will influence all other decisions.
-2.  Register your application on Adobe I/O.
-3.  Determine the authentication method from your use case and test access.
-4.  Build and deploy your application using Stock APIs.
+1.  Register your application on Adobe I/O.
+2.  Determine the authentication method from your use case and build appropriate headers.
+3.  Build and deploy your application using Stock APIs.
 
 
+<a name="design-phase"></a>
 ## Design phase
 
 This step is implied by the list above and is outside the scope of this documentation, however everything you learn in the Getting Started section should give you sufficient information to design and architect your application.
 
-As you read the documentation, keep some questions in mind. Some of these will be answered by your __[use case]()__, but some may require a separate business discussion.
+As you read the documentation, keep some questions in mind. Some of these will be answered by your [use case](02-register-app.md), but some may require a separate business discussion.
 
 *   Is this an internal integration for members of my company, or for external users?
     *   If internal, does my company have Adobe Stock Enterprise entitlements, or just Team and Individual entitlements?
@@ -48,26 +60,28 @@ As you read the documentation, keep some questions in mind. Some of these will b
     *   If yes, what kind of search experience do I want to provide: basic search on keywords only, or allow searching on similar images? The power and flexibility of similarity search is a key differentiator for Adobe Stock.
 *   Will my application need to handle licensing of Stock assets, or will users be directed to the Adobe Stock website to purchase?
 *   What technology/platform will I be using to create my application?
-*   What size of image thumbnails do I want to display?
+*   What size and how many image thumbnails do I want to display? 
+*   Do I require localization?
 
 
+<a name="next-steps"></a>
 ## Next steps
 
 
 
-1.  Identify your __[use case]()__. It's possible that your application may fit into more than one category, or have a use case not found here. Don't worry! Just __[contact us]()__ to discuss.
-2.  __[Register]()__ your application on the Adobe I/O Console. You can add as many integrations as you need.
-3.  Plan and test how your application will __[authenticate]()__ to the Adobe Stock API.
-4.  Finally, start __[building]()__ your app, test and deploy to your users!
+1.  Learn how to [register](02-register-app.md) your application on the Adobe I/O Console. You can add as many integrations as you need.
+2.  Test how your application will [authenticate](03-api-authentication.md) to the Adobe Stock API.
+3.  Finally, start [building](04-creating-apps.md) your app, test and deploy to your users!
 
 
+<a name="more-topics"></a>
 ## More topics
 
 If you have already performed most of the tasks above or are in the middle of an implementation and need detailed help, check out these resources as well:
 
 
 
-*   Review the detailed __[workflow guides]()__, which details everything you need for a particular use case.
-*   Get __[sample code and download SDKs]()__ from GitHub.
-*   Read complete reference details for all API calls, call headers, and locales in the [Adobe Stock API Reference](https://www.adobe.io/apis/creativecloud/stock/docs/api.html).
-*   Open a ticket with the __[Adobe Stock API Support]()__ team.
+*   Review the detailed [workflow guides](07-workflow-guides.md), which gives information on everything you need for a particular use case.
+*   Get [sample code and download SDKs](08-sample-code-sdks.md) from GitHub.
+*   Read complete reference details for all API calls, call headers, and locales in the [Adobe Stock API Reference](#).
+*   Open a ticket with the __[Adobe Stock API Support](/content/udp/en/apis/creativecloud/stock-v2/contact-us.html)__ team.
