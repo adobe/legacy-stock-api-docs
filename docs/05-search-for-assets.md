@@ -46,7 +46,7 @@ X-API-Key: YourApiKeyHere
 And like this using the [curl](https://curl.haxx.se/) format. Curls are convenient because they can be run from a terminal/command line program. Just be sure to remove the extra line breaks and substitute "YourAPIKeyHere" placeholder text with your own values.
 
 
-```shell
+```bash
 curl "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US
     &search_parameters%5Bwords%5D=dogs&search_parameters%5Blimit%5D=1" \
   -H "x-api-key: YourApiKeyHere" \
@@ -152,7 +152,7 @@ Here is the final URL before encoding and adding headers:
 Let's test it out with a new curl (remember to plug in your API key):
 
 
-```shell
+```bash
 curl "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US
 &search_parameters%5Bwords%5D=dogs&search_parameters%5Blimit%5D=1&search_parameters%5Bfilters%5D%5Bcontent_type%3Aphoto%5D=1&search_parameters%5Border%5D=nb_downloads&result_columns%5B%5D=title&result_columns%5B%5D=details_url&result_columns%5B%5D=thumbnail_1000_url" \
   -H "x-api-key: YourApiKeyHere" \
@@ -176,7 +176,7 @@ And get back our filtered results:
 ```
 
 
-Since the Adobe Stock collection is constantly evolving, the result you get may be very different, but you will get back something. Now let's create a simple HTML snippet for our "application" and we're done. See the awesome results <a href="./simple_app_result.html" target="_blank">here</a>! 
+Since the Adobe Stock collection is constantly evolving, the result you get may be very different, but you will get back something. Now let's create a simple HTML snippet for our "application" and we're done. See the awesome results <a href="https://cfsdemos.worldsecuresystems.com/stock/api/simple_app_result.html" target="_blank">here</a>! 
 
 
 ```html
@@ -301,7 +301,7 @@ Stock API will return JSON results exactly as if you had searched on text or som
 In addition to searching for results similar to the image you specify, you can narrow the results by adding keywords, colors and other qualifiers. This example searches for a public-domain image of a pumpkin using a `similar_url` search type, but adds a `colors` filter to find images that also have a dark shade of blue. You could add more colors to the query (the command accepts a comma-separated list of RGB hex values), but that might limit the search results too much. Note that the image URL in this example may expire, but you can use any valid image URL for your search.
 
 
-```shell
+```bash
 curl "https://stock.adobe.io/Rest/Media/1/Search/Files?
 search_parameters%5Bsimilar_url%5D=http%3A%2F%2Ftinyurl.com%2Fyc5kag79&search_parameters%5Bfilters%5D%5Bcontent_type=photo%5D%3A1&search_parameters%5Bfilters%5D%5Bcolors%5D=004358" \
   -H "x-api-key: YourApiKeyHere" \

@@ -75,7 +75,7 @@ For unauthenticated requests such as normal search queries, this is all you need
 Example search query using [curl](https://curl.haxx.se/). Note that line breaks have been added for clarity.
 
 
-```shell
+```bash
 curl "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US
 &search_parameters%5Bwords%5D=cats%20in%20costume" 
 -H "x-api-key: YourApiKeyHere" -H "x-product: MySampleApp/1.0"
