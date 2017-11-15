@@ -296,7 +296,7 @@ Content-Type: image/jpeg
 Stock API will return JSON results exactly as if you had searched on text or some other type.
 
 
-#### Combining image search with other filters
+#### Combining visual search with other filters
 
 In addition to searching for results similar to the image you specify, you can narrow the results by adding keywords, colors and other qualifiers. This example searches for a public-domain image of a pumpkin using a `similar_url` search type, but adds a `colors` filter to find images that also have a dark shade of blue. You could add more colors to the query (the command accepts a comma-separated list of RGB hex values), but that might limit the search results too much. Note that the image URL in this example may expire, but you can use any valid image URL for your search.
 
@@ -307,8 +307,6 @@ search_parameters%5Bsimilar_url%5D=http%3A%2F%2Ftinyurl.com%2Fyc5kag79&search_pa
   -H "x-api-key: YourApiKeyHere" \
   -H "x-product: MySampleApp/1.0"
 ```
-
-
 
 <a name="jump-to-a-search-results-page-on-adobe-stock"></a>
 ### Jump to a search results page on Adobe Stock

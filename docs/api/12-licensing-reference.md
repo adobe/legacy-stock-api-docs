@@ -127,6 +127,20 @@ Optional. Location language code for the API to use when returning localized mes
 Default is <code>en_US</code>. See the full list of <a href="14-locale-codes.md">Locales</a>.
    </td>
   </tr>
+  <tr>
+   <td>license_again
+   </td>
+   <td>Use with Content/License.
+<p>
+Optional. Used to re-license an asset, deducting licenses/credits as if it were a new transaction. Boolean.
+<p>
+Default is <code>false</code>, meaning that if Content/License is used on an asset that is already licensed, it will not trigger a new license. Using <code>true</code> overrides that behavior, and forces a new license event.
+<pre><code>  curl "https://stock.adobe.io/Rest/Libraries/1/Content/License?content_id=112670342&license=Standard&license_again=true" \
+    -H "x-api-key: YourApiKeyHere" \
+    -H "x-product: MySampleApp/1.0" \
+    -H "authorization: Bearer AccessTokenHere"</code></pre>
+   </td>
+  </tr>
 </table>
 
 

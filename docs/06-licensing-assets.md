@@ -607,3 +607,14 @@ If you are an independent developer or student, you can follow the [Affiliate wo
 
 However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, [contact us](/content/udp/en/apis/creativecloud/stock-v2/contact-us.html).
 
+#### How do I license assets more than once?
+This is a special case for Print on Demand retailers, as described in the [Service Account workflow](07-workflow-guides.md). One of the requirements for print retailers in this use case is that they must license an asset for each application of the photo in a printable good. For example, if a customer purchases a key chain and a t-shirt of the same image, the retailer would make two license requests. Because the default behavior of Content/License is that a new license will _not_ be used, applications in this use case must use a command to force Adobe Stock to issue a new license.
+
+To notify Adobe Stock to license an asset again, use the `license_again=true` parameter.
+
+```bash
+curl "https://stock.adobe.io/Rest/Libraries/1/Content/License?content_id=112670342&license=Standard&license_again=true" \
+  -H "x-api-key: YourApiKeyHere" \
+  -H "x-product: MySampleApp/1.0" \
+  -H "authorization: Bearer AccessTokenHere"
+```
