@@ -487,7 +487,7 @@ Note that some assets (such as some Creative Cloud templates) are free, and do n
 
 In the unlikely case where you do have credits _and_ licensing is possible, then something else may be happening. Use the [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/) tools to verify that your application is not getting bad or stale data (for example, it is caching previous responses), and the Adobe Stock API is not returning a 400 error (see below). 
 
-If none of those things are happening, then [contact Support](/content/udp/en/apis/creativecloud/stock-v2/contact-us.html).
+If none of those things are happening, then contact [Adobe Stock Support](https://helpx.adobe.com/support.html#/product/stock). Note that this support channel is for Stock customers. If you are a developer working on an application, contact the [partner team](Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock API help) for further direction.
 
 
 <a name="other-problems"></a>
@@ -605,7 +605,7 @@ https://stock.adobe.io/Rest/Libraries/Download/112670342/1?size=350&token=Access
 
 If you are an independent developer or student, you can follow the [Affiliate workflow](07-workflow-guides.md) and sign up for an API key. If you want to also test licensing an asset, you can test it on a free asset like one of our great [Creative Cloud Stock templates](https://stock.adobe.com/templates) (not all templates are free, but many are).
 
-However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, [contact us](/content/udp/en/apis/creativecloud/stock-v2/contact-us.html).
+However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, [contact us](Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock demo account access).
 
 #### How do I license assets more than once?
 This is a special case for Print on Demand retailers, as described in the [Service Account workflow](07-workflow-guides.md). One of the requirements for print retailers in this use case is that they must license an asset for each application of the photo in a printable good. For example, if a customer purchases a key chain and a t-shirt of the same image, the retailer would make two license requests. Because the default behavior of Content/License is that a new license will _not_ be used, applications in this use case must use a command to force Adobe Stock to issue a new license.

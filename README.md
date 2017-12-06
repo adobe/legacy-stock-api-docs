@@ -19,6 +19,4 @@ If you are browsing this at Github, here is an index and reading order:
   + [License History Reference](docs/api/13-license-history.md)
   + [Locale codes](docs/api/14-locale-codes.md)
 
-__Please note__: The *Support* and *Contact Us* links are not currently working. If you have technical questions, please send them to stockapis@adobe.com, and put "[Stock API docs]" in the subject line. If you are interested in partnering with Adobe, please contact Grp-AdobeStockPartnerships@adobe.com. 
-
-Contributions are welcome! If you find a mistake or would like to clarify something, please submit a pull request.
+Contributions are welcome! If you find a mistake, please follow the [issue template](ISSUE_TEMPLATE.md) or would like to add or clarify something, please see the [contributing guidelines](CONTRIBUTING.md).

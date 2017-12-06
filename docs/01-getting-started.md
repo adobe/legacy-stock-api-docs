@@ -84,4 +84,4 @@ If you have already performed most of the tasks above or are in the middle of an
 *   Review the detailed [workflow guides](07-workflow-guides.md), which gives information on everything you need for a particular use case.
 *   Get [sample code and download SDKs](08-sample-code-sdks.md) from GitHub.
 *   Read complete reference details for all API calls, call headers, and locales in the [Adobe Stock API Reference](#).
-*   Open a ticket with the __[Adobe Stock API Support](/content/udp/en/apis/creativecloud/stock-v2/contact-us.html)__ team.
+
