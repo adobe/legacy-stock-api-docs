@@ -514,12 +514,12 @@ Valid values and meanings:<ul>
   <tr>
    <td>result_columns[]
    </td>
-   <td><p>Fields to include in the search result. Array[]. For a detailed description of each field, see <a href="#responses">Responses</a>, below.
+   <td><p>Specific fields you wish to include in the search result, excluding all other fields. Array[]. For a detailed description of each field, see <a href="#responses">Responses</a>, below.
 <p>
 <strong>Tip:</strong> To combine result columns, use this syntax: 
 <code>result_columns[]=is_licensed&amp;result_columns[]=creation_date</code>
 <p>
-<strong>Note 1:</strong> Fields marked with <strong>*</strong> are returned by default.
+<strong>Note 1:</strong> Fields marked with <strong>*</strong> are returned by default, but if the <code>result_columns[]</code> command is present, the default fields will not be returned unless explicitly included.
 <br>
 <strong>Note 2:</strong> <code>is_licensed</code> requires an authentication header.
 
@@ -615,9 +615,9 @@ All responses are in a JSON array with this general structure:
    </td>
    <td>HTML &lt;img&gt; tag that you can use to display the default asset thumbnail. This is a convenience for displaying the thumbnail and references the <code>thumbnail_url</code>.  String.
 <p>Example:
-<pre><code>"thumbnail_html_tag": "&lt;img src=\"https://as1.ftcdn.net/jpg/00/86/76/04/110_F_86760419_NEhOeuriYu82RwfgDqjTeIL9yx7ih5iv.jpg\" 
-    alt=\"German Shepherd Dog Sticking Head Out Driving Car Window\"
-    title=\"Photo: German Shepherd Dog Sticking Head Out Driving Car Window\" /&gt;",</code></pre>
+<pre><code>"thumbnail_html_tag": "&lt;img src='https://as1.ftcdn.net/jpg/00/86/76/04/110_F_86760419_NEhOeuriYu82RwfgDqjTeIL9yx7ih5iv.jpg' 
+    alt='German Shepherd Dog Sticking Head Out Driving Car Window'
+    title='Photo: German Shepherd Dog Sticking Head Out Driving Car Window' /&gt;",</code></pre>
    </td>
   </tr>
   <tr>
@@ -918,8 +918,6 @@ Video that is in HD only:
 <a name="example-queries-and-responses"></a>
 ## Example queries and responses 
 
-<!-- TO DO: Start here -->
-
 This example searches for assets that have the keyword "dog" and returns no more than the first two matches.
 
 ```http
@@ -944,9 +942,9 @@ The preceding request returns two asset descriptions. `nb_results` shows that 39
      "thumbnail_url": 
         "https://as1.ftcdn.net/jpg/00/86/76/04/110_F_86760419_NEhOeuriYu82RwfgDqjTeIL9yx7ih5iv.jpg",  
      "thumbnail_html_tag": 
-        "<img src=\"https://as1.ftcdn.net/jpg/00/86/76/04/110_F_86760419_NEhOeuriYu82RwfgDqjTeIL9yx7ih5iv.jpg\" 
-        alt=\"German Shepherd Dog Sticking Head Out Driving Car Window\" 
-        title=\"Photo: German Shepherd Dog Sticking Head Out Driving Car Window\" />",
+        "<img src='https://as1.ftcdn.net/jpg/00/86/76/04/110_F_86760419_NEhOeuriYu82RwfgDqjTeIL9yx7ih5iv.jpg' 
+        alt='German Shepherd Dog Sticking Head Out Driving Car Window' 
+        title='Photo: German Shepherd Dog Sticking Head Out Driving Car Window' />",
      "thumbnail_width": 110,
      "thumbnail_height": 73,
      "media_type_id": 1,
@@ -965,9 +963,9 @@ The preceding request returns two asset descriptions. `nb_results` shows that 39
      "creator_id": 200407313,
      "thumbnail_url": "https://as1.ftcdn.net/jpg/00/84/97/72/110_F_84977202_JplQMoMQ5QiZCgVeWLwKhFHCrr4HG99Q.jpg",
      "thumbnail_html_tag":    
-        "<img src=\"https://as1.ftcdn.net/jpg/00/84/97/72/110_F_84977202_JplQMoMQ5QiZCgVeWLwKhFHCrr4HG99Q.jpg\"
-         alt=\"Happy dog playing outside and carrying the American flag\" 
-         title=\"Photo: Happy dog playing outside and carrying the American flag\" />",
+        "<img src='https://as1.ftcdn.net/jpg/00/84/97/72/110_F_84977202_JplQMoMQ5QiZCgVeWLwKhFHCrr4HG99Q.jpg'
+         alt='Happy dog playing outside and carrying the American flag' 
+         title='Photo: Happy dog playing outside and carrying the American flag' />",
      "thumbnail_width": 110,
      "thumbnail_height": 73,
      "media_type_id": 1,
