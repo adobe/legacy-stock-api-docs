@@ -139,7 +139,7 @@ __>>> NEXT:__ Learn the basics of [authentication](03-api-authentication.md).
 
 Cool! If you are an independent developer or student, you can follow the Affiliate workflow and sign up for an API key. If you want to also test licensing an asset, you can test it on a free asset like one of our great [Creative Cloud Stock templates](https://stock.adobe.com/templates) (not all templates are free, but many are).
 
-However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, please [contact us](Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock demo account access).
+However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock demo account access).
 
 
 <a name="do-i-have-adobe-stock-for-enterprise"></a>
@@ -160,7 +160,7 @@ Depending on the version of your console, you should see one of the two experien
 <a name="use-cases-for-the-adobe-stock-api"></a>
 ### What are the different use cases for the Adobe Stock API?
 
-These are the typical business scenarios for using the Stock API. [Contact us](Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock partnership request) to learn more about partnering with Adobe Stock.
+These are the typical business scenarios for using the Stock API. [Contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock partnership request) to learn more about partnering with Adobe Stock.
 
 
 
