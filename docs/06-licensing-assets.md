@@ -591,13 +591,17 @@ When you license an image, you license the full/original size of the asset. Howe
 
 The Stock API has a command for this situation. Simply add a __`size=`__ parameter to the download URL, and Adobe Stock will return the _next larger_ size. The actual size returned depends on the original size of the asset; see the [Licensing API reference](#) for more details.
 
-Example: You want a 350px image for your page.
+Example: You want a 400px image for your page.
 
 
 ```http
-https://stock.adobe.io/Rest/Libraries/Download/112670342/1?size=350&token=AccessTokenHere
+https://stock.adobe.io/Rest/Libraries/Download/112670342/1?size=400&token=AccessTokenHere
 ```
 
+Two things to note about this command:
+
+- You cannot request any arbitrary size. Currently, the supported sizes are __400, 800, 1600, 2400, 3100, and 5000__.
+- If the asset doesn't have the requested size because the original was not high enough resolution, Stock API will return the max available size.
 
 
 <a name="how-can-i-test-licensing-assets-if-i-do-not-have-an-adobe-stock-plan-or-contract"></a>
