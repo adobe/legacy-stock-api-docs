@@ -34,7 +34,7 @@ All Adobe Stock API calls require certain headers and allow the inclusion of opt
   <tr>
    <td>Authorization
    </td>
-   <td><p>For the Search API, this is optional. For the Licensing API, it is required. An access token issued by Adobe IMS. See<a href="https://www.adobe.io/apis/creativecloud/stock/docs/setup.html"> API authentication</a>. The Stock API uses this to access your user's member identifier, licensing status, and default locale for localizing categories and messages that the API returns. In the header, the access token must be preceded by "Bearer ". 
+   <td><p>For the Search API, this is optional. For the Licensing API, it is required. An access token issued by Adobe IMS. See<a href="../03-api-authentication.md"> API authentication</a>. The Stock API uses this to access your user's member identifier, licensing status, and default locale for localizing categories and messages that the API returns. In the header, the access token must be preceded by "Bearer ". 
 
 <p>Example:<br>
 <code>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ</code>

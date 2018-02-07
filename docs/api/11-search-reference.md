@@ -22,18 +22,16 @@
 You can query Adobe Stock for assets that meet your specified search criteria. You can filter the results, specify the sort order in which the results are returned, and choose how many assets to return for each page of results.
 
 
-<a name="search-requests"></a>
 ## Search requests 
 
 A request using the Stock Search API retrieves a list of assets from Adobe Stock that matches a set of search and filter values. A maximum of 64 assets can be returned from one request. This is a paginated interface that you can call multiple times to retrieve the full list.
 
-For a guide to usage and additional examples, see [Building Adobe Stock Applications](https://www.adobe.io/apis/creativecloud/stock/docs/build-apps.html).
+For a guide to usage and additional examples, see [Creating Adobe Stock applications](../04-creating-apps.md).
 
 | Endpoint | Methods |
 | ------------ | ------------- |
 | https://stock.adobe.io/Rest/Media/1/Search/Files | GET <p>POST (only when using the similar_image parameter) |
 
-<a name="about-search-and-filter-criteria"></a>
 ### About search and filter criteria 
 
 Search commands have three formats:
@@ -96,15 +94,13 @@ Chain together multiple `result_columns[]` commands to get exactly the results y
 
 See [Responses](#responses), below.
 
-<a name="authentication"></a>
 ### Authentication 
 
-An `Authorization` header is not required. If you do not pass a valid bearer token in the Authorization header, you can search within Adobe Stock and access preview versions of assets, but the API will not return licensing requirements or give you the licesned status for the assets. Requests made in this way are essentially anonymous, with no notion of the user making the request.
+An `Authorization` header is not required. If you do not pass a valid bearer token in the Authorization header, you can search within Adobe Stock and access preview versions of assets, but the API will not return licensing requirements or give you the licensed status for the assets. Requests made in this way are essentially anonymous, with no notion of the user making the request.
 
 If you do pass a valid token, then the Adobe Stock service returns the license state and licensed URL for each asset. See [API authentication](../03-api-authentication.md).  
 
 
-<a name="request-headers"></a>
 ### Request headers 
 
 See [API authentication](../03-api-authentication.md) and [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
@@ -115,7 +111,6 @@ See [API authentication](../03-api-authentication.md) and [Headers for Stock API
 *   Optional headers: `Authorization` (required to view license state), `X-Request-Id`
 
 
-<a name="url-parameters"></a>
 ### URL parameters 
 
 Pass the following URL parameters with the GET request.
@@ -460,7 +455,7 @@ Valid values and meanings:<ul>
 
 <li><code>horizontal</code>: Only horizontal images.
 <li><code>vertical</code>: Only vertical images.
-<li><code>square</code>: Only square imagese.
+<li><code>square</code>: Only square images.
 <li><code>all</code>: Default. All image orientations.
 </li></ul>
 
@@ -531,7 +526,6 @@ Valid values and meanings:<ul>
 
 
 
-<a name="responses"></a>
 ## Responses <a name="responses"></a>
 
 The Adobe Stock service returns information about all found assets that also match the filtering criteria.
@@ -738,13 +732,13 @@ For example:
   <tr>
    <td>category{<em>name</em>}
    </td>
-   <td>Localised name of the asset's category. String.
+   <td>Localized name of the asset's category. String.
    </td>
   </tr>
   <tr>
    <td>keywords
    </td>
-   <td>List of localised keywords for the asset. Array.
+   <td>List of localized keywords for the asset. Array.
    </td>
   </tr>
   <tr>
@@ -866,7 +860,6 @@ For example:
 
 
 
-<a name="example-returned-comps-values"></a>
 ## Example returned comps values 
 
 Image:
@@ -915,7 +908,6 @@ Video that is in HD only:
       }
 
 
-<a name="example-queries-and-responses"></a>
 ## Example queries and responses 
 
 This example searches for assets that have the keyword "dog" and returns no more than the first two matches.
@@ -981,7 +973,6 @@ The preceding request returns two asset descriptions. `nb_results` shows that 39
 
 
 
-<a name="common-search-queries"></a>
 ### Common search queries 
 
 Here are simple examples of common searches.
@@ -1023,7 +1014,6 @@ Here are simple examples of common searches.
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[model_id]=58344279`
 
 
-<a name="error-codes"></a>
 ## Error codes 
 
 Each error generates a JSON array that contains the following keys and values. If your application receives this array and you need assistance, send the array to Adobe.
@@ -1039,7 +1029,6 @@ Each error generates a JSON array that contains the following keys and values. I
     *   `100`: Invalid data. Data that you specified as arguments are not supported.
 
 
-<a name="more-information"></a>
 ## More information 
 
 * See the practical search example in [Search for assets](../05-search-for-assets.md).

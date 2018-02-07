@@ -27,7 +27,6 @@ _**Tl;dr version:** Use the Member/Profile API to check the status of an asset y
 In the previous section, we covered how to hook up the Search API into your application. In this article, we'll cover the Adobe Stock **Content** and **Member** methods of the License API. These can get information about a user's licensing (entitlement) status, determine whether the user has an existing license for an asset, request a new license for an asset for that user, get a signed download URL for the asset, and get a history of past licensed assets. 
 
 
-<a name="licensing-workflow"></a>
 ## Licensing workflow
 
 Before you can purchase an asset using the API, there are a few tasks you will want to perform as part of your application flow, and this may trigger multiple decision points depending on your [use case](02-register-app.md). Like a children's board game, the process is not difficult as long as you understand the rules.
@@ -38,14 +37,12 @@ Before you can purchase an asset using the API, there are a few tasks you will w
 
 
 ![Create access token](images/Licensing-assets1.png)
-<a name="1-get-a-token"></a>
 ### 1. Get a token 
 
 To do any activity involving licensing, you will first need to generate an access token. This is covered in detail in [Stock API Authentication](03-api-authentication.md) and in the individual OAuth and Service Account [workflow guides](07-workflow-guides.md).
 
 <br><br>
 ![Find asset](images/Licensing-assets2.png)
-<a name="2-get-stock-asset-id"></a>
 ### 2. Get Stock asset ID
 
 The user starts their journey by getting a file's Stock ID (also called "media ID" and "content ID") typically from a search. This was covered in the previous section, and is a key part of any Stock workflow.
@@ -75,7 +72,6 @@ For example, your user wants to license an image of a cute, fluffy kitten (and w
 
 <br><br>
 ![Check if licensed](images/Licensing-assets4.png)
-<a name="3-check-if-licensed"></a>
 ### 3. Check if licensed
 
 It's best practice to check if the item is licensed already. There are two methods for this:
@@ -142,7 +138,6 @@ In both cases, if the asset _is_ licensed, then there is nothing else to do but 
 
 <br><br>
 ![Is licensing possible](images/Licensing-assets5.png)
-<a name="4-check-if-licensing-is-possible"></a>
 ### 4. Check if licensing is possible
 
 Assuming the asset is not already licensed, then you will check to see if it's possible to license this asset. This is to prevent a bad user experience and error if you tried to license the item and it cannot be licensed.
@@ -185,7 +180,6 @@ In the example, you can see that the `purchase_options.state` is "possible," whi
 
 <br><br>
 ![Get a license](images/Licensing-assets6.png)
-<a name="5-license-the-asset"></a>
 ### 5. License the asset
 
 Now you will perform the license purchase request using the **Content/License** API, which will deduct credits from the user or organizational account.
@@ -236,7 +230,6 @@ The response returns several fields, but the most important for your user is in 
 
 <br><br>
 ![Download asset](images/Licensing-assets7.png)
-<a name="6-download-the-file"></a>
 ### 6. Download the file
 
 Finally, you can download the full asset. Here you will call directly to the URL of the licensed asset that you obtained in the previous step:
@@ -280,7 +273,6 @@ And you are done!
 ...assuming nothing went wrong. If it did, then continue reading. Also, check out common questions and answers about licensing assets. 
 
 
-<a name="getting-a-license-history"></a>
 ## Getting a license history
 
 Besides obtaining licenses for new assets (Content/License) or checking your credit quota (Member/Profile), another common use for the License API is to access your past history of purchases. This is done using the **Member/LicenseHistory** API. The format for this request is almost exactly the same as for other licensing methods, except that the result resembles a search request, even supporting pagination (if you have a lot of licensed assets).
@@ -327,7 +319,6 @@ Notice that one of the fields returned is the download URL, making this a conven
 https://stock.adobe.com/Download/DownloadFileDirectly/ikMRKBPqHDrtTifHkbbxGfKhIGVQPw6y?token=AccessTokenHere
 ```
 
-<a name="next-steps"></a>
 ## Next steps
 
 You have completed the Adobe Stock API getting started guide. 
@@ -338,13 +329,11 @@ You have completed the Adobe Stock API getting started guide.
 *   If you are ready to get started in earnest, browse our [sample code and SDKs](08-sample-code-sdks.md).
 
 
-<a name="troubleshooting-licensing-requests"></a>
 ## Troubleshooting licensing requests
 
 In most cases, everything should happen as outlined above. But if it doesn't, you need to know how to diagnose the issue and correct it.
 
 
-<a name="memberprofile-issues"></a>
 ### Member/Profile issues
 
 In step #4 above, we used Member/Profile to check if licensing was possible. But what if it was not possible?
@@ -485,12 +474,11 @@ Note that some assets (such as some Creative Cloud templates) are free, and do n
 ![Contact Support](images/Licensing-assets13.png)
 #### Solution: Look further or get help
 
-In the unlikely case where you do have credits _and_ licensing is possible, then something else may be happening. Use the [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/) tools to verify that your application is not getting bad or stale data (for example, it is caching previous responses), and the Adobe Stock API is not returning a 400 error (see below). 
+In the unlikely case where you do have credits _and_ licensing is possible, then something else may be happening. Use the [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/) tools to verify that your application is not getting bad or stale data (for example, it is caching previous responses), and the Adobe Stock API is not returning a 400 error (see below).
 
-If none of those things are happening, then contact [Adobe Stock Support](https://helpx.adobe.com/support.html#/product/stock). Note that this support channel is for Stock customers. If you are a developer working on an application, contact the [partner team](Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock API help) for further direction.
+If none of those things are happening, then contact [Adobe Stock Support](https://helpx.adobe.com/support.html#/product/stock). Note that this support channel is for Stock customers. If you are a developer working on an application, contact the [partner team](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20API%20help) for further direction.
 
 
-<a name="other-problems"></a>
 ### Other problems 
 
 In the previous cases, Member/Profile and the other APIs will return a valid 200 response. But in the cases below, you will get a 400 error. Here are a couple common reasons, but see more in the [Stock API reference](#) section.
@@ -525,7 +513,6 @@ As a best practice, your user should have to sign in for each session, or if you
 
 
 
-<a name="qa"></a>
 ## Q&A
 
 
@@ -609,7 +596,7 @@ Two things to note about this command:
 
 If you are an independent developer or student, you can follow the [Affiliate workflow](07-workflow-guides.md) and sign up for an API key. If you want to also test licensing an asset, you can test it on a free asset like one of our great [Creative Cloud Stock templates](https://stock.adobe.com/templates) (not all templates are free, but many are).
 
-However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock demo account access).
+However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20demo%20account%20access).
 
 #### How do I license assets more than once?
 This is a special case for Print on Demand retailers, as described in the [Service Account workflow](07-workflow-guides.md). One of the requirements for print retailers in this use case is that they must license an asset for each application of the photo in a printable good. For example, if a customer purchases a key chain and a t-shirt of the same image, the retailer would make two license requests. Because the default behavior of Content/License is that a new license will _not_ be used, applications in this use case must use a command to force Adobe Stock to issue a new license.

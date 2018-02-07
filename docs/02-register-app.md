@@ -13,7 +13,6 @@
 <!-- /MarkdownTOC -->
 
 
-<a name="authentication-overview"></a>
 ## Authentication overview
 
 Before you can register your application, get your API key and start making requests, you will need to know:
@@ -26,7 +25,6 @@ Before you can register your application, get your API key and start making requ
 Once you have answered these questions, you can visit the [Adobe I/O Console](https://console.adobe.io/) and sign up.
 
 
-<a name="api-authentication-requirements"></a>
 ## API authentication requirements
 
 > To Search, perchance to License; aye, there's the rub.  - _Shakespeare, sort of_
@@ -85,7 +83,6 @@ Any request where the end user must be authenticated using their credentials or 
 *   Client secret: Required for some API requests
 
 
-<a name="choose-an-integration-type-and-register"></a>
 ## Choose an integration type and register
 
 All Adobe Stock API applications must be registered by creating an integration using the [Adobe I/O Console](https://console.adobe.io/). You will need to choose one of these integration types. After reading the descriptions, see below for a table of which business use case matches up to its respective integration.
@@ -119,10 +116,10 @@ Based on your business case, this table shows which integration type would best 
 | **POD/Retail** | X |||
 | **Affiliates** ||| X |
 
-<p><a name="note1">1</a>:
+<a name="note1">1</a>:
      <em>While it is possible to use OAuth integration for Enterprise and DAM applications, you would typically not have your users sign in directly to Adobe Stock, and instead your application would manage the experience for them.</em>
 
-<p><a name="note2">2</a>:
+<a name="note2">2</a>:
      <em>If your platform is going to let users access their own Stock accounts, then OAuth is the method of choice. Otherwise, if your platform is going to license assets and give them to your users as part of your service, then the Service Account would be appropriate.</em>
 
 
@@ -130,16 +127,15 @@ Based on your business case, this table shows which integration type would best 
 __>>> NEXT:__ Learn the basics of [authentication](03-api-authentication.md).
 
 
-<a name="qa"></a>
 ## Q&amp;A
 
 
 <a name="what-if-i-just-want-to-experiment-with-the-apis"></a>
 ### What if I just want to experiment with the APIs?
 
-Cool! If you are an independent developer or student, you can follow the Affiliate workflow and sign up for an API key. If you want to also test licensing an asset, you can test it on a free asset like one of our great [Creative Cloud Stock templates](https://stock.adobe.com/templates) (not all templates are free, but many are).
+Cool! If you are an independent developer or student, you can follow the Affiliate workflow and sign up for an API key. If you want to also test licensing an asset, you can test it on a free asset like one of our great [Creative Cloud Stock templates](https://stock.adobe.com/templates) (not all templates are free, but many are). 
 
-However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock demo account access).
+However, if you are interested in partnering with Adobe Stock and have a legitimate reason for a demo account, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D20Stock%20demo%20account%20access).
 
 
 <a name="do-i-have-adobe-stock-for-enterprise"></a>
@@ -160,7 +156,7 @@ Depending on the version of your console, you should see one of the two experien
 <a name="use-cases-for-the-adobe-stock-api"></a>
 ### What are the different use cases for the Adobe Stock API?
 
-These are the typical business scenarios for using the Stock API. [Contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=[Adobe I/O] Stock partnership request) to learn more about partnering with Adobe Stock.
+These are the typical business scenarios for using the Stock API. [Contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D20Stock%20partnership%20request) to learn more about partnering with Adobe Stock.
 
 
 

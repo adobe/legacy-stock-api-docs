@@ -58,7 +58,7 @@ The Authorization header is required for any of the licensing calls. The API use
 <a name="request-headers"></a>
 ### Request headers
 
-See [Headers for Stock API calls](../10-headers-for-api-calls.md) for details about header content. 
+See [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
 
 
 
