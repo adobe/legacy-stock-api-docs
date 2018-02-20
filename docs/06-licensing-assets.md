@@ -263,6 +263,27 @@ Content-Type: image/jpeg
 Date: Mon, 06 Nov 2017 03:18:50 GMT
 ```
 
+#### Follow the redirects...
+The download URL provided by the Stock API is an alias that may redirect you to the actual location of the file on a cloud-based server. Therefore, your request must follow any redirect from the Stock API server, and output the result to a file.
+
+Curl command line example (`-L`: Follow redirects)
+```shell
+curl -L -o AdobeStock_77438420.jpeg 'https://stock.adobe.com/Rest/Libraries/Download/77438420/1?token=<TOKEN>'
+```
+
+PHP example:
+```php
+$curl = curl_init($download_url);
+curl_setopt($curl, CURLOPT_FILE, $fp); // output to file
+curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true); // follow redirects
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+// add other options here as needed
+$result = curl_exec($curl);
+
+$fp = fopen($local_image_file, 'w+');
+fwrite($fp, $result);
+fclose($fp);
+```
 
 This URL will trigger a download of the full asset. If you need a different size of the asset (for images only), you can use the __`size`__ parameter. See [Q&A](#qa), below.
 
