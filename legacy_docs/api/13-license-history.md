@@ -14,10 +14,9 @@
 
 
 
-The License History API is used to retrieve past license history. For information on licensing Adobe Stock content, see [Licensing Stock assets](../getting-started/06-licensing-assets.md).
+The License History API is used to retrieve past license history. For information on licensing Adobe Stock content, see [Licensing Stock assets](../06-licensing-assets.md).
 
 
-<a id="license-history-calls"></a>
 ## License History calls
 
 The License History API returns a list of assets licensed for a given user or organization.
@@ -27,13 +26,11 @@ The License History API returns a list of assets licensed for a given user or or
 | https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory | GET |
 
 
-<a id="authentication"></a>
 ### Authentication
 
-The Authorization header is required for any of the licensing calls. The API uses the header to determine the user's member number, licensing status, and default locale. See [API authentication](../getting-started/03-api-authentication.md) for more information.
+The Authorization header is required for any of the licensing calls. The API uses the header to determine the user's member number, licensing status, and default locale. See [API authentication](../03-api-authentication.md) for more information.
 
 
-<a id="request-headers"></a>
 ### Request headers
 
 See [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
@@ -42,7 +39,6 @@ See [Headers for Stock API calls](10-headers-for-api-calls.md) for details about
 *   Optional headers: `X-Request-Id`
 
 
-<a id="url-parameters"></a>
 ### URL parameters
 
 Pass the following URL parameters with the GET request.
@@ -59,7 +55,6 @@ Pass the following URL parameters with the GET request.
 
 
 
-<a id="responses"></a>
 ## Responses
 
 Files are returned in a JSON array with this structure.
@@ -115,7 +110,6 @@ In the table below, fields marked with __*__ are returned by default.
 
 _**Note:** Allowable values for `thumbnail_*_url`, `thumbnail_*_width` and `thumbnail_*_height` fields: `110`, `160`, `220`, `240`, `500`, `1000`._
 
-<a id="example-request-and-response"></a>
 ## Example request and response
 
 ```http

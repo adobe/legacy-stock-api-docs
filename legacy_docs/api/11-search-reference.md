@@ -22,18 +22,16 @@
 You can query Adobe Stock for assets that meet your specified search criteria. You can filter the results, specify the sort order in which the results are returned, and choose how many assets to return for each page of results.
 
 
-<a id="search-requests"></a>
 ## Search requests 
 
 A request using the Stock Search API retrieves a list of assets from Adobe Stock that matches a set of search and filter values. A maximum of 64 assets can be returned from one request. This is a paginated interface that you can call multiple times to retrieve the full list.
 
-For a guide to usage and additional examples, see [Creating Adobe Stock applications](../getting-started/04-creating-apps.md).
+For a guide to usage and additional examples, see [Creating Adobe Stock applications](../04-creating-apps.md).
 
 | Endpoint | Methods |
 | ------------ | ------------- |
 | https://stock.adobe.io/Rest/Media/1/Search/Files | GET <p>POST (only when using the similar_image parameter) |
 
-<a id="about-search-and-filter-criteria"></a>
 ### About search and filter criteria 
 
 Search commands have three formats:
@@ -96,18 +94,16 @@ Chain together multiple `result_columns[]` commands to get exactly the results y
 
 See [Responses](#responses), below.
 
-<a id="authentication"></a>
 ### Authentication 
 
 An `Authorization` header is not required. If you do not pass a valid bearer token in the Authorization header, you can search within Adobe Stock and access preview versions of assets, but the API will not return licensing requirements or give you the licensed status for the assets. Requests made in this way are essentially anonymous, with no notion of the user making the request.
 
-If you do pass a valid token, then the Adobe Stock service returns the license state and licensed URL for each asset. See [API authentication](../getting-started/03-api-authentication.md).  
+If you do pass a valid token, then the Adobe Stock service returns the license state and licensed URL for each asset. See [API authentication](../03-api-authentication.md).  
 
 
-<a id="request-headers"></a>
 ### Request headers 
 
-See [API authentication](../getting-started/03-api-authentication.md) and [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
+See [API authentication](../03-api-authentication.md) and [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
 
 
 
@@ -115,7 +111,6 @@ See [API authentication](../getting-started/03-api-authentication.md) and [Heade
 *   Optional headers: `Authorization` (required to view license state), `X-Request-Id`
 
 
-<a id="url-parameters"></a>
 ### URL parameters 
 
 Pass the following URL parameters with the GET request.
@@ -531,7 +526,6 @@ Valid values and meanings:<ul>
 
 
 
-<a id="responses"></a>
 ## Responses <a name="responses"></a>
 
 The Adobe Stock service returns information about all found assets that also match the filtering criteria.
@@ -866,7 +860,6 @@ For example:
 
 
 
-<a id="example-returned-comps-values"></a>
 ## Example returned comps values 
 
 Image:
@@ -915,7 +908,6 @@ Video that is in HD only:
       }
 
 
-<a id="example-queries-and-responses"></a>
 ## Example queries and responses 
 
 This example searches for assets that have the keyword "dog" and returns no more than the first two matches.
@@ -981,7 +973,6 @@ The preceding request returns two asset descriptions. `nb_results` shows that 39
 
 
 
-<a id="common-search-queries"></a>
 ### Common search queries 
 
 Here are simple examples of common searches.
@@ -1023,7 +1014,6 @@ Here are simple examples of common searches.
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[model_id]=58344279`
 
 
-<a id="error-codes"></a>
 ## Error codes 
 
 Each error generates a JSON array that contains the following keys and values. If your application receives this array and you need assistance, send the array to Adobe.
@@ -1039,8 +1029,7 @@ Each error generates a JSON array that contains the following keys and values. I
     *   `100`: Invalid data. Data that you specified as arguments are not supported.
 
 
-<a id="more-information"></a>
 ## More information 
 
-* See the practical search example in [Search for assets](../getting-started/05-search-for-assets.md).
-* Refer to the [Affiliate API Workflow](../getting-started/07-workflow-guides.md) guide for a complete guide to partnering with Adobe Stock and using the Search API.
+* See the practical search example in [Search for assets](../05-search-for-assets.md).
+* Refer to the [Affiliate API Workflow](../07-workflow-guides.md) guide for a complete guide to partnering with Adobe Stock and using the Search API.

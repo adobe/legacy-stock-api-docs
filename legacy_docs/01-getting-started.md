@@ -1,8 +1,8 @@
 # Getting started with the Adobe Stock API
 
-> _**Tl;dr version:** (1) register for an Adobe Stock API key at [console.adobe.io](https://console.adobe.io/), (2) use [curl](https://curl.haxx.se/) to make your first search query, (3) return here to learn more!_
+_**Tl;dr version:** (1) register for an Adobe Stock API key at [console.adobe.io](https://console.adobe.io/), (2) use [curl](https://curl.haxx.se/) to make your first search query, (3) return here to learn more!_
 
-```
+```bash
 curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_parameters%5Bwords%5D=kittens 
   -H 'x-api-key:myAPIKey' 
   -H 'x-product:myTestApp1.0'
@@ -18,7 +18,6 @@ curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_para
 
 <!-- /MarkdownTOC -->
 
-> Not a developer, but are interested in partnering? Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D20Stock%20partnership%20inquiry).
 
 The Adobe Stock API provides programmatic access to [Adobe Stock](https://stock.adobe.com/) content. You can integrate this API into your organization's applications and processes. You can use the API in scripts or programs to search for and retrieve Adobe Stock assets such as photos, videos, and vector files, and to license assets for your users.
 
@@ -34,7 +33,6 @@ You interact with the Adobe Stock API via HTTP requests, rather than through a u
 
 
 <a name="overview"></a>
-<a id="overview"></a>
 ## Overview
 
 ![API workflow](images/app-process-3-steps.png)
@@ -49,12 +47,11 @@ At its simplest, all Stock API integrations include these steps:
 
 
 <a name="design-phase"></a>
-<a id="design-phase"></a>
 ## Design phase
 
 This step is implied by the list above and is outside the scope of this documentation, however everything you learn in the Getting Started section should give you sufficient information to design and architect your application.
 
-As you read the documentation, keep some questions in mind. Some of these will be answered by your [use case](getting-started/02-register-app.md), but some may require a separate business discussion.
+As you read the documentation, keep some questions in mind. Some of these will be answered by your [use case](02-register-app.md), but some may require a separate business discussion.
 
 *   Is this an internal integration for members of my company, or for external users?
     *   If internal, does my company have Adobe Stock Enterprise entitlements, or just Team and Individual entitlements?
@@ -68,25 +65,23 @@ As you read the documentation, keep some questions in mind. Some of these will b
 
 
 <a name="next-steps"></a>
-<a id="next-steps"></a>
 ## Next steps
 
 
 
-1.  Learn how to [register](getting-started/02-register-app.md) your application on the Adobe I/O Console. You can add as many integrations as you need.
-2.  Test how your application will [authenticate](getting-started/03-api-authentication.md) to the Adobe Stock API.
-3.  Finally, start [building](getting-started/04-creating-apps.md) your app, test and deploy to your users!
+1.  Learn how to [register](02-register-app.md) your application on the Adobe I/O Console. You can add as many integrations as you need.
+2.  Test how your application will [authenticate](03-api-authentication.md) to the Adobe Stock API.
+3.  Finally, start [building](04-creating-apps.md) your app, test and deploy to your users!
 
 
 <a name="more-topics"></a>
-<a id="more-topics"></a>
 ## More topics
 
 If you have already performed most of the tasks above or are in the middle of an implementation and need detailed help, check out these resources as well:
 
 
 
-*   Review the detailed [workflow guides](getting-started/07-workflow-guides.md), which gives information on everything you need for a particular use case.
-*   Get [sample code and download SDKs](getting-started/08-sample-code-sdks.md) from GitHub.
+*   Review the detailed [workflow guides](07-workflow-guides.md), which gives information on everything you need for a particular use case.
+*   Get [sample code and download SDKs](08-sample-code-sdks.md) from GitHub.
 *   Read complete reference details for all API calls, call headers, and locales in the [Adobe Stock API Reference](#).
 

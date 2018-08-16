@@ -24,7 +24,7 @@
 <a name="content-and-member-requests"></a>
 ## Content and Member requests
 
-The Stock API provides the following methods related to licensing and getting more info about licensed assets.  For a guide to usage and additional examples, see [Licensing Stock assets](../getting-started/06-licensing-assets.md).
+The Stock API provides the following methods related to licensing and getting more info about licensed assets.  For a guide to usage and additional examples, see [Licensing Stock assets](../06-licensing-assets.md).
 
 
 | Endpoints | Method |
@@ -52,7 +52,7 @@ The Stock API provides the following methods related to licensing and getting mo
 <a name="authentication"></a>
 ### Authentication
 
-The Authorization header is required for any of the licensing calls. The API uses the header to determine the user's member number, licensing status, and default locale. See [API authentication](../getting-started/03-api-authentication.md) for more information.
+The Authorization header is required for any of the licensing calls. The API uses the header to determine the user's member number, licensing status, and default locale. See [API authentication](../03-api-authentication.md) for more information.
 
 
 <a name="request-headers"></a>
@@ -789,5 +789,5 @@ curl -L "https://stock.adobe.com/Rest/Libraries/Download/99872034/1?token=MyAcce
 ## More information
 
 
-*   See [Licensing Stock assets](../getting-started/06-licensing-assets.md).
-*   For guides to licensing assets for the enterprise or individual users, see the [Workflow guides](../getting-started/07-workflow-guides.md).
+*   See [Licensing Stock assets](../06-licensing-assets.md).
+*   For guides to licensing assets for the enterprise or individual users, see the [Workflow guides](../07-workflow-guides.md).
