@@ -32,14 +32,14 @@
 See [Search API reference](api/11-search-reference.md#url-parameters).
 
 <a id="how-do-i-download-a-comp-image"></a>
-###How do I download a comp image?
+### How do I download a comp image?
 There are two kinds of preview images available: cached thumbnail images from the CDN, and non-cached comp images which need to be downloaded from the API. The first type of images are most common, and recommended for most applications. This is a sample URL:
 https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg
 
 For best performance, use this type of image when possible. In some circumstances, however, you may need the "comp" image version instead. This image requires a different workflow. First you must get the URL from the API, and then download it, often with an authentication header.
 
 - Get comp URL from media ID
-```http
+```
   GET /Rest/Media/1/Search/Files?search_parameters[media_id]=143738171&result_columns[]=comp_url HTTP/1.1
   Host: stock.adobe.io
   X-Product: MySampleApp/1.0
@@ -56,7 +56,7 @@ For best performance, use this type of image when possible. In some circumstance
 ```
 
 - Curl download request for comp image
-```
+```shell
 curl "https://stock.adobe.com/Rest/Libraries/Watermarked/Download/143738171/5" \
   -H "x-api-key: YourApiKeyHere" \
   -H "x-product: MySampleApp/1.0" \
