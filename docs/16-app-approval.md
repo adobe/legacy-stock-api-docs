@@ -14,8 +14,8 @@ Developer should make all attempts to provide the following:
 
 ## Review process
 
-•   Partner will provide a demo/walkthrough of the integration, with some instructions or documentation how Adobe can discover and use the functionality.
-•   Once reviewed, Adobe will approve, unless changes are needed prior to approval (see next item). For future updates by developer, review is not necessary unless there is a major change in UX. 
-•   Partner will provide a change management process, including (a) how Adobe can request changes, (b) expected timeframe for changes to be made, (c) length of time that changes will still be accepted.
++ Partner will provide a demo/walkthrough of the integration, with some instructions or documentation how Adobe can discover and use the functionality.
++ Once reviewed, Adobe will approve, unless changes are needed prior to approval (see next item). For future updates by developer, review is not necessary unless there is a major change in UX. 
++ Partner will provide a change management process, including (a) how Adobe can request changes, (b) expected timeframe for changes to be made, (c) length of time that changes will still be accepted.
 
 

@@ -127,7 +127,7 @@ Response:
 Using this method, the API returns a `contents` object which contains the ID of the asset, and a sub-object `purchase_details` which lists the purchase state, license type and date.
 
 
-```bash
+```shell
 curl "https://stock.adobe.io/Rest/Libraries/1/Content/Info?content_id=62305369&license=Standard" \
   -H "x-api-key: YourApiKeyHere" \
   -H "x-product: MySampleApp/1.0" \
@@ -166,7 +166,7 @@ For this step, you will use the **Member/Profile** API. In addition to checking 
 For the query string, you will need to provide the Stock ID with the `content_id` parameter. Ideally, also provide the license type if it is known (because some assets can have multiple license types); for images the normal default is "Standard." Refer to the [Licensing API reference](#) for more details. Also, if you want a localized message, also provide the language code.
 
 
-```bash
+```shell
 curl "https://stock.adobe.io/Rest/Libraries/1/Member/Profile?content_id=112670342&license=Standard&locale=en_US" \
   -H "x-api-key: YourApiKeyHere" \
   -H "x-product: MySampleApp/1.0" \
@@ -207,7 +207,7 @@ Now you will perform the license purchase request using the **Content/License** 
 Use the same parameters and headers that you used in the Member/Profile request.
 
 
-```bash
+```shell
 curl "https://stock.adobe.io/Rest/Libraries/1/Content/License?content_id=112670342&license=Standard" \
   -H "x-api-key: YourApiKeyHere" \
   -H "x-product: MySampleApp/1.0" \
@@ -324,7 +324,7 @@ Besides obtaining licenses for new assets (Content/License) or checking your cre
 In this example, license history is being requested for this account and the response is being limited to 1 file result (although 3 assets have been licensed), using the `search_parameters[limit]` query command.
 
 
-```bash
+```shell
 curl "https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory?search_parameters%5Blimit%5D=1" \
   -H "x-api-key: YourApiKeyHere" \
   -H "x-product: MySampleApp/1.0" \
@@ -582,7 +582,7 @@ Yes, from the **Member/Profile** API. You can either call a specific ID and lice
 Note that if you do include the content_id in your request and you have more than one type of credit (e.g., standard image credits and universal credits), the `available_entitlement.quota` value will reflect the credits available _for that type of asset_. For example, if you are querying about a video, then you will get back the number of credits available for Video and Premium content.
 
 
-```bash
+```shell
 curl "https://stock.adobe.io/Rest/Libraries/1/Member/Profile?locale=en_US" \
   -H "x-api-key: YourApiKeyHere" \
   -H "x-product: MySampleApp/1.0" \
