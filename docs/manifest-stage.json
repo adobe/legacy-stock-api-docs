@@ -130,31 +130,13 @@
         },
         {  
             "importedFileName":"15-faq",
-            "pages":[  
-                {  
-                    "importedFileName":"15-faq",
-                    "pages":[  
-
-                    ],
-                    "path":"adobe/stock-api-docs/master/docs/15-faq.md",
-                    "title":"FAQ"
-                }
-            ],
+            "pages":[ ],
             "path":"adobe/stock-api-docs/master/docs/15-faq.md",
             "title":"FAQ"
         },
         {  
             "importedFileName":"16-app-approval",
-            "pages":[  
-                {  
-                    "importedFileName":"16-app-approval",
-                    "pages":[  
-
-                    ],
-                    "path":"adobe/stock-api-docs/master/docs/16-app-approval.md",
-                    "title":"Application Approval"
-                }
-            ],
+            "pages":[],
             "path":"adobe/stock-api-docs/master/docs/16-app-approval.md",
             "title":"Application Approval"
         }
