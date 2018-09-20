@@ -4,17 +4,17 @@
 
 <!-- MarkdownTOC -->
 
-- [Search requests](#search-requests)
-    - [About search and filter criteria](#about-search-and-filter-criteria)
-    - [Authentication](#authentication)
-    - [Request headers](#request-headers)
-    - [URL parameters](#url-parameters)
-- [Responses](#responses)
-- [Example returned comps values](#example-returned-comps-values)
-- [Example queries and responses](#example-queries-and-responses)
-    - [Common search queries](#common-search-queries)
-- [Error codes](#error-codes)
-- [More information](#more-information)
+- [Search requests](11-search-reference.md#search-requests)
+    - [About search and filter criteria](11-search-reference.md#about-search-and-filter-criteria)
+    - [Authentication](11-search-reference.md#authentication)
+    - [Request headers](11-search-reference.md#request-headers)
+    - [URL parameters](11-search-reference.md#url-parameters)
+- [Responses](11-search-reference.md#responses)
+- [Example returned comps values](11-search-reference.md#example-returned-comps-values)
+- [Example queries and responses](11-search-reference.md#example-queries-and-responses)
+    - [Common search queries](11-search-reference.md#common-search-queries)
+- [Error codes](11-search-reference.md#error-codes)
+- [More information](11-search-reference.md#more-information)
 
 <!-- /MarkdownTOC -->
 
@@ -1042,5 +1042,5 @@ Each error generates a JSON array that contains the following keys and values. I
 <a id="more-information"></a>
 ## More information 
 
-* See the practical search example in [Search for assets](../getting-started/05-search-for-assets.md).
+* See the practical search example in [Search for assets](../getting-started/apps/05-search-for-assets.md).
 * Refer to the [Affiliate API Workflow](../getting-started/07-workflow-guides.md) guide for a complete guide to partnering with Adobe Stock and using the Search API.
