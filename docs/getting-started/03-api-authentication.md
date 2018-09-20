@@ -5,14 +5,14 @@
 #### Contents
 <!-- MarkdownTOC -->
 
-- [Overview](#overview)
-- [Store your credentials](#store-your-credentials)
-- [Create your basic header](#create-your-basic-header)
-    - [Test your API key header](#test-your-api-key-header)
-- [Generate an access token](#generate-an-access-token)
-    - [Important: Use the correct scope in your JWT](#important-use-the-correct-scope-in-your-jwt)
-- [Add token to header](#add-token-to-header)
-    - [Test your access token](#test-your-access-token)
+- [Overview](03-api-authentication.md#overview)
+- [Store your credentials](03-api-authentication.md#store-your-credentials)
+- [Create your basic header](03-api-authentication.md#create-your-basic-header)
+    - [Test your API key header](03-api-authentication.md#test-your-api-key-header)
+- [Generate an access token](03-api-authentication.md#generate-an-access-token)
+    - [Important: Use the correct scope in your JWT](03-api-authentication.md#important-use-the-correct-scope-in-your-jwt)
+- [Add token to header](03-api-authentication.md#add-token-to-header)
+    - [Test your access token](03-api-authentication.md#test-your-access-token)
 
 <!-- /MarkdownTOC -->
 
@@ -33,7 +33,7 @@ Note that these topics are explored in detail in each of these workflow guides, 
 <a id="store-your-credentials"></a>
 ## Store your credentials
 
-The first thing you will need is the information given to you when you registered your application. Depending on which integration method you chose, you will only need particular fields (see a <a href="../images/io_all-integration-details.png" target="_blank">screenshot</a> of each integration type).
+The first thing you will need is the information given to you when you registered your application. Depending on which integration method you chose, you will only need particular fields (see a [screenshot](../images/io_all-integration-details.png) of each integration type).
 
 Other than the API key, the information here--especially the client secret--should be safeguarded like any sensitive credentials, similar to your application's private key. At a minimum, this data should be stored on your server in an file inaccessible to the public. At no time should it be exposed in front-end JavaScript, for example.
 
@@ -155,4 +155,4 @@ If you correctly generated an access token, you should see something like this (
 
 Even if your image quota is 0, congratulations for getting this far! Generating the token is the most difficult part of the Stock API process.
 
-__>>> NEXT:__ Learn the Stock API command structure and  [start building your app](apps/04-creating-apps.md)!
+__>>> NEXT:__ Learn the Stock API command structure and  [start building your app](./04-creating-apps.md)!
