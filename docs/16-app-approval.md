@@ -2,7 +2,7 @@
 
 Per the [Adobe Developer Terms of Use](http://www.adobe.com/go/developer-terms), Adobe reserves the right to restrict distribution of any Developer Software (including access to Services and Software by Developer Software) unless approved by Adobe.
 
-To request approval, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D20Stock%20application%20approval%20request). 
+To request approval, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20application%20approval%20request). 
 
 ## Required materials for submission
 Developer should make all attempts to provide the following:
