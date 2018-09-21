@@ -3,18 +3,18 @@
 
 <!-- MarkdownTOC -->
 
-- [License History calls](#license-history-calls)
-    - [Authentication](#authentication)
-    - [Request headers](#request-headers)
-    - [URL parameters](#url-parameters)
-- [Responses](#responses)
-- [Example request and response](#example-request-and-response)
+- [License History calls](13-license-history.md#license-history-calls)
+    - [Authentication](13-license-history.md#authentication)
+    - [Request headers](13-license-history.md#request-headers)
+    - [URL parameters](13-license-history.md#url-parameters)
+- [Responses](13-license-history.md#responses)
+- [Example request and response](13-license-history.md#example-request-and-response)
 
 <!-- /MarkdownTOC -->
 
 
 
-The License History API is used to retrieve past license history. For information on licensing Adobe Stock content, see [Licensing Stock assets](../getting-started/06-licensing-assets.md).
+The License History API is used to retrieve past license history. For information on licensing Adobe Stock content, see [Licensing Stock assets](../getting-started/apps/06-licensing-assets.md).
 
 
 <a id="license-history-calls"></a>

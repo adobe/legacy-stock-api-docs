@@ -7,33 +7,33 @@ _**Tl;dr version:** Use the Member/Profile API to check the status of an asset y
 
 <!-- MarkdownTOC -->
 
-- [Licensing workflow](#licensing-workflow)
-    - [1. Get a token](#1-get-a-token)
-    - [2. Get Stock asset ID](#2-get-stock-asset-id)
-    - [3. Check if licensed](#3-check-if-licensed)
-    - [4. Check if licensing is possible](#4-check-if-licensing-is-possible)
-    - [5. License the asset](#5-license-the-asset)
-    - [6. Download the file](#6-download-the-file)
-        - [Follow the redirects...](#follow-the-redirects)
-- [Getting a license history](#getting-a-license-history)
-- [Next steps](#next-steps)
-- [Troubleshooting licensing requests](#troubleshooting-licensing-requests)
-    - [Member/Profile issues](#memberprofile-issues)
-        - [Problem: Asset type can't be licensed](#problem-asset-type-cant-be-licensed)
-        - [Solution: Purchase universal credits or upgrade your plan](#solution-purchase-universal-credits-or-upgrade-your-plan)
-        - [Problem: No credits or not enough credits](#problem-no-credits-or-not-enough-credits)
-        - [Solution \(enterprise\): Add quota to your PLC](#solution-enterprise-add-quota-to-your-plc)
-        - [Solution \(non-enterprise\): Buy credits or save payment info](#solution-non-enterprise-buy-credits-or-save-payment-info)
-        - [Solution: Look further or get help](#solution-look-further-or-get-help)
-    - [Other problems](#other-problems)
-        - [Wrong license type](#wrong-license-type)
-        - [Expired or invalid token](#expired-or-invalid-token)
+- [Licensing workflow](06-licensing-assets.md#licensing-workflow)
+    - [1. Get a token](06-licensing-assets.md#1-get-a-token)
+    - [2. Get Stock asset ID](06-licensing-assets.md#2-get-stock-asset-id)
+    - [3. Check if licensed](06-licensing-assets.md#3-check-if-licensed)
+    - [4. Check if licensing is possible](06-licensing-assets.md#4-check-if-licensing-is-possible)
+    - [5. License the asset](06-licensing-assets.md#5-license-the-asset)
+    - [6. Download the file](06-licensing-assets.md#6-download-the-file)
+        - [Follow the redirects...](06-licensing-assets.md#follow-the-redirects)
+- [Getting a license history](06-licensing-assets.md#getting-a-license-history)
+- [Next steps](06-licensing-assets.md#next-steps)
+- [Troubleshooting licensing requests](06-licensing-assets.md#troubleshooting-licensing-requests)
+    - [Member/Profile issues](06-licensing-assets.md#memberprofile-issues)
+        - [Problem: Asset type can't be licensed](06-licensing-assets.md#problem-asset-type-cant-be-licensed)
+        - [Solution: Purchase universal credits or upgrade your plan](06-licensing-assets.md#solution-purchase-universal-credits-or-upgrade-your-plan)
+        - [Problem: No credits or not enough credits](06-licensing-assets.md#problem-no-credits-or-not-enough-credits)
+        - [Solution \(enterprise\): Add quota to your PLC](06-licensing-assets.md#solution-enterprise-add-quota-to-your-plc)
+        - [Solution \(non-enterprise\): Buy credits or save payment info](06-licensing-assets.md#solution-non-enterprise-buy-credits-or-save-payment-info)
+        - [Solution: Look further or get help](06-licensing-assets.md#solution-look-further-or-get-help)
+    - [Other problems](06-licensing-assets.md#other-problems)
+        - [Wrong license type](06-licensing-assets.md#wrong-license-type)
+        - [Expired or invalid token](06-licensing-assets.md#expired-or-invalid-token)
 - [Q&A](#qa)
-        - [Can I find out how many credits are remaining?](#can-i-find-out-how-many-credits-are-remaining)
-        - [How can I tell if the user has an enterprise entitlement?](#how-can-i-tell-if-the-user-has-an-enterprise-entitlement)
-        - [Is it possible to get an image in different size?](#is-it-possible-to-get-an-image-in-different-size)
-        - [How can I test licensing assets if I do not have an Adobe Stock plan or contract?](#how-can-i-test-licensing-assets-if-i-do-not-have-an-adobe-stock-plan-or-contract)
-        - [How do I license assets more than once?](#how-do-i-license-assets-more-than-once)
+        - [Can I find out how many credits are remaining?](06-licensing-assets.md#can-i-find-out-how-many-credits-are-remaining)
+        - [How can I tell if the user has an enterprise entitlement?](06-licensing-assets.md#how-can-i-tell-if-the-user-has-an-enterprise-entitlement)
+        - [Is it possible to get an image in different size?](06-licensing-assets.md#is-it-possible-to-get-an-image-in-different-size)
+        - [How can I test licensing assets if I do not have an Adobe Stock plan or contract?](06-licensing-assets.md#how-can-i-test-licensing-assets-if-i-do-not-have-an-adobe-stock-plan-or-contract)
+        - [How do I license assets more than once?](06-licensing-assets.md#how-do-i-license-assets-more-than-once)
 
 <!-- /MarkdownTOC -->
 
@@ -48,17 +48,17 @@ Before you can purchase an asset using the API, there are a few tasks you will w
 
 
 
-![Licensing Flow board game](../images/api-licensing-flow-game.png)
+![Licensing Flow board game](../../images/api-licensing-flow-game.png)
 
 
-![Create access token](../images/Licensing-assets1.png)
+![Create access token](../../images/Licensing-assets1.png)
 <a id="1-get-a-token"></a>
 ### 1. Get a token 
 
 To do any activity involving licensing, you will first need to generate an access token. This is covered in detail in [Stock API Authentication](../03-api-authentication.md) and in the individual OAuth and Service Account [workflow guides](../07-workflow-guides.md).
 
 <br><br>
-![Find asset](../images/Licensing-assets2.png)
+![Find asset](../../images/Licensing-assets2.png)
 <a id="2-get-stock-asset-id"></a>
 ### 2. Get Stock asset ID
 
@@ -73,7 +73,7 @@ For example, your user wants to license an image of a cute, fluffy kitten (and w
 
 
 
-![Cute kitten](../images/kitten-112670342.jpg)
+![Cute kitten](../../images/kitten-112670342.jpg)
 
 
 
@@ -88,7 +88,7 @@ For example, your user wants to license an image of a cute, fluffy kitten (and w
 
 
 <br><br>
-![Check if licensed](../images/Licensing-assets4.png)
+![Check if licensed](../../images/Licensing-assets4.png)
 <a id="3-check-if-licensed"></a>
 ### 3. Check if licensed
 
@@ -155,7 +155,7 @@ Response:
 In both cases, if the asset _is_ licensed, then there is nothing else to do but get the URL and download the asset. _Proceed to [step #6](#6-download-the-file)_.
 
 <br><br>
-![Is licensing possible](../images/Licensing-assets5.png)
+![Is licensing possible](../../images/Licensing-assets5.png)
 <a id="4-check-if-licensing-is-possible"></a>
 ### 4. Check if licensing is possible
 
@@ -163,7 +163,7 @@ Assuming the asset is not already licensed, then you will check to see if it's p
 
 For this step, you will use the **Member/Profile** API. In addition to checking if the asset can be licensed, this will return the user's quota and also return a localized message about how many credits the license will cost. Getting the quota is useful as you can show that the user has "X" number of credits in your application's UI.
 
-For the query string, you will need to provide the Stock ID with the `content_id` parameter. Ideally, also provide the license type if it is known (because some assets can have multiple license types); for images the normal default is "Standard." Refer to the [Licensing API reference](#) for more details. Also, if you want a localized message, also provide the language code.
+For the query string, you will need to provide the Stock ID with the `content_id` parameter. Ideally, also provide the license type if it is known (because some assets can have multiple license types); for images the normal default is "Standard." Refer to the [Licensing API reference](../../api/12-licensing-reference.md) for more details. Also, if you want a localized message, also provide the language code.
 
 
 ```shell
@@ -198,7 +198,7 @@ Response:
 In the example, you can see that the `purchase_options.state` is "possible," which tells you that licensing can continue. If it is __not__ possible to license, go to [Troubleshooting](#troubleshooting-licensing-requests), below. Otherwise, continue to the next step.
 
 <br><br>
-![Get a license](../images/Licensing-assets6.png)
+![Get a license](../../images/Licensing-assets6.png)
 <a id="5-license-the-asset"></a>
 ### 5. License the asset
 
@@ -249,7 +249,7 @@ Response:
 The response returns several fields, but the most important for your user is in the `contents.XXXX.purchase_details` object (where "XXXX" is the Stock ID). Here you will find the URL you will need to download the asset. In addition, if you want to update your UI, you can get the updated quota value from the response field `available_entitlement.quota`.
 
 <br><br>
-![Download asset](../images/Licensing-assets7.png)
+![Download asset](../../images/Licensing-assets7.png)
 <a id="6-download-the-file"></a>
 ### 6. Download the file
 
@@ -370,8 +370,8 @@ You have completed the Adobe Stock API getting started guide.
 
 
 
-*   If you want more detail on anything you have read thus far, explore the [API reference documentation](#).
-*   If you are ready to get started in earnest, browse our [sample code and SDKs](08-sample-code-sdks.md).
+*   If you want more detail on anything you have read thus far, explore the [API reference documentation](../../01-getting-started.md).
+*   If you are ready to get started in earnest, browse our [sample code and SDKs](../08-sample-code-sdks.md).
 
 
 <a id="troubleshooting-licensing-requests"></a>
@@ -398,7 +398,7 @@ In that case, we would have seen a JSON response message like this:
 If this happens, you can build some checks into your application. 
 
 <br><br>
-![Premium or Video asset](../images/Licensing-assets8.png)
+![Premium or Video asset](../../images/Licensing-assets8.png)
 <a id="problem-asset-type-cant-be-licensed"></a>
 #### Problem: Asset type can't be licensed
 
@@ -461,7 +461,7 @@ Video assets could have a premium_level of 0, but simply because the content typ
 
 
 <br><br>
-![Purchase credits](../images/Licensing-assets9.png)
+![Purchase credits](../../images/Licensing-assets9.png)
 <a id="solution-purchase-universal-credits-or-upgrade-your-plan"></a>
 #### Solution: Purchase universal credits or upgrade your plan
 
@@ -470,7 +470,7 @@ If you do not belong to an enterprise entitlement, the solution is easy: go to [
 If you _do_ belong to an enterprise organization, you will need to contact your Adobe sales team for options.
 
 <br><br>
-![alt_text](../images/Licensing-assets10.png)
+![alt_text](../../images/Licensing-assets10.png)
 <a id="problem-no-credits-or-not-enough-credits"></a>
 #### Problem: No credits or not enough credits
 
@@ -502,7 +502,7 @@ In both cases, if `purchase_options.requires_checkout` is `true` but licensing i
 
 
 <br><br>
-![Add credits to PLC](../images/Licensing-assets11.png)
+![Add credits to PLC](../../images/Licensing-assets11.png)
 <a id="solution-enterprise-add-quota-to-your-plc"></a>
 #### Solution (enterprise): Add quota to your PLC
 
@@ -514,7 +514,7 @@ Note that admins can only add more credits for the type of assets they have agre
 
 
 <br><br>
-![Purchase credits](../images/Licensing-assets9.png)
+![Purchase credits](../../images/Licensing-assets9.png)
 <a id="solution-non-enterprise-buy-credits-or-save-payment-info"></a>
 #### Solution (non-enterprise): Buy credits or save payment info
 
@@ -523,7 +523,7 @@ You need credits to purchase licenses, whether those are standard image credits 
 Note that some assets (such as some Creative Cloud templates) are free, and do not require a subscription or credits as long as you are a non-enterprise user.
 
 <br><br>
-![Contact Support](../images/Licensing-assets13.png)
+![Contact Support](../../images/Licensing-assets13.png)
 <a id="solution-look-further-or-get-help"></a>
 #### Solution: Look further or get help
 
@@ -535,7 +535,7 @@ If none of those things are happening, then contact [Adobe Stock Support](https:
 <a id="other-problems"></a>
 ### Other problems 
 
-In the previous cases, Member/Profile and the other APIs will return a valid 200 response. But in the cases below, you will get a 400 error. Here are a couple common reasons, but see more in the [Stock API reference](#) section.
+In the previous cases, Member/Profile and the other APIs will return a valid 200 response. But in the cases below, you will get a 400 error. Here are a couple common reasons, but see more in the [Stock API reference](../../01-getting-started.md) section.
 
 
 <a id="wrong-license-type"></a>

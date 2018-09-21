@@ -3,20 +3,20 @@
 
 <!-- MarkdownTOC-->
 
-- [Content and Member requests](#content-and-member-requests)
-    - [Authentication](#authentication)
-    - [Request headers](#request-headers)
-    - [URL parameters](#url-parameters)
-- [Responses](#responses)
-    - [Response JSON summaries](#response-json-summaries)
-    - [Response attributes](#response-attributes)
-- [Examples](#examples)
-    - [Content/Info](#contentinfo)
-    - [Content/License](#contentlicense)
-    - [Member/Profile](#memberprofile)
-- [Error codes](#error-codes)
-- [Downloading licensed files](#downloading-licensed-files)
-- [More information](#more-information)
+- [Content and Member requests](12-licensing-reference.md#content-and-member-requests)
+    - [Authentication](12-licensing-reference.md#authentication)
+    - [Request headers](12-licensing-reference.md#request-headers)
+    - [URL parameters](12-licensing-reference.md#url-parameters)
+- [Responses](12-licensing-reference.md#responses)
+    - [Response JSON summaries](12-licensing-reference.md#response-json-summaries)
+    - [Response attributes](12-licensing-reference.md#response-attributes)
+- [Examples](12-licensing-reference.md#examples)
+    - [Content/Info](12-licensing-reference.md#contentinfo)
+    - [Content/License](12-licensing-reference.md#contentlicense)
+    - [Member/Profile](12-licensing-reference.md#memberprofile)
+- [Error codes](12-licensing-reference.md#error-codes)
+- [Downloading licensed files](12-licensing-reference.md#downloading-licensed-files)
+- [More information](12-licensing-reference.md#more-information)
 
 <!-- /MarkdownTOC -->
 
@@ -24,13 +24,13 @@
 <a name="content-and-member-requests"></a>
 ## Content and Member requests
 
-The Stock API provides the following methods related to licensing and getting more info about licensed assets.  For a guide to usage and additional examples, see [Licensing Stock assets](../getting-started/06-licensing-assets.md).
+The Stock API provides the following methods related to licensing and getting more info about licensed assets.  For a guide to usage and additional examples, see [Licensing Stock assets](../getting-started/apps/06-licensing-assets.md).
 
 
 | Endpoints | Method |
 | ----- | ----- |
 | https://stock.adobe.io/Rest/Libraries/1/Content/Info | GET |
-| https://stock.adobe.io/Rest/Libraries/1/Content/License | GET, POST (for adding [license references](#license-references-example)) |
+| https://stock.adobe.io/Rest/Libraries/1/Content/License | GET, POST (for adding [license references](12-licensing-reference.md#examples)) |
 | https://stock.adobe.io/Rest/Libraries/1/Member/Profile | GET |
 | https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory | GET |
 
@@ -789,5 +789,5 @@ curl -L "https://stock.adobe.com/Rest/Libraries/Download/99872034/1?token=MyAcce
 ## More information
 
 
-*   See [Licensing Stock assets](../getting-started/06-licensing-assets.md).
+*   See [Licensing Stock assets](../getting-started/apps/06-licensing-assets.md).
 *   For guides to licensing assets for the enterprise or individual users, see the [Workflow guides](../getting-started/07-workflow-guides.md).

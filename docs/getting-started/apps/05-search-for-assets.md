@@ -4,19 +4,19 @@ _**Tl;dr version:** Convert your app requirements into commands and build your s
 
 <!-- MarkdownTOC -->
 
-- [Practical search example](#practical-search-example)
-- [Tips and techniques](#tips-and-techniques)
-    - [Paginating results](#paginating-results)
-        - [Pagination example](#pagination-example)
-    - [Change the order of your results](#change-the-order-of-your-results)
-    - [Similarity \(visual\) search](#similarity-visual-search)
-        - [Image similarity POST example](#image-similarity-post-example)
-        - [Combining visual search with other filters](#combining-visual-search-with-other-filters)
-    - [Jump to a search results page on Adobe Stock](#jump-to-a-search-results-page-on-adobe-stock)
-        - [Search by keyword](#search-by-keyword)
-        - [Filter by photos, vectors, video, etc.](#filter-by-photos-vectors-video-etc)
-        - [Search on standard or Premium content](#search-on-standard-or-premium-content)
-        - [Important: Get tracking credit](#important-get-tracking-credit)
+- [Practical search example](05-search-for-assets.md#practical-search-example)
+- [Tips and techniques](05-search-for-assets.md#tips-and-techniques)
+    - [Paginating results](05-search-for-assets.md#paginating-results)
+        - [Pagination example](05-search-for-assets.md#pagination-example)
+    - [Change the order of your results](05-search-for-assets.md#change-the-order-of-your-results)
+    - [Similarity \(visual\) search](05-search-for-assets.md#similarity-visual-search)
+        - [Image similarity POST example](05-search-for-assets.md#image-similarity-post-example)
+        - [Combining visual search with other filters](05-search-for-assets.md#combining-visual-search-with-other-filters)
+    - [Jump to a search results page on Adobe Stock](05-search-for-assets.md#jump-to-a-search-results-page-on-adobe-stock)
+        - [Search by keyword](05-search-for-assets.md#search-by-keyword)
+        - [Filter by photos, vectors, video, etc.](05-search-for-assets.md#filter-by-photos-vectors-video-etc)
+        - [Search on standard or Premium content](05-search-for-assets.md#search-on-standard-or-premium-content)
+        - [Important: Get tracking credit](05-search-for-assets.md#important-get-tracking-credit)
 
 <!-- /MarkdownTOC -->
 
@@ -194,7 +194,7 @@ Since the Adobe Stock collection is constantly evolving, the result you get may 
 </a>
 ```
 
-__>>> NEXT:__ Review the [tips and techniques](#tips-and-techniques) below, or continue ahead to learn how to use the [Licensing API](getting-started/06-licensing-assets.md)!
+__>>> NEXT:__ Review the [tips and techniques](05-search-for-assets.md#tips-and-techniques) below, or continue ahead to learn how to use the [Licensing API](./06-licensing-assets.md)!
 
 <a name="tips-and-techniques"></a>
 <a id="tips-and-techniques"></a>
@@ -389,7 +389,7 @@ https://stock.adobe.com/search?k=stars&price[$$]=1&price[$$$]=1
 <a id="important-get-tracking-credit"></a>
 #### Important: Get tracking credit
 
-If you want your application to get referral credit for the search, meaning that you have joined the Adobe Partner/Affiliate program and receive a "bounty" for referral traffic, then make sure you add add the same parameters that are present on your details_url. See the discussion of using this data in the [practical search example](#bookmark=id.fulkgvhxeodo), above. 
+If you want your application to get referral credit for the search, meaning that you have joined the Adobe Partner/Affiliate program and receive a "bounty" for referral traffic, then make sure you add add the same parameters that are present on your details_url. See the discussion of using this data in the [practical search example](05-search-for-assets.md#practical-search-example), above. 
 
 Example:
 

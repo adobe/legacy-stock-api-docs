@@ -18,7 +18,7 @@ curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_para
 
 <!-- /MarkdownTOC -->
 
-> Not a developer, but are interested in partnering? Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D20Stock%20partnership%20inquiry).
+> Not a developer, but are interested in partnering? Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20partnership%20inquiry).
 
 The Adobe Stock API provides programmatic access to [Adobe Stock](https://stock.adobe.com/) content. You can integrate this API into your organization's applications and processes. You can use the API in scripts or programs to search for and retrieve Adobe Stock assets such as photos, videos, and vector files, and to license assets for your users.
 
