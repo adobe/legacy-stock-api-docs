@@ -1,12 +1,12 @@
 {
 "name": "Adobe Stock",
-"version": "1.1.0",
+"version": "1.0.0",
 "description": "Adobe Stock",
 "author": "Rachel Luxemburg",
 "view_type": "mdbook",
 "meta_keywords": "adobe stock",
 "meta_description": "Adobe Stock documentation",
-"publish_date": "10/02/2018",
+"publish_date": "08/23/2018",
 "show_edit_github_banner": false,
 "base_path": "https://raw.githubusercontent.com",
 "pages": [
@@ -33,21 +33,20 @@
 		},
 	   {
 		  "importedFileName": "04-creating-apps",
-		  "pages": [],
 		  "path": "stock-api-docs/docs/getting-started/04-creating-apps.md",
-		  "title": "Creating Adobe Stock applications"
-		},
-		{
-		  "importedFileName": "05-search-for-assets",
-		  "pages": [],
-		  "path": "stock-api-docs/docs/getting-started/apps/05-search-for-assets.md",
-		  "title": "Search for assets"
-		},
-		{
-		  "importedFileName": "06-licensing-assets",
-		  "pages": [],
-		  "path": "stock-api-docs/docs/getting-started/apps/06-licensing-assets.md",
-		  "title": "Licensing assets and stuff*"
+		  "title": "Creating Adobe Stock applications",
+		  "pages":[
+				{
+				  "importedFileName": "05-search-for-assets",
+				  "title": "Search for assets",
+				  "path": "stock-api-docs/docs/getting-started/apps/05-search-for-assets.md"
+				},
+				{
+				  "importedFileName": "06-licensing-assets",
+				  "title": "Licensing assets and stuff*",
+				  "path": "stock-api-docs/docs/getting-started/apps/06-licensing-assets.md"
+				  }
+				  ]
 		},
 		{
 		  "importedFileName": "07-workflow-guides",
@@ -106,7 +105,7 @@
     }
 	],
 	"path": "stock-api-docs/docs/01-getting-started.md",
-	"title": "Getting started"
+	"title": "Getting started with the Adobe Stock API"
 	},
 	{
 	"importedFileName": "15-faq",
