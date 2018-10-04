@@ -3,21 +3,18 @@
 
 <!-- MarkdownTOC -->
 
-- [License History calls](13-license-history.md#license-history-calls)
-    - [Authentication](13-license-history.md#authentication)
-    - [Request headers](13-license-history.md#request-headers)
-    - [URL parameters](13-license-history.md#url-parameters)
-- [Responses](13-license-history.md#responses)
-- [Example request and response](13-license-history.md#example-request-and-response)
+- [License History calls](#license-history-calls)
+    - [Authentication](#authentication)
+    - [Request headers](#request-headers)
+    - [URL parameters](#url-parameters)
+- [Responses](#responses)
+- [Example request and response](#example-request-and-response)
 
 <!-- /MarkdownTOC -->
 
 
-
 The License History API is used to retrieve past license history. For information on licensing Adobe Stock content, see [Licensing Stock assets](../getting-started/apps/06-licensing-assets.md).
 
-
-<a id="license-history-calls"></a>
 ## License History calls
 
 The License History API returns a list of assets licensed for a given user or organization.
@@ -27,13 +24,11 @@ The License History API returns a list of assets licensed for a given user or or
 | https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory | GET |
 
 
-<a id="authentication"></a>
 ### Authentication
 
 The Authorization header is required for any of the licensing calls. The API uses the header to determine the user's member number, licensing status, and default locale. See [API authentication](../getting-started/03-api-authentication.md) for more information.
 
 
-<a id="request-headers"></a>
 ### Request headers
 
 See [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
@@ -42,7 +37,6 @@ See [Headers for Stock API calls](10-headers-for-api-calls.md) for details about
 *   Optional headers: `X-Request-Id`
 
 
-<a id="url-parameters"></a>
 ### URL parameters
 
 Pass the following URL parameters with the GET request.
@@ -57,9 +51,6 @@ Pass the following URL parameters with the GET request.
 | result_columns[] | Allowable fields to include in the history results. For more information, see [Search API reference](11-search-reference.md).<br><br> `thumbnail_110_url` `thumbnail_110_height` `thumbnail_110_width` `thumbnail_160_url` `thumbnail_160_height` `thumbnail_160_width` `thumbnail_220_url` `thumbnail_220_height` `thumbnail_220_width` `thumbnail_240_url` `thumbnail_240_height` `thumbnail_240_width` `thumbnail_500_url` `thumbnail_500_height` `thumbnail_500_width` `thumbnail_1000_url` `thumbnail_1000_height` `thumbnail_1000_width` |
 
 
-
-
-<a id="responses"></a>
 ## Responses
 
 Files are returned in a JSON array with this structure.
@@ -115,7 +106,6 @@ In the table below, fields marked with __*__ are returned by default.
 
 _**Note:** Allowable values for `thumbnail_*_url`, `thumbnail_*_width` and `thumbnail_*_height` fields: `110`, `160`, `220`, `240`, `500`, `1000`._
 
-<a id="example-request-and-response"></a>
 ## Example request and response
 
 ```http
