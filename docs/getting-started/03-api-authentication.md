@@ -5,19 +5,17 @@
 #### Contents
 <!-- MarkdownTOC -->
 
-- [Overview](03-api-authentication.md#overview)
-- [Store your credentials](03-api-authentication.md#store-your-credentials)
-- [Create your basic header](03-api-authentication.md#create-your-basic-header)
-    - [Test your API key header](03-api-authentication.md#test-your-api-key-header)
-- [Generate an access token](03-api-authentication.md#generate-an-access-token)
-    - [Important: Use the correct scope in your JWT](03-api-authentication.md#important-use-the-correct-scope-in-your-jwt)
-- [Add token to header](03-api-authentication.md#add-token-to-header)
-    - [Test your access token](03-api-authentication.md#test-your-access-token)
+- [Overview](#overview)
+- [Store your credentials](#store-your-credentials)
+- [Create your basic header](#create-your-basic-header)
+    - [Test your API key header](#test-your-api-key-header)
+- [Generate an access token](#generate-an-access-token)
+    - [Important: Use the correct scope in your JWT](#important-use-the-correct-scope-in-your-jwt)
+- [Add token to header](#add-token-to-header)
+    - [Test your access token](#test-your-access-token)
 
 <!-- /MarkdownTOC -->
 
-
-<a id="overview"></a>
 ## Overview
 
 In the previous step, you registered your application on the [Adobe I/O Console](https://console.adobe.io). Now you will take the credentials created for you, and use them to build proper headers.
@@ -30,7 +28,6 @@ Note that these topics are explored in detail in each of these workflow guides, 
 *   [OAuth workflow](07-workflow-guides.md)
 *   [Affiliate (API key) workflow](07-workflow-guides.md)
 
-<a id="store-your-credentials"></a>
 ## Store your credentials
 
 The first thing you will need is the information given to you when you registered your application. Depending on which integration method you chose, you will only need particular fields (see a [screenshot](../images/io_all-integration-details.png) of each integration type).
@@ -44,9 +41,6 @@ Other than the API key, the information here--especially the client secret--shou
 | OAuth | API key, client secret, redirect URI |
 | Service Account | API key, technical account ID, organization ID, client secret |
 
-
-
-<a id="create-your-basic-header"></a>
 ## Create your basic header
 
 The Adobe Stock APIs is a REST-based service. Subsequently, all requests to the Stock APIs require these HTTP headers:
@@ -67,8 +61,6 @@ Example:
 
 The format for X-Product can be any string, however a common convention is to include the version number separated by a slash.
 
-
-<a id="test-your-api-key-header"></a>
 ### Test your API key header
 
 For unauthenticated requests such as normal search queries, this is all you need, and you can start building your application. But before you do, run a quick test to make sure it is working. Simply replace "YourApiKeyHere" with the key you generated, and when you run this command, you should get back JSON results of cats wearing costumes, proving that it works.
@@ -82,9 +74,6 @@ curl "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US
 -H "x-api-key: YourApiKeyHere" -H "x-product: MySampleApp/1.0"
 ```
 
-
-
-<a id="generate-an-access-token"></a>
 ## Generate an access token
 
 All License API requests to Adobe Stock must be authenticated and authorized using an access token string which follows the JSON Web Token (JWT) standard. The token will contain claims authorizing the bearer of the token access to protected resources (such as licensed images), and is digitally signed by the issuer. All access tokens you will use in your workflow must be issued by the Adobe Identity Management Services (IMS). In the Service Account workflow, this token will be generated as a result of exchanging tokens between your application and Adobe IMS, and for the OAuth workflow, Adobe IMS will issue the token as the result of a successful login.
@@ -99,7 +88,6 @@ Please note that if you are following the Service Account workflow, the Adobe I/
 
 ![JWT tab of Service Account integration](../images/io_jwt-tab.png)
 
-<a id="add-token-to-header"></a>
 ## Add token to header
 
 Once your token is generated, add it to your authenticated request using this syntax:
@@ -113,7 +101,6 @@ Once your token is generated, add it to your authenticated request using this sy
 The sample token above comes from [jwt.io](https://jwt.io/), an excellent resource for learning about and troubleshooting tokens.
 
 
-<a id="test-your-access-token"></a>
 ### Test your access token
 
 Like we tested our API key header, now we can test our access token by combining it with the earlier headers (which are still required), and calling an API that requires authentication. The Member/Profile request is perfect for this test, as it will tell you what Adobe Stock entitlements you have (if any).
