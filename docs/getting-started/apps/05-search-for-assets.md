@@ -4,19 +4,19 @@ _**Tl;dr version:** Convert your app requirements into commands and build your s
 
 <!-- MarkdownTOC -->
 
-- [Practical search example](05-search-for-assets.md#practical-search-example)
-- [Tips and techniques](05-search-for-assets.md#tips-and-techniques)
-    - [Paginating results](05-search-for-assets.md#paginating-results)
-        - [Pagination example](05-search-for-assets.md#pagination-example)
-    - [Change the order of your results](05-search-for-assets.md#change-the-order-of-your-results)
-    - [Similarity \(visual\) search](05-search-for-assets.md#similarity-visual-search)
-        - [Image similarity POST example](05-search-for-assets.md#image-similarity-post-example)
-        - [Combining visual search with other filters](05-search-for-assets.md#combining-visual-search-with-other-filters)
-    - [Jump to a search results page on Adobe Stock](05-search-for-assets.md#jump-to-a-search-results-page-on-adobe-stock)
-        - [Search by keyword](05-search-for-assets.md#search-by-keyword)
-        - [Filter by photos, vectors, video, etc.](05-search-for-assets.md#filter-by-photos-vectors-video-etc)
-        - [Search on standard or Premium content](05-search-for-assets.md#search-on-standard-or-premium-content)
-        - [Important: Get tracking credit](05-search-for-assets.md#important-get-tracking-credit)
+- [Practical search example](#practical-search-example)
+- [Tips and techniques](#tips-and-techniques)
+    - [Paginating results](#paginating-results)
+        - [Pagination example](#pagination-example)
+    - [Change the order of your results](#change-the-order-of-your-results)
+    - [Similarity \(visual\) search](#similarity-visual-search)
+        - [Image similarity POST example](#image-similarity-post-example)
+        - [Combining visual search with other filters](#combining-visual-search-with-other-filters)
+    - [Jump to a search results page on Adobe Stock](#jump-to-a-search-results-page-on-adobe-stock)
+        - [Search by keyword](#search-by-keyword)
+        - [Filter by photos, vectors, video, etc.](#filter-by-photos-vectors-video-etc)
+        - [Search on standard or Premium content](#search-on-standard-or-premium-content)
+        - [Important: Get tracking credit](#important-get-tracking-credit)
 
 <!-- /MarkdownTOC -->
 
@@ -26,9 +26,6 @@ To perform a search, you will call to the Search/Files endpoint and supply one o
 *   **Filter values.** By default, the query will return all types of assets that can be found on the [Adobe Stock](https://stock.adobe.com/) website, e.g., images, videos, templates, 3D, etc. Using filters, you can choose to search only on certain asset types (e.g., images) and subtypes (e.g., vector images), or only assets that have certain characteristics (e.g., images that are horizontal and greater than 20 megapixels).
 *   **Set response fields.** The Search API will only return a default set of fields in the JSON response unless you override this behavior and tell it which fields you want. There are many more fields available than what is returned by default, for performance reasons.
 
-
-<a name="practical-search-example"></a>
-<a id="practical-search-example"></a>
 ## Practical search example
 
 You have been asked to create a simple web page that lets a user enter a word and show them the most-downloaded photo result along with a title. Furthermore, you want the image to be displayed at 800 pixels size, and have a clickable link that takes the user to a page on the Adobe Stock website where the image can be licensed.
@@ -49,7 +46,6 @@ Host: stock.adobe.io
 X-Product: MySampleApp/1.0
 X-API-Key: YourApiKeyHere
 ```
-
 
 And like this using the [curl](https://curl.haxx.se/) format. Curls are convenient because they can be run from a terminal/command line program. Just be sure to remove the extra line breaks and substitute "YourAPIKeyHere" placeholder text with your own values.
 
@@ -102,14 +98,12 @@ All valid responses from the Stock API are returned as JSON, as seen above. Note
 So far, we have used two of the three abilities of the Search API:
 
 
-
 *   We chose a search type (words), and set it to search on a keyword ("dogs").
 *   We told it to filter (limit) the results to one asset.
 
 For our simple application, we don't need all that extra metadata--we only need a few fields. Furthermore, we want some data that is not present, and also limit our search to photos, in order of popularity. 
 
 After consulting the Search API reference, let's break down these extra requirements into additional API commands:
-
 
 
 *   Only show photos
@@ -127,7 +121,6 @@ After consulting the Search API reference, let's break down these extra requirem
 
 
 And we'll use the third ability of the Search API to choose only the result fields (`result_columns`) we want for our app. If you look at the documentation for result_columns, you'll see that only one of the fields is returned by default (`title`). You can add as many result_columns to your URL as you need:
-
 
 
 *   Get the title
@@ -194,15 +187,10 @@ Since the Adobe Stock collection is constantly evolving, the result you get may 
 </a>
 ```
 
-__>>> NEXT:__ Review the [tips and techniques](05-search-for-assets.md#tips-and-techniques) below, or continue ahead to learn how to use the [Licensing API](./06-licensing-assets.md)!
+__>>> NEXT:__ Review the [tips and techniques](#tips-and-techniques) below, or continue ahead to learn how to use the [Licensing API](./06-licensing-assets.md)!
 
-<a name="tips-and-techniques"></a>
-<a id="tips-and-techniques"></a>
 ## Tips and techniques
 
-
-<a name="paginating-results"></a>
-<a id="paginating-results"></a>
 ### Paginating results
 
 Although a search request might find thousands of matching assets, search results include only a maximum of 64 for each call (and 32 results by default). If your results page layout displays a certain quantity of assets, you can limit each call to returning that quantity, and then call Search again to get the next set. 
@@ -210,14 +198,11 @@ Although a search request might find thousands of matching assets, search result
 To do this:
 
 
-
 1.  On your search call, use the `limit` parameter to control the number of results to return with each call.
     *   If this is the initial call to Search, set the `offset` parameter to zero (0). 
 1.  Display your first page of results by parsing the JSON response. 
 1.  If your user requests another page of results, add the `limit` value to the `offset` attribute and repeat the two preceding steps.
 
-
-<a id="pagination-example"></a>
 #### Pagination example
 
 Request first 16 results
@@ -232,15 +217,11 @@ Get next 16 results
 https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters[words]=dogs&search_parameters[limit]=16&search_parameters[offset]=16
 ```
 
-<a name="change-the-order-of-your-results"></a>
-<a id="change-the-order-of-your-results"></a>
 ### Change the order of your results
 
 By default, Search returns assets sorted in descending order by how closely they match your search and filtering requirements.  You can change that order with `search_parameters[order]`.
 
 Valid orders and their meanings:
-
-
 
 *   `relevance`: How closely it matches your search request, closest matches first (default). 
 *   `creation`: Creation date in descending order (newest first).
@@ -254,15 +235,11 @@ Example:
 https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters[words]=dogs&search_parameters[order]=undiscovered
 ```
 
-<a name="similarity-visual-search"></a>
-<a id="similarity-visual-search"></a>
 ### Similarity (visual) search
 
 One of the most useful and powerful capabilities of the Search API is to return results that are visually similar to a base image, and then filter further by adding additional attributes. This functionality is powered by the machine learning AI of [Adobe Sensei](http://www.adobe.com/sensei.html).
 
 The Search API supports three types of visual search:
-
-
 
 *   Similar to the image being uploaded.
 
@@ -285,8 +262,6 @@ The Search API supports three types of visual search:
 ```
 
 
-
-<a id="image-similarity-post-example"></a>
 #### Image similarity POST example
 
 Searching on a similar URL or Stock ID works exactly like the previous search examples that use an HTTP GET, while comparing to an uploaded image requires a multipart form POST, and accepts JPG, PNG, or GIF files.
@@ -310,11 +285,9 @@ Content-Type: image/jpeg
 Stock API will return JSON results exactly as if you had searched on text or some other type.
 
 
-<a id="combining-visual-search-with-other-filters"></a>
 #### Combining visual search with other filters
 
 In addition to searching for results similar to the image you specify, you can narrow the results by adding keywords, colors and other qualifiers. This example searches for a public-domain image of a pumpkin using a `similar_url` search type, but adds a `colors` filter to find images that also have a dark shade of blue. You could add more colors to the query (the command accepts a comma-separated list of RGB hex values), but that might limit the search results too much. Note that the image URL in this example may expire, but you can use any valid image URL for your search.
-
 
 ```shell
 curl "https://stock.adobe.io/Rest/Media/1/Search/Files?
@@ -323,16 +296,12 @@ search_parameters%5Bsimilar_url%5D=http%3A%2F%2Ftinyurl.com%2Fyc5kag79&search_pa
   -H "x-product: MySampleApp/1.0"
 ```
 
-<a name="jump-to-a-search-results-page-on-adobe-stock"></a>
-<a id="jump-to-a-search-results-page-on-adobe-stock"></a>
 ### Jump to a search results page on Adobe Stock
 
 The `details_url` will direct an end user to a page on the Adobe Stock website where they can license and see more information about _one_ asset, but what if you wanted to redirect the user to a page where they can view search results for _multiple_ assets? For example, if your website only shows the first few results from Adobe Stock, and then encourages users to "click for more" results. When the user is redirected to Adobe Stock from your link, they don't want to lose the context in which they were searching and have to start over--that would make for a frustrating experience.
 
 The Adobe Stock Search API allows a client (desktop, web, or mobile) to launch the Adobe Stock website with specific search term(s). The website has robust functionality that you may not want to replicate on your own site using the Search API. There is a documented API reference for this functionality, but here are some quick examples to get started.
 
-
-<a id="search-by-keyword"></a>
 #### Search by keyword
 
 Use the `k` parameter. Example:
@@ -345,8 +314,6 @@ https://stock.adobe.com/search?k=kittens
 #### Filter by photos, vectors, video, etc.
 
 Use these parameters:
-
-
 
 *   Photos. 
     `filters[content_type:photo]=1`
@@ -366,11 +333,9 @@ Example: Search for vector artwork of cats.
 https://stock.adobe.com/search?k=cats&filters[content_type:zip_vector]=1
 ```
 
-<a id="search-on-standard-or-premium-content"></a>
 #### Search on standard or Premium content
 
 Use the `price[_$_]` parameter:
-
 
 
 *   Standard/core assets
@@ -386,7 +351,6 @@ Example: Find Premium assets about stars
 https://stock.adobe.com/search?k=stars&price[$$]=1&price[$$$]=1
 ```
 
-<a id="important-get-tracking-credit"></a>
 #### Important: Get tracking credit
 
 If you want your application to get referral credit for the search, meaning that you have joined the Adobe Partner/Affiliate program and receive a "bounty" for referral traffic, then make sure you add add the same parameters that are present on your details_url. See the discussion of using this data in the [practical search example](05-search-for-assets.md#practical-search-example), above. 
