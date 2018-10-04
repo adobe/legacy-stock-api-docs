@@ -31,10 +31,6 @@ You interact with the Adobe Stock API via HTTP requests, rather than through a u
 *   **Get a license history of past purchases.** In addition to allowing users to license and download content, your application can retrieve the licensing history for your users or organization, allowing download of previously purchased assets.
 
  
-
-
-<a name="overview"></a>
-<a id="overview"></a>
 ## Overview
 
 ![API workflow](images/app-process-3-steps.png)
@@ -47,9 +43,6 @@ At its simplest, all Stock API integrations include these steps:
 2.  Determine the authentication method from your use case and build appropriate headers.
 3.  Build and deploy your application using Stock APIs.
 
-
-<a name="design-phase"></a>
-<a id="design-phase"></a>
 ## Design phase
 
 This step is implied by the list above and is outside the scope of this documentation, however everything you learn in the Getting Started section should give you sufficient information to design and architect your application.
@@ -66,24 +59,16 @@ As you read the documentation, keep some questions in mind. Some of these will b
 *   What size and how many image thumbnails do I want to display? 
 *   Do I require localization?
 
-
-<a name="next-steps"></a>
-<a id="next-steps"></a>
 ## Next steps
-
 
 
 1.  Learn how to [register](getting-started/02-register-app.md) your application on the Adobe I/O Console. You can add as many integrations as you need.
 2.  Test how your application will [authenticate](getting-started/03-api-authentication.md) to the Adobe Stock API.
 3.  Finally, start [building](getting-started/04-creating-apps.md) your app, test and deploy to your users!
 
-
-<a name="more-topics"></a>
-<a id="more-topics"></a>
 ## More topics
 
 If you have already performed most of the tasks above or are in the middle of an implementation and need detailed help, check out these resources as well:
-
 
 
 *   Review the detailed [workflow guides](getting-started/07-workflow-guides.md), which gives information on everything you need for a particular use case.

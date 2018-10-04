@@ -14,11 +14,8 @@
 
 <!-- /MarkdownTOC -->
 
-
-<a id="general"></a>
 ## General
 
-<a id="what-image-sizes-are-available"></a>
 ### What image sizes are available?
 
 <ul>
@@ -29,9 +26,8 @@
 <li><code>1000</code>: Extra-extra large (XXL) (1000 px). Returned with watermark.</li>
 </ul>
 
-See [Search API reference](api/11-search-reference.md#url-parameters).
+See [Search API reference](api/11-search-reference.md).
 
-<a id="how-do-i-download-a-comp-image"></a>
 ### How do I download a comp image?
 There are two kinds of preview images available: cached thumbnail images from the CDN, and non-cached comp images which need to be downloaded from the API. The first type of images are most common, and recommended for most applications. This is a sample URL:
 https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg
@@ -63,10 +59,8 @@ curl "https://stock.adobe.com/Rest/Libraries/Watermarked/Download/143738171/5" \
   -H "authorization: Bearer AccessTokenHere"
 ```
 
-<a id="licensing"></a>
 ## Licensing
 
-<a id="how-do-i-add-license-references"></a>
 ### How do I add license references?
 License references are extra metadata that you can add to a license record at the time you license the asset. They can be used to track the customer, purchase order, project code, etc., and can be made mandatory or optional. If mandatory, you _must_ include those fields when licensing the asset or you will receive an error.
 
@@ -121,10 +115,8 @@ Instead of calling `GET` Content/License, your application will `POST` Content/L
 
 To learn how to add or edit license reference fields, see [Edit a product profile for Adobe Stock](https://helpx.adobe.com/enterprise/using/adobe-stock-enterprise.html#CreateeditaproductprofileforAdobeStock).
 
-<a id="print-on-demand"></a>
 ## Print on Demand
 
-<a id="how-do-you-license-assets-more-than-once"></a>
 ### How do you license assets more than once?
 Or, "if my contract requires me to license the same asset again, will this happen automatically in the API?"
 No, currently you must set your application to use the `license_again=true` flag. Best practice in this case is to use this flag _every time_ you license an asset, even if it has not been licensed before. The Stock API will only deduct one license from your pool of credits, even if this is the first time you are licensing this asset.
@@ -147,11 +139,9 @@ If using the Stock SDK for PHP, add `license_again` to the request object.
     $license_response = $adobe_stock_client->getContentLicense($license_request, $access_token);
 ```
 
-<a id="why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits"></a>
 ### Why do I see Premium and Video in my search results if I don't have credits?
 Premium assets are included in search results by default. In fact, the default API search includes _all asset types_ (except Editorial--see below). Further, to increase performance, search requests are designed to be anonymous, not requiring authentication. Therefore it is not possible for the Search API to know all your contract details and entitlements when you perform a search--this would slow down the search. Therefore, if you don't have rights to these assets and don't want to see them in search results, you will need to filter them out. See next question, below.
 
-<a id="how-do-i-filter-out-premium-content"></a>
 ### How do I filter out Premium content?
 The Search API includes all asset types by default, therefore you must (1) tell the API not to include Premium assets, and (2) tell it what kind of assets you _do_ want to include. Keep in mind that Video, Templates, and 3D are not considered "Premium," and therefore would still appear in the results.
 
@@ -165,4 +155,4 @@ X-Product: MySampleApp/1.0
 X-API-Key: YourApiKeyHere
 ```
 
-See [Search API reference](api/11-search-reference.md#url-parameters).
+See [Search API reference](api/11-search-reference.md).

@@ -3,25 +3,23 @@
 
 <!-- MarkdownTOC-->
 
-- [Content and Member requests](12-licensing-reference.md#content-and-member-requests)
-    - [Authentication](12-licensing-reference.md#authentication)
-    - [Request headers](12-licensing-reference.md#request-headers)
-    - [URL parameters](12-licensing-reference.md#url-parameters)
-- [Responses](12-licensing-reference.md#responses)
-    - [Response JSON summaries](12-licensing-reference.md#response-json-summaries)
-    - [Response attributes](12-licensing-reference.md#response-attributes)
-- [Examples](12-licensing-reference.md#examples)
-    - [Content/Info](12-licensing-reference.md#contentinfo)
-    - [Content/License](12-licensing-reference.md#contentlicense)
-    - [Member/Profile](12-licensing-reference.md#memberprofile)
-- [Error codes](12-licensing-reference.md#error-codes)
-- [Downloading licensed files](12-licensing-reference.md#downloading-licensed-files)
-- [More information](12-licensing-reference.md#more-information)
+- [Content and Member requests](#content-and-member-requests)
+    - [Authentication](#authentication)
+    - [Request headers](#request-headers)
+    - [URL parameters](#url-parameters)
+- [Responses](#responses)
+    - [Response JSON summaries](#response-json-summaries)
+    - [Response attributes](#response-attributes)
+- [Examples](#examples)
+    - [Content/Info](#contentinfo)
+    - [Content/License](#contentlicense)
+    - [Member/Profile](#memberprofile)
+- [Error codes](#error-codes)
+- [Downloading licensed files](#downloading-licensed-files)
+- [More information](#more-information)
 
 <!-- /MarkdownTOC -->
 
-
-<a name="content-and-member-requests"></a>
 ## Content and Member requests
 
 The Stock API provides the following methods related to licensing and getting more info about licensed assets.  For a guide to usage and additional examples, see [Licensing Stock assets](../getting-started/apps/06-licensing-assets.md).
@@ -30,7 +28,7 @@ The Stock API provides the following methods related to licensing and getting mo
 | Endpoints | Method |
 | ----- | ----- |
 | https://stock.adobe.io/Rest/Libraries/1/Content/Info | GET |
-| https://stock.adobe.io/Rest/Libraries/1/Content/License | GET, POST (for adding [license references](12-licensing-reference.md#examples)) |
+| https://stock.adobe.io/Rest/Libraries/1/Content/License | GET, POST (for adding [license references](#examples)) |
 | https://stock.adobe.io/Rest/Libraries/1/Member/Profile | GET |
 | https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory | GET |
 
@@ -49,17 +47,14 @@ The Stock API provides the following methods related to licensing and getting mo
 *   **Member/LicenseHistory.** This is covered in the next section, [License history reference](13-license-history.md).
 
 
-<a name="authentication"></a>
 ### Authentication
 
 The Authorization header is required for any of the licensing calls. The API uses the header to determine the user's member number, licensing status, and default locale. See [API authentication](../getting-started/03-api-authentication.md) for more information.
 
 
-<a name="request-headers"></a>
 ### Request headers
 
 See [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
-
 
 
 *   Required headers: `x-Product`, `x-api-key`, `Authorization`
@@ -145,16 +140,11 @@ Default is <code>false</code>, meaning that if Content/License is used on an ass
 </table>
 
 
-
-<a name="responses"></a>
 ## Responses
 
 Calls return information in JSON structures.
 
-
-<a name="response-json-summaries"></a>
 ### Response JSON summaries
-
 
 
 *   **Content/Info** returns this structure. Some attributes appear only in certain situations.
@@ -175,7 +165,6 @@ Calls return information in JSON structures.
   "member": { "stock_id": 12345 }
 }
 ```
-
 
 
 *   **Content/License** returns this structure. Some attributes appear only in certain situations.
@@ -209,7 +198,6 @@ Calls return information in JSON structures.
  }
 ```
 
-
 *   **Member/Profile** returns this structure. Some attributes appear only in certain situations.
 
 ```javascript
@@ -232,9 +220,7 @@ Calls return information in JSON structures.
 ```
 
 
-<a name="response-attributes"></a>
 ### Response attributes
-
 
 <table>
   <tr>
@@ -442,15 +428,9 @@ All returned messages are localized and generated for you by the Stock API. This
   </tr>
 </table>
 
-
-
-<a name="examples"></a>
 ## Examples
 
-
-<a name="contentinfo"></a>
 ### Content/Info
-
 
 #### Asset not purchased by this user
 
@@ -479,8 +459,6 @@ Authorization: Bearer MyAccessToken
   }
 }
 ```
-
-
 
 #### Asset purchased by this user with Extended license
 
@@ -512,10 +490,7 @@ Authorization: Bearer MyAccessToken
 ```
 
 
-
-<a name="contentlicense"></a>
 ### Content/License
-
 
 #### Just-licensed asset with existing quota
 
@@ -561,7 +536,6 @@ Authorization: Bearer MyAccessToken
 }
 ```
 
-<a name="license-references-example"></a>
 #### Using license references in license request
 If your enterprise account is configured to require or allow optional license references, then the Content/License request must be made a POST, adding the references as JSON in the body of the message. Additionally, the `Content-Type` of the request should be `application/json`.
 
@@ -583,9 +557,7 @@ Authorization: Bearer MyAccessToken
 
 JSON response is identical to response for a normal GET Content/License request.
 
-<a name="memberprofile"></a>
 ### Member/Profile 
-
 
 #### User has quota
 
@@ -655,8 +627,6 @@ Authorization: Bearer MyAccessToken
 }
 ```
 
-
-
 #### User has no quota or overage plan
 
 ```http
@@ -685,7 +655,6 @@ Authorization: Bearer MyAccessToken
 }
 ```
 
-<a name="error-codes"></a>
 ## Error codes
 
 Each error generates a JSON array that contains the following keys and values. If your application receives this array and you need assistance, send the array to Adobe.
@@ -700,7 +669,7 @@ Each error generates a JSON array that contains the following keys and values. I
     *   `31`: Invalid Method. The method that you specified does not exist in the method list.
     *   `100`: Invalid data. Data that you specified as arguments are not supported.
 
-<a name="downloading-licensed-files"></a>
+
 ## Downloading licensed files
 
 The __Content/License__ method returns a download URL, which uses the __Libraries/Download__ endpoint. This URL can be accessed via a normal GET request over an HTTPS connection.
@@ -785,7 +754,6 @@ curl -L "https://stock.adobe.com/Rest/Libraries/Download/99872034/1?token=MyAcce
 - "This download is expired": Token has expired
 - "Cannot find a download for this file and license on this organization": Invalid access token, or generated for wrong user/account, or asset is not actually licensed. Use Content/Info or Member/Profile for more information.
 
-<a name="more-information"></a>
 ## More information
 
 
