@@ -4,25 +4,22 @@
 
 <!-- MarkdownTOC -->
 
-- [Search requests](11-search-reference.md#search-requests)
-    - [About search and filter criteria](11-search-reference.md#about-search-and-filter-criteria)
-    - [Authentication](11-search-reference.md#authentication)
-    - [Request headers](11-search-reference.md#request-headers)
-    - [URL parameters](11-search-reference.md#url-parameters)
-- [Responses](11-search-reference.md#responses)
-- [Example returned comps values](11-search-reference.md#example-returned-comps-values)
-- [Example queries and responses](11-search-reference.md#example-queries-and-responses)
-    - [Common search queries](11-search-reference.md#common-search-queries)
-- [Error codes](11-search-reference.md#error-codes)
-- [More information](11-search-reference.md#more-information)
+- [Search requests](#search-requests)
+    - [About search and filter criteria](#about-search-and-filter-criteria)
+    - [Authentication](#authentication)
+    - [Request headers](#request-headers)
+    - [URL parameters](#url-parameters)
+- [Responses](#responses)
+- [Example returned comps values](#example-returned-comps-values)
+- [Example queries and responses](#example-queries-and-responses)
+    - [Common search queries](#common-search-queries)
+- [Error codes](#error-codes)
+- [More information](#more-information)
 
 <!-- /MarkdownTOC -->
 
-
 You can query Adobe Stock for assets that meet your specified search criteria. You can filter the results, specify the sort order in which the results are returned, and choose how many assets to return for each page of results.
 
-
-<a id="search-requests"></a>
 ## Search requests 
 
 A request using the Stock Search API retrieves a list of assets from Adobe Stock that matches a set of search and filter values. A maximum of 64 assets can be returned from one request. This is a paginated interface that you can call multiple times to retrieve the full list.
@@ -33,11 +30,10 @@ For a guide to usage and additional examples, see [Creating Adobe Stock applicat
 | ------------ | ------------- |
 | https://stock.adobe.io/Rest/Media/1/Search/Files | GET <p>POST (only when using the similar_image parameter) |
 
-<a id="about-search-and-filter-criteria"></a>
+
 ### About search and filter criteria 
 
 Search commands have three formats:
-
 
 1. __Search parameters.__ In general, search parameters identify asset information for values that cannot be predetermined, such as ID numbers or keywords. Parameters for searches look like this:
 
@@ -96,7 +92,6 @@ Chain together multiple `result_columns[]` commands to get exactly the results y
 
 See [Responses](#responses), below.
 
-<a id="authentication"></a>
 ### Authentication 
 
 An `Authorization` header is not required. If you do not pass a valid bearer token in the Authorization header, you can search within Adobe Stock and access preview versions of assets, but the API will not return licensing requirements or give you the licensed status for the assets. Requests made in this way are essentially anonymous, with no notion of the user making the request.
@@ -104,18 +99,15 @@ An `Authorization` header is not required. If you do not pass a valid bearer tok
 If you do pass a valid token, then the Adobe Stock service returns the license state and licensed URL for each asset. See [API authentication](../getting-started/03-api-authentication.md).  
 
 
-<a id="request-headers"></a>
 ### Request headers 
 
 See [API authentication](../getting-started/03-api-authentication.md) and [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
-
 
 
 *   Required headers: `x-Product`, `x-api-key`
 *   Optional headers: `Authorization` (required to view license state), `X-Request-Id`
 
 
-<a id="url-parameters"></a>
 ### URL parameters 
 
 Pass the following URL parameters with the GET request.
@@ -529,10 +521,7 @@ Valid values and meanings:<ul>
   </tr>
 </table>
 
-
-
-<a id="responses"></a>
-## Responses <a name="responses"></a>
+## Responses 
 
 The Adobe Stock service returns information about all found assets that also match the filtering criteria.
 
@@ -864,9 +853,6 @@ For example:
   </tr>
 </table>
 
-
-
-<a id="example-returned-comps-values"></a>
 ## Example returned comps values 
 
 Image:
@@ -914,8 +900,6 @@ Video that is in HD only:
         }
       }
 
-
-<a id="example-queries-and-responses"></a>
 ## Example queries and responses 
 
 This example searches for assets that have the keyword "dog" and returns no more than the first two matches.
@@ -979,13 +963,9 @@ The preceding request returns two asset descriptions. `nb_results` shows that 39
 }
 ```
 
-
-
-<a id="common-search-queries"></a>
 ### Common search queries 
 
 Here are simple examples of common searches.
-
 
 
 *   Keyword search; assets matching "purple" and "clouds":
@@ -993,11 +973,9 @@ Here are simple examples of common searches.
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=purple clouds`
 
 
-
 *   Using pagination, get the 3rd page of results (rows 64-95) for the word "dogs":
 
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=dogs&search_parameters[limit]=32&search_parameters[offset]=64`
-
 
 
 *   Search for assets similar in appearance to the specified asset ID:
@@ -1005,11 +983,9 @@ Here are simple examples of common searches.
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[similar]=121353611`
 
 
-
 *   Search for assets similar in appearance to the specified URL:
 
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[similar_url]=https://i.kinja-img.com/gawker-media/image/upload/xqkbwkexcl7udc5va7pn.jpg`
-
 
 
 *   Similar asset by URL and keyword:
@@ -1017,17 +993,13 @@ Here are simple examples of common searches.
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[similar_url]=https://i.kinja-img.com/gawker-media/image/upload/xqkbwkexcl7udc5va7pn.jpg&search_parameters[words]=cats`
 
 
-
 *   Search for assets depicting the specified model:
 
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[model_id]=58344279`
 
-
-<a id="error-codes"></a>
 ## Error codes 
 
 Each error generates a JSON array that contains the following keys and values. If your application receives this array and you need assistance, send the array to Adobe.
-
 
 
 *   An **`error`** key.  
@@ -1039,7 +1011,6 @@ Each error generates a JSON array that contains the following keys and values. I
     *   `100`: Invalid data. Data that you specified as arguments are not supported.
 
 
-<a id="more-information"></a>
 ## More information 
 
 * See the practical search example in [Search for assets](../getting-started/apps/05-search-for-assets.md).
