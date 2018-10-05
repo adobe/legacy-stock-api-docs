@@ -8,32 +8,32 @@ _**Tl;dr version:** Use the Member/Profile API to check the status of an asset y
 <!-- MarkdownTOC -->
 
 - [Licensing workflow](#licensing-workflow)
-    - [1. Get a token](#1-get-a-token)
-    - [2. Get Stock asset ID](#2-get-stock-asset-id)
-    - [3. Check if licensed](#3-check-if-licensed)
-    - [4. Check if licensing is possible](#4-check-if-licensing-is-possible)
-    - [5. License the asset](#5-license-the-asset)
-    - [6. Download the file](#6-download-the-file)
-        - [Follow the redirects...](#follow-the-redirects)
+  - [1. Get a token](#1-get-a-token)
+  - [2. Get Stock asset ID](#2-get-stock-asset-id)
+  - [3. Check if licensed](#3-check-if-licensed)
+  - [4. Check if licensing is possible](#4-check-if-licensing-is-possible)
+  - [5. License the asset](#5-license-the-asset)
+  - [6. Download the file](#6-download-the-file)
+    - [Follow the redirects...](#follow-the-redirects)
 - [Getting a license history](#getting-a-license-history)
 - [Next steps](#next-steps)
 - [Troubleshooting licensing requests](#troubleshooting-licensing-requests)
-    - [Member/Profile issues](#memberprofile-issues)
-        - [Problem: Asset type can't be licensed](#problem-asset-type-cant-be-licensed)
-        - [Solution: Purchase universal credits or upgrade your plan](#solution-purchase-universal-credits-or-upgrade-your-plan)
-        - [Problem: No credits or not enough credits](#problem-no-credits-or-not-enough-credits)
-        - [Solution \(enterprise\): Add quota to your PLC](#solution-enterprise-add-quota-to-your-plc)
-        - [Solution \(non-enterprise\): Buy credits or save payment info](#solution-non-enterprise-buy-credits-or-save-payment-info)
-        - [Solution: Look further or get help](#solution-look-further-or-get-help)
-    - [Other problems](#other-problems)
-        - [Wrong license type](#wrong-license-type)
-        - [Expired or invalid token](#expired-or-invalid-token)
+  - [Member/Profile issues](#memberprofile-issues)
+    - [Problem: Asset type can't be licensed](#problem-asset-type-cant-be-licensed)
+    - [Solution: Purchase universal credits or upgrade your plan](#solution-purchase-universal-credits-or-upgrade-your-plan)
+    - [Problem: No credits or not enough credits](#problem-no-credits-or-not-enough-credits)
+    - [Solution \(enterprise\): Add quota to your PLC](#solution-enterprise-add-quota-to-your-plc)
+    - [Solution \(non-enterprise\): Buy credits or save payment info](#solution-non-enterprise-buy-credits-or-save-payment-info)
+    - [Solution: Look further or get help](#solution-look-further-or-get-help)
+  - [Other problems](#other-problems)
+    - [Wrong license type](#wrong-license-type)
+    - [Expired or invalid token](#expired-or-invalid-token)
 - [Q&A](#qa)
-        - [Can I find out how many credits are remaining?](#can-i-find-out-how-many-credits-are-remaining)
-        - [How can I tell if the user has an enterprise entitlement?](#how-can-i-tell-if-the-user-has-an-enterprise-entitlement)
-        - [Is it possible to get an image in different size?](#is-it-possible-to-get-an-image-in-different-size)
-        - [How can I test licensing assets if I do not have an Adobe Stock plan or contract?](#how-can-i-test-licensing-assets-if-i-do-not-have-an-adobe-stock-plan-or-contract)
-        - [How do I license assets more than once?](#how-do-i-license-assets-more-than-once)
+    - [Can I find out how many credits are remaining?](#can-i-find-out-how-many-credits-are-remaining)
+    - [How can I tell if the user has an enterprise entitlement?](#how-can-i-tell-if-the-user-has-an-enterprise-entitlement)
+    - [Is it possible to get an image in different size?](#is-it-possible-to-get-an-image-in-different-size)
+    - [How can I test licensing assets if I do not have an Adobe Stock plan or contract?](#how-can-i-test-licensing-assets-if-i-do-not-have-an-adobe-stock-plan-or-contract)
+    - [How do I license assets more than once?](#how-do-i-license-assets-more-than-once)
 
 <!-- /MarkdownTOC -->
 
@@ -41,7 +41,7 @@ In the previous section, we covered how to hook up the Search API into your appl
 
 ## Licensing workflow
 
-Before you can purchase an asset using the API, there are a few tasks you will want to perform as part of your application flow, and this may trigger multiple decision points depending on your [use case](../02-register-app.md). Like a children's board game, the process is not difficult as long as you understand the rules.
+Before you can purchase an asset using the API, there are a few tasks you will want to perform as part of your application flow, and this may trigger multiple decision points depending on your [use case](../02-register-app.md#use-case-matrix). Like a children's board game, the process is not difficult as long as you understand the rules.
 
 ![Licensing Flow board game](../../images/api-licensing-flow-game.png)
 
@@ -78,7 +78,7 @@ For example, your user wants to license an image of a cute, fluffy kitten (and w
 }
 ```
 
-<br>
+
 ![Check if licensed](../../images/Licensing-assets4.png)
 
 ### 3. Check if licensed
@@ -142,7 +142,7 @@ Response:
 
 In both cases, if the asset _is_ licensed, then there is nothing else to do but get the URL and download the asset. _Proceed to [step #6](#6-download-the-file)_.
 
-<br>
+
 ![Is licensing possible](../../images/Licensing-assets5.png)
 
 ### 4. Check if licensing is possible

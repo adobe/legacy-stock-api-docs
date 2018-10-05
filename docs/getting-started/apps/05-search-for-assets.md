@@ -6,17 +6,17 @@ _**Tl;dr version:** Convert your app requirements into commands and build your s
 
 - [Practical search example](#practical-search-example)
 - [Tips and techniques](#tips-and-techniques)
-    - [Paginating results](#paginating-results)
-        - [Pagination example](#pagination-example)
-    - [Change the order of your results](#change-the-order-of-your-results)
-    - [Similarity \(visual\) search](#similarity-visual-search)
-        - [Image similarity POST example](#image-similarity-post-example)
-        - [Combining visual search with other filters](#combining-visual-search-with-other-filters)
-    - [Jump to a search results page on Adobe Stock](#jump-to-a-search-results-page-on-adobe-stock)
-        - [Search by keyword](#search-by-keyword)
-        - [Filter by photos, vectors, video, etc.](#filter-by-photos-vectors-video-etc)
-        - [Search on standard or Premium content](#search-on-standard-or-premium-content)
-        - [Important: Get tracking credit](#important-get-tracking-credit)
+  - [Paginating results](#paginating-results)
+    - [Pagination example](#pagination-example)
+  - [Change the order of your results](#change-the-order-of-your-results)
+  - [Similarity \(visual\) search](#similarity-visual-search)
+    - [Image similarity POST example](#image-similarity-post-example)
+    - [Combining visual search with other filters](#combining-visual-search-with-other-filters)
+  - [Jump to a search results page on Adobe Stock](#jump-to-a-search-results-page-on-adobe-stock)
+    - [Search by keyword](#search-by-keyword)
+    - [Filter by photos, vectors, video, etc.](#filter-by-photos-vectors-video-etc)
+    - [Search on standard or Premium content](#search-on-standard-or-premium-content)
+    - [Important: Get tracking credit](#important-get-tracking-credit)
 
 <!-- /MarkdownTOC -->
 
@@ -310,7 +310,6 @@ Use the `k` parameter. Example:
 https://stock.adobe.com/search?k=kittens
 ```
 
-<a id="filter-by-photos-vectors-video-etc"></a>
 #### Filter by photos, vectors, video, etc.
 
 Use these parameters:
@@ -353,10 +352,11 @@ https://stock.adobe.com/search?k=stars&price[$$]=1&price[$$$]=1
 
 #### Important: Get tracking credit
 
-If you want your application to get referral credit for the search, meaning that you have joined the Adobe Partner/Affiliate program and receive a "bounty" for referral traffic, then make sure you add add the same parameters that are present on your details_url. See the discussion of using this data in the [practical search example](05-search-for-assets.md#practical-search-example), above. 
+If you want your application to get referral credit for the search, meaning that you have joined the Adobe Partner/Affiliate program and receive a "bounty" for referral traffic, then make sure you add add the same parameters that are present on your details_url. See the discussion of using this data in the [practical search example](#practical-search-example), above. 
 
 Example:
 
 ```
-https://stock.adobe.com/search?k=kittens&as_channel=affiliate&as_source=api&as_content=cfc3d3bd68784b8cbeec1ad707c2aecb
+https://stock.adobe.com/search?k=kittens&as_channel=affiliate&as_source=api
+&as_content=cfc3d3bd68784b8cbeec1ad707c2aecb
 ```

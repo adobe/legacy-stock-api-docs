@@ -73,5 +73,5 @@ If you have already performed most of the tasks above or are in the middle of an
 
 *   Review the detailed [workflow guides](getting-started/07-workflow-guides.md), which gives information on everything you need for a particular use case.
 *   Get [sample code and download SDKs](getting-started/08-sample-code-sdks.md) from GitHub.
-*   Read complete reference details for all API calls, call headers, and locales in the [Adobe Stock API Reference](#).
+*   Read complete reference details for all API calls, call headers, and locales in the [Adobe Stock API Reference](09-api-summary.md).
 

@@ -25,7 +25,7 @@ Once you have answered these questions, you can visit the [Adobe I/O Console](ht
 
 ## API authentication requirements
 
-> To Search, perchance to License; aye, there's the rub.  - _Shakespeare, sort of_
+> _To Search, perchance to License; aye, there's the rub. -- Shakespeare, sort of_
 
 To (badly) paraphrase *Hamlet*, Adobe Stock currently offers APIs that can search, and then license (and get license info about), assets. The choice of APIs used by your application dictates what level of authentication you will need. 
 
@@ -79,20 +79,20 @@ All Adobe Stock API applications must be registered by creating an integration u
 
 
 *   **Service account.** This is the most secure authentication method, because it occurs on the backend, server-to-server, and because it requires the integrator to store a public key certificate on Adobe, and use a private key to sign requests. Adobe exchanges tokens with the application using the JSON Web Token (JWT) scheme. As a result, the application can authenticate itself without any user involvement or login.
-    *   __Note:__ For Enterprise customers *only*. You will need to sign into Adobe I/O using your system admin credentials. See [__Q&A__](02-register-app.md#qa) below if you are unsure whether your company has Adobe Stock for Enterprise. 
+    *   __Note:__ For Enterprise customers *only*. You will need to sign into Adobe I/O using your system admin credentials. See [Q&A](02-register-app.md#qa) below if you are unsure whether your company has Adobe Stock for Enterprise. 
     *   For a guided walkthrough, see the [Adobe Stock Service Account workflow](07-workflow-guides.md).
     *   Learn more about [Service Accounts](https://www.adobe.io/apis/cloudplatform/console/authentication/jwt_workflow.html) in the Adobe Cloud Platform documentation.
 *   **OAuth.** Also called [OAuth 2.0](https://oauth.net/2/), this is a web standard for allowing users to sign in directly to Adobe without sharing any credentials with the 3rd party application, and requires the user to give explicit permission to the application to access their data. Once login is complete, the application will receive an access token which can be used to make authenticated requests on behalf of the user. If you are not an Adobe Enterprise customer, then this is the only method you may use to access the Licensing API.
     *   **Special note:** In addition to creating an Adobe Stock OAuth integration, you will also need to add **Creative SDK** integration to enable the Adobe login. Because this method is more complex, refer to the [Authorization Code Workflow Guide](07-workflow-guides.md) for a complete guide.
     *   Find more details on [OAuth integrations](https://www.adobe.io/apis/cloudplatform/console/authentication/oauth_workflow.html) (Adobe Cloud Platform).
 *   **API Key.** This is the simplest method, as all it requires is that you whitelist your application on the Adobe I/O Console by registering it. The I/O Console will generate a Stock API key, which you will use for all subsequent requests. Note that an API key is required for *all* authentication methods, however some APIs only require the key, such as the Search API.
-    *   **Note:** There is no "API Key" integration choice for Adobe Stock. Instead, choose "OAuth," and put whatever URL you want for the *Redirect URI*, because it will not be used. (*Yes*, we know this is confusing!) Here is a [screenshot](../images/io_api-key-integration.png) of a completed integration form on the I/O Console.
+    *   **Note:** There is no "API Key" integration choice for Adobe Stock. Instead, choose "OAuth," and put whatever URL you want for the *Redirect URI*, because it will not be used. (*Yes*, we know this is confusing!) Here is a [screenshot](https://raw.githubusercontent.com/adobe/stock-api-docs/master/docs/images/io_api-key-integration.png) of a completed integration form on the I/O Console.
     *   For a guided walkthrough, see the [Affiliate API Workflow guide](07-workflow-guides.md).
     *   More details on [API Key integrations](https://www.adobe.io/apis/cloudplatform/console/authentication/api_key_workflow.html) (Adobe Cloud Platform). 
 
 ### Use case matrix
 
-Based on your business case, this table shows which integration type would best apply to your application. For a description of each business case, see [What are the different use cases for the Adobe Stock API?](#use-cases-for-the-adobe-stock-api)
+Based on your business case, this table shows which integration type would best apply to your application. For a description of each business case, see [What are the different use cases for the Adobe Stock API?](#what-are-the-different-use-cases-for-the-adobe-stock-api)
 
 
 || **Service Account** | **OAuth** | **API Key only** |
@@ -144,6 +144,6 @@ These are the typical business scenarios for using the Stock API. [Contact us](m
 *   **Affiliates.** This category includes website aggregators, who allow you to search on multiple stock sites at once, as well as any partner that wants to build an Adobe Stock search "widget" on their site, and direct traffic to Adobe for sales commissions. This is the simplest use case, because it only requires the Search API and not the Licensing API, as licensing would occur directly on the Adobe Stock website.
 
 
-### Why do I need to add Creative SDK to my OAuth integration, and why is the API Key integration *called* "OAuth"?
+### Why do I need to add Creative SDK to my OAuth integration, and why is the API Key integration called "OAuth"?
 
 Adobe Stock is still working through these issues with the Adobe Cloud Platform team. The API Key integration is simply mislabeled in the Adobe I/O Console, while the OAuth integration is new to Adobe Stock. Because it is still a new method, the Stock API Key integration lacks the proper scopes required by the Adobe login mechanism. However, Creative SDK does have the proper scopes, allowing the sign-in workflow to succeed.
