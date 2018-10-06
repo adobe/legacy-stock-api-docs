@@ -19,7 +19,7 @@ Here is a summary of the general steps you follow when integrating with the Stoc
 1.  Set up your [headers for authentication](./03-api-authentication.md), which could mean only the API key and application name, but could also require a user or organization token.
     *   You will need to craft additional code (not specific to the Stock APIs) to generate your tokens.
 1.  Build and execute a [search query](./apps/05-search-for-assets.md) using your design decisions and user choices. Parse the JSON response and display information or thumbnails for the quantity of assets returned. Include metadata and thumbnails where appropriate.
-    *   Display additional results from the Search query using [pagination](./apps/05-search-for-assets.md?#paginating-results).  
-1.  If desired, assist your user to [license Stock assets](./apps/06-licensing-assets.md), and view past [license history](./apps/06-licensing-assets.md?#getting-a-license-history).
+    *   Display additional results from the Search query using [pagination](./apps/05-search-for-assets.md#paginating-results).  
+1.  If desired, assist your user to [license Stock assets](./apps/06-licensing-assets.md), and view past [license history](./apps/06-licensing-assets.md#getting-a-license-history).
 
 __>>> NEXT:__ Learn how to use the [Search API](./apps/05-search-for-assets.md).

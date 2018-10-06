@@ -154,9 +154,9 @@ Calls return information in JSON structures.
     "0000": {
       "content_id": 0000,
       "purchase_details": {
-        "stock_id": 12345,  (only if user has not purchased)
-        "date": "yyyy-mm-dd hh:mm:mm", (only if purchased)
-        "license": "...", (only if purchased)
+        "stock_id": 12345,  /*only if user has not purchased*/
+        "date": "yyyy-mm-dd hh:mm:mm", /*only if purchased*/
+        "license": "...", /*only if purchased*/
         "state": "..."
       },
       "size": "..."
@@ -184,12 +184,12 @@ Calls return information in JSON structures.
       "purchase_details": {
         "state": "...",
         "license": "...",
-        "date": "yyyy-mm-dd hh:mm:mm", (only if licensed)
-        "url": "...",     (only if download needed)
+        "date": "yyyy-mm-dd hh:mm:mm", /*only if licensed*/
+        "url": "...",     /*only if download needed*/
         "content_type": "...",
         "width": 000,
         "height": 000,
-        (additional props depending on asset type...)
+        /*additional props depending on asset type...*/
       },
       "size": "..."
     }
@@ -213,9 +213,9 @@ Calls return information in JSON structures.
     "state": "...",
     "requires_checkout": ....,
     "message": "...",
-    "url": "..."   (only if user has no quota or overage)
+    "url": "..."   /*only if user has no quota or overage*/
   },
-  "member": { "member_id": 12345 } (only if user has quota or overage)
+  "member": { "member_id": 12345 } /*only if user has quota or overage*/
 }
 ```
 
