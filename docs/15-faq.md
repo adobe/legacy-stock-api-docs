@@ -3,14 +3,14 @@
 <!-- MarkdownTOC -->
 
 - [General](#general)
-    - [What image sizes are available?](#what-image-sizes-are-available)
-    - [How do I download a comp image?](#how-do-i-download-a-comp-image)
+  - [What image sizes are available?](#what-image-sizes-are-available)
+  - [How do I download a comp image?](#how-do-i-download-a-comp-image)
 - [Licensing](#licensing)
-    - [How do I add license references?](#how-do-i-add-license-references)
+  - [How do I add license references?](#how-do-i-add-license-references)
 - [Print on Demand](#print-on-demand)
-    - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
-    - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
-    - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
+  - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
+  - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
+  - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
 
 <!-- /MarkdownTOC -->
 
@@ -30,7 +30,7 @@ See [Search API reference](api/11-search-reference.md).
 
 ### How do I download a comp image?
 There are two kinds of preview images available: cached thumbnail images from the CDN, and non-cached comp images which need to be downloaded from the API. The first type of images are most common, and recommended for most applications. This is a sample URL:
-https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg
+[https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg](https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg)
 
 For best performance, use this type of image when possible. In some circumstances, however, you may need the "comp" image version instead. This image requires a different workflow. First you must get the URL from the API, and then download it, often with an authentication header.
 

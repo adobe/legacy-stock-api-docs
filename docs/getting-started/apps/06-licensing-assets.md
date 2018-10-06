@@ -185,7 +185,7 @@ Response:
 
 In the example, you can see that the `purchase_options.state` is "possible," which tells you that licensing can continue. If it is __not__ possible to license, go to [Troubleshooting](#troubleshooting-licensing-requests), below. Otherwise, continue to the next step.
 
-<br>
+
 ![Get a license](../../images/Licensing-assets6.png)
 
 ### 5. License the asset
@@ -435,7 +435,7 @@ Video assets could have a premium_level of 0, but simply because the content typ
 ```
 
 
-<br><br>
+
 ![Purchase credits](../../images/Licensing-assets9.png)
 
 #### Solution: Purchase universal credits or upgrade your plan
@@ -444,7 +444,7 @@ If you do not belong to an enterprise entitlement, the solution is easy: go to [
 
 If you _do_ belong to an enterprise organization, you will need to contact your Adobe sales team for options.
 
-<br><br>
+
 ![alt_text](../../images/Licensing-assets10.png)
 
 #### Problem: No credits or not enough credits
@@ -474,7 +474,7 @@ In both cases, if `purchase_options.requires_checkout` is `true` but licensing i
 }
 ```
 
-<br>
+
 ![Add credits to PLC](../../images/Licensing-assets11.png)
 
 #### Solution (enterprise): Add quota to your PLC
@@ -486,7 +486,7 @@ One reason enterprises may want to intentionally limit their PLC is if each depa
 Note that admins can only add more credits for the type of assets they have agreed to license, per their contract. For example, if a contract only has standard image credits, the administrator cannot add universal credits for Premium or Video assets. In this case, the Adobe sales team must be contacted.
 
 
-<br><br>
+
 ![Purchase credits](../../images/Licensing-assets9.png)
 
 #### Solution (non-enterprise): Buy credits or save payment info
@@ -495,7 +495,7 @@ You need credits to purchase licenses, whether those are standard image credits 
 
 Note that some assets (such as some Creative Cloud templates) are free, and do not require a subscription or credits as long as you are a non-enterprise user.
 
-<br><br>
+
 ![Contact Support](../../images/Licensing-assets13.png)
 
 #### Solution: Look further or get help
