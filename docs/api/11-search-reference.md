@@ -195,7 +195,7 @@ Starting with assets that have not commonly been viewed or downloaded.</li></ul>
    </td>
   </tr>
   <tr>
-   <td>search_parameters[series_id]
+   <td>search_parameters[serie_id]
    </td>
    <td>Search for assets in the specified series using the series ID. Returns all assets that the creator has grouped into this single series. Integer.
    </td>
