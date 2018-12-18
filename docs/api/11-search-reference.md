@@ -191,13 +191,13 @@ Starting with assets that have not commonly been viewed or downloaded.</li></ul>
   <tr>
    <td>search_parameters[model_id]
    </td>
-   <td>Search for assets that portray a specific person (model) using the model's ID. Integer.
+   <td>Search for assets that portray a specific person (model) into a specific media ID. Use a media ID as the value. Integer.
    </td>
   </tr>
   <tr>
    <td>search_parameters[series_id]
    </td>
-   <td>Search for assets in the specified series using the series ID. Returns all assets that the creator has grouped into this single series. Integer.
+   <td>Search for assets in the same series as a media ID. Use a media ID as the value. Integer.
    </td>
   </tr>
   <tr>
