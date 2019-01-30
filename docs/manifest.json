@@ -39,7 +39,7 @@
           "pages":[  
           ],
           "path":"adobe/stock-api-docs/master/docs/getting-started/apps/05-search-for-assets.md",
-          "title": "Search for assets"
+          "title": "Searching for assets"
         },
         {
           "importedFileName": "06-licensing-assets",
@@ -68,14 +68,7 @@
     },
     {
       "importedFileName": "09-api-summary",
-      "pages": [    
-        {
-          "importedFileName": "09-api-summary",
-          "pages":[  
-          ],
-          "path":"adobe/stock-api-docs/master/docs/09-api-summary.md",
-          "title": "Adobe Stock API Reference"
-        },
+      "pages": [
         {
           "importedFileName": "10-headers-for-api-calls",
           "pages":[  
@@ -102,14 +95,14 @@
           "pages":[  
           ],
           "path":"adobe/stock-api-docs/master/docs/api/13-license-history.md",
-          "title": "License History Reference"
+          "title": "License history reference"
         },
         {
           "importedFileName": "17-categorytree",
           "pages":[  
           ],
-          "path": "stock-api-docs/docs/api/17-categorytree.md",
-          "title": "Category Tree Reference"
+          "path": "stock-api-docs/master/docs/api/17-categorytree.md",
+          "title": "Category tree Reference"
         },
         {
           "importedFileName": "14-locale-codes",
@@ -120,7 +113,7 @@
         }
       ],
       "path":"adobe/stock-api-docs/master/docs/09-api-summary.md",
-      "title":"API"
+      "title":"API reference"
     },
     {  
       "importedFileName":"15-faq",
@@ -134,7 +127,7 @@
       "pages":[  
       ],
       "path":"adobe/stock-api-docs/master/docs/16-app-approval.md",
-      "title":"Application Approval"
+      "title":"Application approval"
     }
   ]
 }
