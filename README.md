@@ -15,9 +15,11 @@ If you are browsing this at Github, here is an index and reading order:
   + [Headers for Stock API calls](docs/api/10-headers-for-api-calls.md)
   + [Search API reference](docs/api/11-search-reference.md)
   + [Licensing reference](docs/api/12-licensing-reference.md)
-  + [License History Reference](docs/api/13-license-history.md)
+  + [License History reference](docs/api/13-license-history.md)
+  + [Category Tree reference](docs/api/17-categorytree.md)
   + [Locale codes](docs/api/14-locale-codes.md)
 * [Frequently asked questions](docs/15-faq.md)
+* [Fotolia API migration resources](docs/18-fotolia-migration-resources.md)
 * [Application approval guidelines](docs/16-app-approval.md)
 
 Contributions are welcome! If you find a mistake, please follow the [issue template](ISSUE_TEMPLATE.md) or would like to add or clarify something, please see the [contributing guidelines](CONTRIBUTING.md).
