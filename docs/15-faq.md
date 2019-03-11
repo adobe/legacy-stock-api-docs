@@ -12,6 +12,7 @@
     - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
     - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
     - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
+    - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
 
 <!-- /MarkdownTOC -->
 
@@ -198,3 +199,83 @@ X-API-Key: YourApiKeyHere
 ```
 
 For more details, see [Search API reference](api/11-search-reference.md).
+
+<a id="what-type-of-image-quota-do-i-have"></a>
+### What type of image quota do I have?
+This question only applies to POD Small and Medium Businesses (SMB) customers, not to Enterprise customers.
+
+In the SMB model for Print on Demand, Individual and Team customers must purchase credit packs _instead of_ image subscriptions, and use one credit per image printed. Furthermore, if they already have a Stock image subscription on their account, they must not combine both quota types on the same account; their POD account must use credit packs only. If they combine both types, Stock will automatically deduct image licenses from a subscription instead of the credit pack--there is no way to override this behavior.
+
+The two types of quota are easy to distinguish in the Adobe Stock web UI, but are slightly more confusing as displayed in the Stock API. In the Stock web UI, image quota is displayed as "Images," and credit quota as "Credits." As noted above, SMB customers must only have credits to use Stock for Print on Demand.
+
+In the examples below, only user #3 has the proper type of quota, because user #1 has an image subscription only, and user #2 has both a subscription and credit pack.
+
+![Sample Stock quota types](images/web_pod-quota-types.png)
+
+When using the Stock API, the quota type will be returned by the [Member/Profile API](api/12-licensing-reference.md) as part of the JSON object `available_entitlement.full_entitlement_quota`.
+
+```JavaScript
+"available_entitlement": {
+    "quota": 0,         <== Image subscription quota (ignore)
+    "license_type_id": 1,
+    "has_credit_model": false,
+    "has_agency_model": false,
+    "is_cce": false,
+    "full_entitlement_quota": {
+       ...               <== Quota types listed here (see below)
+    }
+},
+```
+
+Individual and Team customers can see two types of `full_entitlement_quota`:
+- `image_quota`: The available images available in an image subscription.
+- `individual_universal_credits_quota`: The available credits available from a credit pack.
+
+The top-level `quota` attribute can be ignored, as it only applies to image subscriptions in this case and is not applicable to Print on Demand.
+
+Using the previous screenshot example, the `Member/Profile` responses would look like this when returned by the API:
+
+**BAD** (image subscription only)
+```JavaScript
+"available_entitlement": {
+    "quota": 3,
+    "license_type_id": 1,
+    "has_credit_model": false,
+    "has_agency_model": false,
+    "is_cce": false,
+    "full_entitlement_quota": {
+        "image_quota": 3
+    }
+},
+```
+
+**BAD** (image subscriptions + credit pack in same account)
+```JavaScript
+"available_entitlement": {
+    "quota": 10,
+    "license_type_id": 1,
+    "has_credit_model": false,
+    "has_agency_model": false,
+    "is_cce": false,
+    "full_entitlement_quota": {
+        "image_quota": 10,
+        "individual_universal_credits_quota": 40
+    }
+},
+```
+
+**GOOD** (credit pack only)
+```JavaScript
+"available_entitlement": {
+    "quota": 0,
+    "license_type_id": 5,
+    "has_credit_model": false,
+    "has_agency_model": false,
+    "is_cce": false,
+    "full_entitlement_quota": {
+        "individual_universal_credits_quota": 93
+    }
+},
+```
+
+If you are building an integration that allows the POD user to sign in, your application must check that the user only has `individual_universal_credits_quota`, or else licensing cannot happen for printed goods.
