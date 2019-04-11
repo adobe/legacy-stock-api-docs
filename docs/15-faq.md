@@ -170,18 +170,42 @@ See [Search API reference](api/11-search-reference.md).
 
 <a id="how-do-i-filter-for-high-resolution-images-only"></a>
 ### How do I filter for high-resolution images only?
-All Adobe Stock images _should_ be high resolution by default. Per the Stock Contributor [content requirements](https://helpx.adobe.com/stock/contributor/help/photography-illustrations.html), the minimum image resolution is 4MP (megapixels). However, if you need to guarantee a minimum resolution you can do this using the `area_pixels` search filter. 
+All Adobe Stock images _should_ be high resolution by default. Per the Stock Contributor [content requirements](https://helpx.adobe.com/stock/contributor/help/photography-illustrations.html), the minimum image resolution is 4MP (megapixels). However, if you need to guarantee a minimum resolution you can do this using three separate search filters: `area_m_pixels`, `image_width`, and `image_height`. 
 
-The first value is the minimum number of MP you require, and the optional second parameter is the maximum MP.
+All three filters accept a range of values. `area_m_pixels` only accepts values in whole _megapixels_ (millions of pixels), while `image_width` and `image_height` are measured in _pixels_. 
 
 ```
-search_parameters[filters][area_pixels] = min int [- max int]
+search_parameters[filters][area_m_pixels] = min int [- max int]
 ```
 
-To search on images that are at least 25MP (e.g., 5000x5000), use:
+The first value is the minimum number of MPix you require, and the optional second parameter is the maximum MPix. For example, to search on images that are at least 25MPix (e.g., 5000x5000 pixels), use:
+
 ```
-search_parameters[filters][area_pixels]=25000000
+search_parameters[filters][area_m_pixels]=25
 ```
+
+`image_width` and `image_height` operate in a similar fashion, but expect pixels instead of megapixels. Use these to require a range of pixel widths and/or heights.
+
+```
+search_parameters[filters][image_width] = min int [- max int]
+search_parameters[filters][image_height] = min int [- max int]
+```
+
+Example: Minimum width of 5000 pixels
+```
+search_parameters[filters][image_width]=5000
+```
+
+Example: Height between 2000-4000 pixels
+```
+search_parameters[filters][image_height]=2000-4000
+```
+
+Example: Max height and max width of 2500 pixels
+```
+search_parameters[filters][image_width]=-2500&search_parameters[filters][image_height]=-2500
+```
+
 
 In addition, you can use the `orientation` filter to approximate an aspect ratio.
 
@@ -192,7 +216,7 @@ search_parameters[filters][orientation] = horizontal | vertical | square | all
 In the example below, search for all photographs of hippos that have a horizontal/landscape orientation, and have a minimum pixel area of 20 megapixels. For example, this will yield images 5000x4000 or 10000x2000, but _not_ 4000x5000 or 2000x10000.
 
 ```http
-GET /Rest/Media/1/Search/Files?local=en_US&search_parameters[words]=hippos& search_parameters[filters][content_type:photo]=1&search_parameters[filters][orientation]=horizontal&search_parameters[filters][area_pixels]=20000000 HTTP/1.1
+GET /Rest/Media/1/Search/Files?local=en_US&search_parameters[words]=hippos& search_parameters[filters][content_type:photo]=1&search_parameters[filters][orientation]=horizontal&search_parameters[filters][area_m_pixels]=20 HTTP/1.1
 Host: stock.adobe.io
 X-Product: MySampleApp/1.0
 X-API-Key: YourApiKeyHere

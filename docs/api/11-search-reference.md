@@ -5,14 +5,14 @@
 <!-- MarkdownTOC -->
 
 - [Search requests](#search-requests)
-    - [About search and filter criteria](#about-search-and-filter-criteria)
-    - [Authentication](#authentication)
-    - [Request headers](#request-headers)
-    - [URL parameters](#url-parameters)
+  - [About search and filter criteria](#about-search-and-filter-criteria)
+  - [Authentication](#authentication)
+  - [Request headers](#request-headers)
+  - [URL parameters](#url-parameters)
 - [Responses](#responses)
 - [Example returned comps values](#example-returned-comps-values)
 - [Example queries and responses](#example-queries-and-responses)
-    - [Common search queries](#common-search-queries)
+  - [Common search queries](#common-search-queries)
 - [Error codes](#error-codes)
 - [More information](#more-information)
 
@@ -20,6 +20,7 @@
 
 You can query Adobe Stock for assets that meet your specified search criteria. You can filter the results, specify the sort order in which the results are returned, and choose how many assets to return for each page of results.
 
+<a id="search-requests"></a>
 ## Search requests 
 
 A request using the Stock Search API retrieves a list of assets from Adobe Stock that matches a set of search and filter values. A maximum of 64 assets can be returned from one request. This is a paginated interface that you can call multiple times to retrieve the full list.
@@ -31,6 +32,7 @@ For a guide to usage and additional examples, see [Creating Adobe Stock applicat
 | https://stock.adobe.io/Rest/Media/1/Search/Files | GET <p>POST (only when using the similar_image parameter) |
 
 
+<a id="about-search-and-filter-criteria"></a>
 ### About search and filter criteria 
 
 Search commands have three formats:
@@ -92,6 +94,7 @@ Chain together multiple `result_columns[]` commands to get exactly the results y
 
 See [Responses](#responses), below.
 
+<a id="authentication"></a>
 ### Authentication 
 
 An `Authorization` header is not required. If you do not pass a valid bearer token in the Authorization header, you can search within Adobe Stock and access preview versions of assets, but the API will not return licensing requirements or give you the licensed status for the assets. Requests made in this way are essentially anonymous, with no notion of the user making the request.
@@ -99,6 +102,7 @@ An `Authorization` header is not required. If you do not pass a valid bearer tok
 If you do pass a valid token, then the Adobe Stock service returns the license state and licensed URL for each asset. See [API authentication](../getting-started/03-api-authentication.md).  
 
 
+<a id="request-headers"></a>
 ### Request headers 
 
 See [API authentication](../getting-started/03-api-authentication.md) and [Headers for Stock API calls](10-headers-for-api-calls.md) for details about header content. 
@@ -108,6 +112,7 @@ See [API authentication](../getting-started/03-api-authentication.md) and [Heade
 *   Optional headers: `Authorization` (required to view license state), `X-Request-Id`
 
 
+<a id="url-parameters"></a>
 ### URL parameters 
 
 Pass the following URL parameters with the GET request.
@@ -239,11 +244,11 @@ Ignored if <code>search_parameters[similar_url]</code> is specified.
   <tr>
    <td>search_parameters[category]
    </td>
-   <td>Search for assets with a specific category ID. Integer.
-<p>
-For example, to search for assets in the category "travel":
-<p>
-<code>search_parameters[category]=1043</code>
+   <td><p>Search for assets with a specific category ID. Integer.
+For example, to search for assets in the category "travel":</p>
+  <p><code>search_parameters[category]=1043</code></p>
+  <p>For more information see the <a href="17-categorytree.md">CategoryTree API reference</a>.</p>
+
    </td>
   </tr>
   <tr>
@@ -258,24 +263,59 @@ Valid values and meanings:
 <ul>
 <li><code>110</code>: Small (110 px)
 <li><code>160</code>: Medium (160 px)
+<li><code>220</code>: Medium-Large (220 px)
 <li><code>240</code>: Large (240 px)
 <li><code>500</code>: Extra large (XL) (500 px). Returned with watermark. (default)
 <li><code>1000</code>: Extra-extra large (XXL) (1000 px). Returned with watermark.</li>
 </ul>
-
    </td>
   </tr>
   <tr>
-   <td>search_parameters[filters][area_pixels]
+    <td><s>search_parameters[filters][area_pixels]</s></td>
+    <td>This filter will be deprecated in an upcoming release. Please use the filters <code>[area_m_pixels]</code>, <code>[image_width]</code>, and <code>[image_height]</code> in its place.</td>
+  </tr>
+  <tr>
+   <td>search_parameters[filters][area_m_pixels]
    </td>
-   <td>Image sizes in pixels to return, specified as a range in the format <em><code>min-max</code></em>. <code>min</code> and <code>max</code> are both optional and default to open ranges.
-<p>
-Examples:
-<p><em>Search for an image that has a minimum pixel area of 4000x2500 (10Mpix) and maximum area of 5000x5000 (25Mpix):</em><br>
-<code>search_parameters[filters][area_pixels]:10000000-25000000</code>
-<p><em>Search for an image that has a minimum area size of 4000x5000 pixels.</em><br>
-<code>search_parameters[filters][area_pixels]:20000000-</code>
+   <td>
+    <p>Image sizes in megapixels (millions of pixels) to return, specified as a range in the format <code>min-max</code>. <code>min</code> and <code>max</code> are both optional and default to open ranges. Values must be (whole) integers.</p>
+    <p>Examples:</p>
+    <p>
+      <em>Search for an image that has a minimum pixel area of 4000x2500 (10Mpix) and maximum area of 5000x5000 (25Mpix):</em><br>
+      <code>search_parameters[filters][area_m_pixels]:10-25</code>
+    </p>
+    <p>
+      <em>Search for an image that has a minimum area size of 4000x5000 pixels (20Mpix).</em><br>
+      <code>search_parameters[filters][area_m_pixels]:20-</code>
+    </p>
    </td>
+  </tr>
+  <tr>
+    <td>search_parameters[filters][image_width]</td>
+    <td>
+        <p>Asset width specified as a range of pixels in the format <code>min-max</code>. <code>min</code> and <code>max</code> are both optional and default to open ranges.</p>
+        <p>Example:</p>
+        <p>
+            <em>Only include images with a width of at least 5000 pixels</em><br>
+            <code>search_parameters[filters][image_width]=5000-</code><br>
+            OR <code>search_parameters[filters][image_width]=5000</code>
+        </p>
+    </td>
+  </tr>
+  <tr>
+    <td>search_parameters[filters][image_height]</td>
+    <td>
+        <p>Asset height specified as a range of pixels in the format <code>min-max</code>. <code>min</code> and <code>max</code> are both optional and default to open ranges.</p>
+        <p>Examples:</p>
+        <p>
+            <em>Only include images with a height between 2000-4000 pixels</em><br>
+            <code>search_parameters[filters][image_height]=2000-4000</code>
+        </p>
+        <p>
+            <em>Only include images with a max height of 3000 pixels</em><br>
+            <code>search_parameters[filters][image_height]=-3000</code>
+        </p>
+    </td>
   </tr>
   <tr>
    <td>search_parameters[filters][premium]
@@ -459,11 +499,13 @@ Valid values and meanings:<ul>
    </td>
   </tr>
   <tr>
-   <td>search_parameters[filters][age]
+   <td><s>search_parameters[filters][age]</s>
    </td>
-   <td>Return found assets of the specified age (weeks, months, years). String.
-<p>
-Valid values and meanings:<ul>
+   <td>
+    This filter will be deprecated in a future release. Instead, please use <code>search_parameters[order]=creation</code> to sort by newest assets.</p>
+<!--
+<p>Return found assets of the specified age (weeks, months, years). String. Valid values and meanings:</p>
+<ul>
 
 <li><code>1w</code>: Only assets up to 1 week old.
 <li><code>1m</code>: Only assets up to 1 month old.
@@ -471,7 +513,7 @@ Valid values and meanings:<ul>
 <li><code>1y</code>: Only assets up to 1 year old.
 <li><code>2y</code>: Only assets up to 2 years old.
 <li><code>all</code>: Default. Assets of any age.</li></ul>
-
+-->
    </td>
   </tr>
   <tr>
@@ -521,6 +563,7 @@ Valid values and meanings:<ul>
   </tr>
 </table>
 
+<a id="responses"></a>
 ## Responses 
 
 The Adobe Stock service returns information about all found assets that also match the filtering criteria.
@@ -853,6 +896,7 @@ For example:
   </tr>
 </table>
 
+<a id="example-returned-comps-values"></a>
 ## Example returned comps values 
 
 Image:
@@ -900,6 +944,7 @@ Video that is in HD only:
         }
       }
 
+<a id="example-queries-and-responses"></a>
 ## Example queries and responses 
 
 This example searches for assets that have the keyword "dog" and returns no more than the first two matches.
@@ -963,6 +1008,7 @@ The preceding request returns two asset descriptions. `nb_results` shows that 39
 }
 ```
 
+<a id="common-search-queries"></a>
 ### Common search queries 
 
 Here are simple examples of common searches.
@@ -997,6 +1043,7 @@ Here are simple examples of common searches.
 
     `https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[model_id]=58344279`
 
+<a id="error-codes"></a>
 ## Error codes 
 
 Each error generates a JSON array that contains the following keys and values. If your application receives this array and you need assistance, send the array to Adobe.
@@ -1011,6 +1058,7 @@ Each error generates a JSON array that contains the following keys and values. I
     *   `100`: Invalid data. Data that you specified as arguments are not supported.
 
 
+<a id="more-information"></a>
 ## More information 
 
 * See the practical search example in [Search for assets](../getting-started/apps/05-search-for-assets.md).
