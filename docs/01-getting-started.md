@@ -18,9 +18,11 @@ curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_para
 
 <!-- /MarkdownTOC -->
 
-> Not a developer, but are interested in partnering? Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20partnership%20inquiry).
+> Not a developer, but are interested in partnering? Please take a look at the [Stock API Business FAQ](../supplemental/stock-api-business-faq.md), and then [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20partnership%20inquiry).
 
 The Adobe Stock API provides programmatic access to [Adobe Stock](https://stock.adobe.com/) content. You can integrate this API into your organization's applications and processes. You can use the API in scripts or programs to search for and retrieve Adobe Stock assets such as photos, videos, and vector files, and to license assets for your users.
+
+> Are you a Fotolia customer and want to convert to Adobe Stock? Please visit the [Fotolia API migration resources](18-fotolia-migration-resources.md).
 
 You interact with the Adobe Stock API via HTTP requests, rather than through a user interface. You can create applications that perform these actions:
 
@@ -31,6 +33,7 @@ You interact with the Adobe Stock API via HTTP requests, rather than through a u
 *   **Get a license history of past purchases.** In addition to allowing users to license and download content, your application can retrieve the licensing history for your users or organization, allowing download of previously purchased assets.
 
  
+<a id="overview"></a>
 ## Overview
 
 ![API workflow](images/app-process-3-steps.png)
@@ -43,6 +46,7 @@ At its simplest, all Stock API integrations include these steps:
 2.  Determine the authentication method from your use case and build appropriate headers.
 3.  Build and deploy your application using Stock APIs.
 
+<a id="design-phase"></a>
 ## Design phase
 
 This step is implied by the list above and is outside the scope of this documentation, however everything you learn in the Getting Started section should give you sufficient information to design and architect your application.
@@ -59,6 +63,7 @@ As you read the documentation, keep some questions in mind. Some of these will b
 *   What size and how many image thumbnails do I want to display? 
 *   Do I require localization?
 
+<a id="next-steps"></a>
 ## Next steps
 
 
@@ -66,6 +71,7 @@ As you read the documentation, keep some questions in mind. Some of these will b
 2.  Test how your application will [authenticate](getting-started/03-api-authentication.md) to the Adobe Stock API.
 3.  Finally, start [building](getting-started/04-creating-apps.md) your app, test and deploy to your users!
 
+<a id="more-topics"></a>
 ## More topics
 
 If you have already performed most of the tasks above or are in the middle of an implementation and need detailed help, check out these resources as well:

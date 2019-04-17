@@ -542,7 +542,7 @@ Valid values and meanings:<ul>
   <tr>
    <td>search_parameters[gallery_id]
    </td>
-   <td>Returns members of the specified collection or lightbox. String.
+   <td>Returns members of the specified Fotolia gallery, which must be public. Note this requires access to a Fotolia website user account. String.
    </td>
   </tr>
   <tr>
