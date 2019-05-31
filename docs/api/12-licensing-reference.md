@@ -44,7 +44,7 @@ The Stock API provides the following methods related to licensing and getting mo
     *   _User doesn't have enough quota but can handle overage_ (they have a saved purchase method on file). Display the returned message, which includes the price and asks the user to license the asset with overage.
     *   _User doesn't have quota and there is no overage plan._ Display the returned message, which indicates that the user will be redirect to the [Adobe Stock site](https://stock.adobe.com/) to review plans.
 
-*   **Member/LicenseHistory.** This is covered in the next section, [License history reference](13-license-history.md).
+*   **Member/LicenseHistory.** Requests a list of licenses and download URLs for every previously licensed asset. This is covered in the next section, [License history reference](13-license-history.md).
 
 
 ### Authentication
@@ -676,13 +676,13 @@ The __Content/License__ method returns a download URL, which uses the __Librarie
 
 | Endpoint | Method |
 | ----- | ----- |
-| https://stock.adobe.io/Rest/Libraries/Download/{id}/1 | GET |
+| https://stock.adobe.com/Rest/Libraries/Download/{id}/{license} | GET |
 
-In the URL above, the `{id}` value must be substituted with the Adobe Stock ID attribute.
+In the URL above, the `{id}` value must be substituted with the Adobe Stock ID attribute, while `{license}` is an integer returned by Adobe Stock in the download URL. Because this integer value can change without notice, it is recommended not to _predict_ this value, but to get it by calling the `Content/License` method to first obtain the download URL.
 
 ### Authentication
 
-Unlike other Stock API license methods, Download does not use request headers for authentication; using an authentication header can _break_ the download URL. Instead, the access token needs to be sent via a URL parameter.
+Unlike other Stock API license methods, Download does not use request headers for authentication; using an authentication header can _break_ the download URL. Instead, the access token needs to be sent via a URL parameter--see below.
 
 ### Request headers
 
@@ -723,7 +723,7 @@ None (see above).
 
 ### Response
 
-A valid response will trigger a file download, otherwise, an error will be returned. Downloads will typically consist of a 302 redirect which points to a signed URL.
+A valid response will trigger a file download, otherwise, an error will be returned. Downloads will typically consist of a 302 redirect which points to a signed URL, but some downloads are served directly without a redirect.
 
 ### Examples
 

@@ -1,18 +1,23 @@
-# Stock API Frequently Asked Questions
+# Stock API FAQ
+
+> A list of technical frequently asked questions. Don't see your question answered here? Email us at stockapis@adobe.com.
 
 <!-- MarkdownTOC -->
 
 - [General](#general)
-    - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
-    - [How do I download a comp image?](#how-do-i-download-a-comp-image)
+  - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
+- [Downloading](#downloading)
+  - [How do I download a comp image?](#how-do-i-download-a-comp-image)
+  - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
+  - [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
 - [Licensing](#licensing)
-    - [How do I add license references?](#how-do-i-add-license-references)
+  - [How do I add license references?](#how-do-i-add-license-references)
 - [Print on Demand](#print-on-demand)
-    - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
-    - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
-    - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
-    - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
-    - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
+  - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
+  - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
+  - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
+  - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
+  - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
 
 <!-- /MarkdownTOC -->
 
@@ -30,7 +35,10 @@
 <li><code>1000</code>: Extra-extra large (XXL) (1000 px). Returned with watermark.</li>
 </ul>
 
-See [Search API reference](api/11-search-reference.md).
+See the [Search API reference](api/11-search-reference.md).
+
+<a id="downloading"></a>
+## Downloading
 
 <a id="how-do-i-download-a-comp-image"></a>
 ### How do I download a comp image?
@@ -63,6 +71,41 @@ curl "https://stock.adobe.com/Rest/Libraries/Watermarked/Download/143738171/5" \
   -H "x-product: MySampleApp/1.0" \
   -H "authorization: Bearer AccessTokenHere"
 ```
+
+<a id="how-do-i-bulk-download-all-of-my-license-history"></a>
+### How do I bulk download all of my license history?
+
+To download all of your licensed images, you will need to create a script or application that performs some of the same process described in [Licensing assets and stuff](getting-started/apps/06-licensing-assets.md), but with fewer steps. In summary, your script must:
+
+1. Get a token
+2. Call Member/LicenseHistory
+3. Parse and paginate the list to get the download URL for each asset
+4. Perform a download with a token
+
+Step #1 is covered in detail in [Stock API Authentication](getting-started/03-api-authentication.md) and in the individual [OAuth and Service Account workflow guides](getting-started/07-workflow-guides.md). Documentation for steps #2 and #3 are found in [Licensing assets and stuff](getting-started/apps/06-licensing-assets.md) and the [License history API reference](api/13-license-history.md). The key piece of data you will need is the `download_url` property, for example:
+
+```javascript
+    "license_date": "11/6/17, 2:54 AM",
+    "download_url": "https://stock.adobe.com/Download/DownloadFileDirectly/ikMRKBPqHDrtTifHkbbxGfKhIGVQPw6y",
+    "id": 112670342,
+```
+
+Note that the default behavior of the License History API is to only return the currently selected profile for the user or service account, and _not_ all license history for the organization. To return all license history, add `all=true`. Example: 
+`https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory?all=true`
+
+For step #4, your application would use a download method (such as a `curl`) to programmatically download the file to your file system. Because the files tend to be large and this process will take a while, best practice is to download files to your desktop or locally attached storage first, and then copy them to a network or DAM (Digital Asset Management) system afterwards, to prevent issues such as broken transmissions or timeouts.
+
+Here is an example download command:
+
+
+```shell
+  curl -L 'https://stock.adobe.com/Download/DownloadFileDirectly/ikMRKBPqHDrtTifHkbbxGfKhIGVQPw6y?token=AccessTokenHere' -o myFile.jpeg
+```
+
+<a id="why-cant-i-download-an-asset-from-license-history"></a>
+### Why can't I download an asset from license history?
+
+Adobe Stock provides access to millions of creative assets that have been submitted by our worldwide community of contributors as well as strategic content partners. In very rare situations, assets may be removed from our site. As a stock service provider, we are able to provide a downloadable copy of an asset only while it is active on our platform. We encourage all customers to download copies of assets as soon as they are licensed. Please note that, even if a licensed asset is removed from our site, your license is still valid in perpetuity (subject to the licensing terms) and that your License History will continue to display when the asset was licensed.
 
 <a id="licensing"></a>
 ## Licensing
@@ -128,7 +171,8 @@ To learn how to add or edit license reference fields, see [Edit a product profil
 <a id="how-do-you-license-assets-more-than-once"></a>
 ### How do you license assets more than once?
 Or, "if my contract requires me to license the same asset again, will this happen automatically in the API?"
-No, currently you must set your application to use the `license_again=true` flag. Best practice in this case is to use this flag _every time_ you license an asset, even if it has not been licensed before. The Stock API will only deduct one license from your pool of credits, even if this is the first time you are licensing this asset.
+
+By default, the Stock API will not license an asset again when calling the `Content/License` method. If you are required to re-license assets (for example if you are a Print on Demand customer) you must set your application to use the `license_again=true` flag. Best practice in this case is to use this flag _every time_ you license an asset, even if it has not been licensed before. The Stock API will only deduct one license from your pool of credits, even if this is the first time you are licensing this asset.
 
 ```shell
 curl "https://stock.adobe.io/Rest/Libraries/1/Content/License?content_id=112670342&license=Standard&license_again=true" \
