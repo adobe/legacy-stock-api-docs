@@ -6,6 +6,7 @@ The API provides the following endpoints in the `https://stock.adobe.io/Rest` na
 | **Endpoint** | **Purpose** |
 |----|----|
 | [/Media/1/Search/Files](api/11-search-reference.md) | Find, filter, sort, and paginate assets from Adobe Stock. |
+| [/Media/1/Files](api/19-bulk-metadata-files-reference.md) | Get metadata for selected assets, one at time or in bulk. |
 | [/Media/1/Search/CategoryTree](api/17-categorytree.md) | Get information on Stock categories and sub-categories. |
 | [/Libraries/1/Content/Info](api/12-licensing-reference.md) | Get licensing status information about an asset. |
 | [/Libraries/1/Content/License](api/12-licensing-reference.md) | Request a license for an asset for your user. |

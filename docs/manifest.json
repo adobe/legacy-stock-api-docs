@@ -84,6 +84,13 @@
           "title": "Search API reference"
         },
         {
+          "importedFileName": "19-bulk-metadata-files-reference",
+          "pages":[  
+          ],
+          "path":"adobe/stock-api-docs/master/docs/api/19-bulk-metadata-files-reference.md",
+          "title": "Files API for bulk metadata"
+        },
+        {
           "importedFileName": "12-licensing-reference",
           "pages":[  
           ],
