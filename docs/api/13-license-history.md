@@ -10,7 +10,7 @@
 - [Responses](#responses)
 - [Example requests and responses](#example-requests-and-responses)
     - [Simple example](#simple-example)
-    - [Example fetching all history \(`all=true`\) and using pagination](#example-fetching-all-history-alltrue-and-using-pagination)
+    - [Example fetching all history and using pagination](#example-fetching-all-history-and-using-pagination)
 
 <!-- /MarkdownTOC -->
 
@@ -151,8 +151,8 @@ Authorization: Bearer MyAccessToken
 }
 ```
 
-<a id="example-fetching-all-history-alltrue-and-using-pagination"></a>
-### Example fetching all history (`all=true`) and using pagination
+<a id="example-fetching-all-history-and-using-pagination"></a>
+### Example fetching all history and using pagination
 ```http
 GET /Rest/Libraries/1/Member/LicenseHistory?search_parameters[limit]=20&search_parameters[offset]=0&all=true HTTP/1.1
 Host: stock.adobe.io
@@ -160,7 +160,7 @@ X-Product: MySampleApp/1.0
 x-api-key: MyApiKey
 Authorization: Bearer MyAccessToken
 ```
-In the example above, the request will return the first 20 of 239 results.
+In the example above, the request will return the first 20 of 239 results. Without this command, the API returned only 13 results (see previous example.)
 
 ```javascript
 {

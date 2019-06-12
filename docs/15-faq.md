@@ -10,14 +10,16 @@
   - [How do I download a comp image?](#how-do-i-download-a-comp-image)
   - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
   - [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
-- [Licensing](#licensing)
+- [Enterprise licensing](#enterprise-licensing)
   - [How do I add license references?](#how-do-i-add-license-references)
+  - [Why do I get an error when sending the JWT?](#why-do-i-get-an-error-when-sending-the-jwt)
 - [Print on Demand](#print-on-demand)
   - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
   - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
   - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
   - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
   - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
+  - [How do I check if the images I am selling are still available on Stock?](#how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock)
 
 <!-- /MarkdownTOC -->
 
@@ -107,12 +109,12 @@ Here is an example download command:
 
 Adobe Stock provides access to millions of creative assets that have been submitted by our worldwide community of contributors as well as strategic content partners. In very rare situations, assets may be removed from our site. As a stock service provider, we are able to provide a downloadable copy of an asset only while it is active on our platform. We encourage all customers to download copies of assets as soon as they are licensed. Please note that, even if a licensed asset is removed from our site, your license is still valid in perpetuity (subject to the licensing terms) and that your License History will continue to display when the asset was licensed.
 
-<a id="licensing"></a>
-## Licensing
+<a id="enterprise-licensing"></a>
+## Enterprise licensing
 
 <a id="how-do-i-add-license-references"></a>
 ### How do I add license references?
-License references are extra metadata that you can add to a license record at the time you license the asset. They can be used to track the customer, purchase order, project code, etc., and can be made mandatory or optional. If mandatory, you _must_ include those fields when licensing the asset or you will receive an error.
+License references are extra metadata that you can add to a license record at the time you license the asset (for Enterprise customers only). They can be used to track the customer, purchase order, project code, etc., and can be made mandatory or optional. If mandatory, you _must_ include those fields when licensing the asset or you will receive an error.
 
 There are two steps involved:
 1. Get a list of required and optional fields from a Member/Profile request
@@ -164,6 +166,20 @@ Instead of calling `GET` Content/License, your application will `POST` Content/L
 ```
 
 To learn how to add or edit license reference fields, see [Edit a product profile for Adobe Stock](https://helpx.adobe.com/enterprise/using/adobe-stock-enterprise.html#CreateeditaproductprofileforAdobeStock).
+
+<a id="why-do-i-get-an-error-when-sending-the-jwt"></a>
+### Why do I get an error when sending the JWT?
+
+Enterprise service accounts use JWT files instead of OAuth logins to retrieve access tokens. Occasionally, there will be errors in the workflow, often because the fields in the JWT do not match the fields in Adobe I/O. For a list of error codes, see [JWT authentication](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md).
+
+However, if your JWT is working one day and suddenly fails the next, the most likely cause is that your public key certificate _has expired_. If it has, all you need to do is create a new one and upload to Adobe I/O on the same integration page. Nothing will need to change in your configuration, except make sure you are pointing to the correct private key file. See page 4 of the [Enterprise service account](https://www.adobe.io/content/dam/udp/assets/StockAPI/Service-Account-API-workflow.pdf) workflow guide.
+
+Note that the sample command in the documentation sets the expiration to 365 days (1 year):
+```
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout myPrivate.key -out myPublic.crt
+```
+ 
+You can set the value `-days` to whatever you want.
 
 <a id="print-on-demand"></a>
 ## Print on Demand
@@ -347,3 +363,51 @@ Using the previous screenshot example, the `Member/Profile` responses would look
 ```
 
 If you are building an integration that allows the POD user to sign in, your application must check that the user only has `individual_universal_credits_quota`, or else licensing cannot happen for printed goods.
+
+<a id="how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock"></a>
+### How do I check if the images I am selling are still available on Stock?
+
+When curating Adobe Stock assets for sale on your print site, it is important that you incorporate a sync/update into your POD workflow so that you verify that the Stock images are still available at the time the customer is ready to order them. The simplest way to do this is to check whether the ID still exists on Stock using the [Files API](api/18-bulk-metadata-files-reference.md) for bulk metadata. For more information on why an asset might not be available, see [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
+
+The Files API allows you to request up to 101 asset IDs at a time from Stock, and return any metadata associated with these assets. This can be used both to populate your image catalog with data and to verify that the images are still available.
+
+In the example below, you supply a list of 8 asset IDs and request back the number of results and the IDs for each. While this seems redundant, it is a small and fast request which will verify if any are no longer available.
+```shell
+curl -X GET \
+  'https://stock.adobe.io/Rest/Media/1/Files?ids=1234567,89961792,57185897,94682947,180905406,175119903,113187776,120451263&result_columns[]=id&result_columns[]=nb_results' \
+  -H 'Host: stock.adobe.io' \
+  -H 'X-Product: WreckBallTest/1.0' \
+  -H 'cache-control: no-cache' \
+  -H 'X-Product: MySampleApp/1.0' \
+  -H 'x-api-key: MyApiKey'
+```
+
+When the response comes back, you can see immediately there is an issue because there are only 7 returned assets. By scanning the IDs, you can see that `1234567` is no longer available.
+```javascript
+{
+    "nb_results": 7,
+    "files": [
+        {
+            "id": 89961792
+        },
+        {
+            "id": 57185897
+        },
+        {
+            "id": 94682947
+        },
+        {
+            "id": 180905406
+        },
+        {
+            "id": 175119903
+        },
+        {
+            "id": 113187776
+        },
+        {
+            "id": 120451263
+        }
+    ]
+}
+```
