@@ -7,7 +7,7 @@
   "meta_keywords": "adobe stock",
   "meta_description": "Adobe Stock API documentation",
   "publish_date": "01/29/2019",
-  "show_edit_github_banner": false,
+  "show_edit_github_banner": true,
   "base_path": "https://raw.githubusercontent.com",
   "pages": [
     {
