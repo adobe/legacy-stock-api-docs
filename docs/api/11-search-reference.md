@@ -5,14 +5,14 @@
 <!-- MarkdownTOC -->
 
 - [Search requests](#search-requests)
-  - [About search and filter criteria](#about-search-and-filter-criteria)
-  - [Authentication](#authentication)
-  - [Request headers](#request-headers)
-  - [URL parameters](#url-parameters)
+    - [About search and filter criteria](#about-search-and-filter-criteria)
+    - [Authentication](#authentication)
+    - [Request headers](#request-headers)
+    - [URL parameters](#url-parameters)
 - [Responses](#responses)
 - [Example returned comps values](#example-returned-comps-values)
 - [Example queries and responses](#example-queries-and-responses)
-  - [Common search queries](#common-search-queries)
+    - [Common search queries](#common-search-queries)
 - [Error codes](#error-codes)
 - [More information](#more-information)
 
@@ -148,17 +148,18 @@ Words can also be individual media identifiers (media_id), for example:
    </td>
    <td><p>Maximum number of assets to return in the call.  Valid values are 1 through 64. Default is 32. String.
 <p>
-Call repeatedly with different [offset] values to page through the found assets.
-<p>
-<strong>Tip:</strong> The number of images returned in each call can vary, but never exceeds 64 entries. 
+Call repeatedly with different [offset] values to page through the found assets. 
+<strong>Tip:</strong> The number of images returned in each call can vary, but never exceeds 64 entries. </p>
+<p>See the note below for <code>search_parameters[filters][premium]</code> and refer to the FAQ question, <a href="../15-faq.md?#why-are-there-more-search-results-returned-than-the-limit-value">Why are there more search results returned than the 'limit' value?</a></p>
    </td>
   </tr>
   <tr>
    <td>search_parameters[offset]
    </td>
-   <td><p>Start position in query. Valid values are 0 (the first found asset) or higher integers. With each successive call for your search, increment this by the [limit] value to get the next page of assets.
+   <td><p>Start position in query. Valid values are 0 (the first found asset) or higher integers. With each successive call for your search, increment this by the [limit] value to get the next page of assets.</p>
 <p>
-For example, by default your first call uses a 0 offset and limit of 32 to return the first 32 found assets.  Call this API again with an offset of 32 to retrieve the next page. Integer. Default is 0.
+For example, by default your first call uses a 0 offset and limit of 32 to return the first 32 found assets.  Call this API again with an offset of 32 to retrieve the next page. Integer. Default is 0.</p>
+
    </td>
   </tr>
   <tr>      
@@ -326,6 +327,7 @@ Valid values and meanings:
    <li><code>true</code>: only return assets with a premium level > 1. 
    <li><code>all</code>: Return everything. String.
    </ul>
+   <p>Strongly recommend <strong>always</strong> setting this parameter to one of its three values, as it works around an issue where more assets can be returned than set in the <code>search_parameters[limit]</code> parameter, which can throw off pagination. See the FAQ, <a href="../15-faq.md?#why-are-there-more-search-results-returned-than-the-limit-value">Why are there more search results returned than the 'limit' value?</a></p>
    </td>
   </tr>
   <tr>

@@ -6,6 +6,7 @@
 
 - [General](#general)
     - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
+    - [Why are there more search results returned than the 'limit' value?](#why-are-there-more-search-results-returned-than-the-limit-value)
 - [Downloading](#downloading)
     - [How do I download a comp image?](#how-do-i-download-a-comp-image)
     - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
@@ -38,6 +39,71 @@
 </ul>
 
 See the [Search API reference](api/11-search-reference.md).
+
+<a id="why-are-there-more-search-results-returned-than-the-limit-value"></a>
+### Why are there more search results returned than the 'limit' value?
+In some cases, when you run a search the number of results you get back may be higher than the `search_parameters[limit]` value you set. This can throw off your pagination, especially when used with `search_parameters[offset]`.
+
+Examples:
+
+- Limit set to 2, but **3** results returned
+    https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=Flowers&search_parameters[limit]=2&result_columns[]=id
+
+```javascript
+    "files": [
+        {
+            "id": 29490982
+        },
+        {
+            "id": 206385506
+        },
+        {
+            "id": 266351490
+        }
+    ]
+```
+- Limit set to 25, but **27** results returned
+    https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=Flowers&search_parameters[limit]=25&result_columns[]=id
+
+```javascript
+    "files": [
+        {
+            "id": 29490982
+        },
+        {
+            "id": 266351490
+        }, //...
+        /* Two extra results at bottom */
+        {
+            "id": 255736790
+        },
+        {
+            "id": 238478418
+        }
+```
+
+It is difficult to determine if this is caused by either _a bug_ or _by design_, but is easy to fix. The issue is caused by extra **Premium** results being added to the search. To work around it, add this command to your search:
+
+```
+search_parameters[filters][premium] = true | false | all
+```
+
+This command is documented in the [Search API reference](api/11-search-reference.md). By setting to `true`, it will _only_ return Premium assets. Setting to `false` will exclude (remove) Premium assets from the results. And setting to `all` will show both types of assets. However, any of these values will fix the `limit` issue.
+
+Example:
+Limit set to 2, and exactly 2 results returned.
+https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=Flowers&search_parameters[limit]=2&search_parameters[filters][premium]=all&result_columns[]=id
+
+```javascript
+    "files": [
+        {
+            "id": 29490982
+        },
+        {
+            "id": 266351490
+        }
+    ]
+```
 
 <a id="downloading"></a>
 ## Downloading
