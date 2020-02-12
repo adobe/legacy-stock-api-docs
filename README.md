@@ -1,7 +1,10 @@
 # Adobe Stock API documentation
-This repo contains the source files for the [Adobe Stock](https://stock.adobe.com) API documentation.
+This repo contains the source files for the [Adobe Stock](https://stock.adobe.com) API documentation. The home page for Adobe Stock API is located here:
+https://www.adobe.io/apis/creativecloud/stock/docs.html.
 
-If you are browsing this at Github, here is an index and reading order:
+Before you begin, be sure to review the [Developer Terms of Use](supplemental/terms-for-adobe-stock-developers.md).
+
+If you are browsing this at GitHub, here is an index and reading order:
 
 * [Getting started with the Adobe Stock API](docs/01-getting-started.md)
     - [Register your application](docs/getting-started/02-register-app.md)
@@ -14,6 +17,7 @@ If you are browsing this at Github, here is an index and reading order:
 * [Adobe Stock API Reference](docs/09-api-summary.md)
   + [Headers for Stock API calls](docs/api/10-headers-for-api-calls.md)
   + [Search API reference](docs/api/11-search-reference.md)
+  + [Files API for bulk metadata](docs/api/19-bulk-metadata-files-reference.md)
   + [Licensing reference](docs/api/12-licensing-reference.md)
   + [License History reference](docs/api/13-license-history.md)
   + [Category Tree reference](docs/api/17-categorytree.md)
