@@ -9,15 +9,18 @@ curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_para
 ```
 
 ## Read me first!
-Before you begin, be sure to review the [Developer Terms of Use](supplemental/terms-for-adobe-stock-developers.md). Or better yet, bookmark it. There will be a quiz later :)
+Before you begin, be sure to review the [Developer Terms of Use](../supplemental/terms-for-adobe-stock-developers.md). Or better yet, bookmark it. There will be a quiz later :)
 
 ## Contents
 <!-- MarkdownTOC -->
 
-- [Overview](#overview)
-- [Design phase](#design-phase)
-- [Next steps](#next-steps)
-- [More topics](#more-topics)
+- [Getting started with the Adobe Stock API](#getting-started-with-the-adobe-stock-api)
+  - [Read me first!](#read-me-first)
+  - [Contents](#contents)
+  - [Overview](#overview)
+  - [Design phase](#design-phase)
+  - [Next steps](#next-steps)
+  - [More topics](#more-topics)
 
 <!-- /MarkdownTOC -->
 
