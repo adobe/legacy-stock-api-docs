@@ -14,13 +14,10 @@ Before you begin, be sure to review the [Developer Terms of Use](../supplemental
 ## Contents
 <!-- MarkdownTOC -->
 
-- [Getting started with the Adobe Stock API](#getting-started-with-the-adobe-stock-api)
-  - [Read me first!](#read-me-first)
-  - [Contents](#contents)
-  - [Overview](#overview)
-  - [Design phase](#design-phase)
-  - [Next steps](#next-steps)
-  - [More topics](#more-topics)
+- [Overview](#overview)
+- [Design phase](#design-phase)
+- [Next steps](#next-steps)
+- [More topics](#more-topics)
 
 <!-- /MarkdownTOC -->
 
