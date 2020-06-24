@@ -9,7 +9,7 @@ curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_para
 ```
 
 ## Read me first!
-Before you begin, be sure to review the [Developer Terms of Use](supplemental/terms-for-adobe-stock-developers.md). Or better yet, bookmark it. There will be a quiz later :)
+Before you begin, be sure to review the [Developer Terms of Use](../supplemental/terms-for-adobe-stock-developers.md). Or better yet, bookmark it. There will be a quiz later :)
 
 ## Contents
 <!-- MarkdownTOC -->
