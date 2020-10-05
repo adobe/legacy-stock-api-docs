@@ -173,12 +173,15 @@ Valid strings and their meanings:<ul>
 How closely it matches your search request, closest matches first. 
 <li><code>creation</code></li>
 Creation date in descending order (newest first).
-<li><code>popularity</code></li>
-In descending order by the number of views by all users.
+<li><code>featured</code></li>
+Attempts to display the highest quality content first, as scored by Adobe Sensei's machine learning algorithms. In practice, it performs best on lifestyle imagery. 
 <li><code>nb_downloads</code></li>
 In descending order by the number of downloads by all users since the asset was added to Adobe Stock.
 <li><code>undiscovered</code></li>
-Starting with assets that have not commonly been viewed or downloaded.</li></ul>
+Starting with assets that have not commonly been viewed or downloaded.</li>
+<li><code><s>popularity</s></code></li>
+<s>In descending order by the number of views by all users.</s> This filter option is no longer maintained, and may be removed in the future.
+</ul>
 
    </td>
   </tr>
@@ -545,6 +548,13 @@ Valid values and meanings:<ul>
    <td>search_parameters[gallery_id]
    </td>
    <td>Returns members of the specified Fotolia gallery, which must be public. Note this requires access to a Fotolia website user account. String.
+   </td>
+  </tr>
+  <tr>
+   <td>search_parameters[filters][copy_space]
+   </td>
+   <td><p>Image copy space. Value <code>all</code> returns all the images (equivalent to not having the filter in the query); value <code>1</code> filters for images that have copy space. String.</p>
+   <code>all | 1</code>
    </td>
   </tr>
   <tr>
