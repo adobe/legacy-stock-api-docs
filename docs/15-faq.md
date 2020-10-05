@@ -113,9 +113,9 @@ https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=Flower
 There are two kinds of preview images available: cached thumbnail images from the CDN, and non-cached comp images which need to be downloaded from the API. The first type of images are most common, and recommended for most applications. This is a sample URL:
 [https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg](https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg)
 
-For best performance, use this type of image when possible. In some circumstances, however, you may need the "comp" image version instead. This image requires a different workflow. First you must get the URL from the API, and then download it using the *same method to download licensed files*. For documentation on downloading files, see [Downloading licensed files](docs\api\12-licensing-reference.md#downloading-licensed-files).
+For best performance, use this type of image when possible. In some circumstances, however, you may need the "comp" image version instead. This image requires a different workflow. First you must get the URL from the API, and then download it using the *same method to download licensed files*. For documentation on downloading files, see [Downloading licensed files](api\12-licensing-reference.md#downloading-licensed-files).
 
-- Get comp URL from media ID using the [Files API](docs\api\19-bulk-metadata-files-reference.md)
+- Get comp URL from media ID using the [Files API](api\19-bulk-metadata-files-reference.md)
 
 ```http
   GET /Rest/Media/1/Files?ids=176175683&result_columns[]=comp_url HTTP/1.1
