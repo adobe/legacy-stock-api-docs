@@ -686,7 +686,7 @@ Unlike other Stock API license methods, Download does not use request headers fo
 
 ### Request headers
 
-None (see above).
+__None__ (see above).
 
 ### URL parameters
 

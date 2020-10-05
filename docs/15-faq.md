@@ -82,7 +82,7 @@ Examples:
         }
 ```
 
-It is difficult to determine if this is caused by either _a bug_ or _by design_, but is easy to fix. The issue is caused by extra **Premium** results being added to the search. To work around it, add this command to your search:
+The issue is caused by extra **Premium** results being added to the search. To work around it, add this command to your search:
 
 ```
 search_parameters[filters][premium] = true | false | all
@@ -113,32 +113,34 @@ https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=Flower
 There are two kinds of preview images available: cached thumbnail images from the CDN, and non-cached comp images which need to be downloaded from the API. The first type of images are most common, and recommended for most applications. This is a sample URL:
 [https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg](https://t4.ftcdn.net/jpg/00/84/66/63/240_F_84666330_LoeYCZ5LCobNwWePKbykqEfdQOZ6fipq.jpg)
 
-For best performance, use this type of image when possible. In some circumstances, however, you may need the "comp" image version instead. This image requires a different workflow. First you must get the URL from the API, and then download it, often with an authentication header.
+For best performance, use this type of image when possible. In some circumstances, however, you may need the "comp" image version instead. This image requires a different workflow. First you must get the URL from the API, and then download it using the *same method to download licensed files*. For documentation on downloading files, see [Downloading licensed files](docs\api\12-licensing-reference.md#downloading-licensed-files).
 
-- Get comp URL from media ID
-```
-  GET /Rest/Media/1/Search/Files?search_parameters[media_id]=143738171&result_columns[]=comp_url HTTP/1.1
+- Get comp URL from media ID using the [Files API](docs\api\19-bulk-metadata-files-reference.md)
+
+```http
+  GET /Rest/Media/1/Files?ids=176175683&result_columns[]=comp_url HTTP/1.1
   Host: stock.adobe.io
   X-Product: MySampleApp/1.0
   x-api-key: MyApiKey
-  Authorization: Bearer MyAccessToken
 ```
 
 - Result
 ```json
 "files": [
     {
-        "comp_url": "https://stock.adobe.com/Rest/Libraries/Watermarked/Download/143738171/5"
+        "comp_url": "https://stock.adobe.com/Rest/Libraries/Watermarked/Download/176175683/2"
     }
 ```
 
-- Curl download request for comp image
-```shell
-curl "https://stock.adobe.com/Rest/Libraries/Watermarked/Download/143738171/5" \
-  -H "x-api-key: YourApiKeyHere" \
-  -H "x-product: MySampleApp/1.0" \
-  -H "authorization: Bearer AccessTokenHere"
+- HTTP request for comp image using access token as parameter
+
+```http
+GET /Rest/Libraries/Watermarked/Download/364815013/1?token=MyAccessToken HTTP/1.1
+Host: stock.adobe.com
 ```
+
+When downloading files from Adobe Stock, be sure to _follow redirects_. 
+
 
 <a id="how-do-i-bulk-download-all-of-my-license-history"></a>
 ### How do I bulk download all of my license history?
@@ -163,7 +165,7 @@ Note that the default behavior of the License History API is to only return the 
 
 For step #4, your application would use a download method (such as a `curl`) to programmatically download the file to your file system. Because the files tend to be large and this process will take a while, best practice is to download files to your desktop or locally attached storage first, and then copy them to a network or DAM (Digital Asset Management) system afterwards, to prevent issues such as broken transmissions or timeouts.
 
-Here is an example download command:
+Here is an example download command using `curl`. Be sure to follow redirects (when using `curl`, use the `-L` | `--location` option)
 
 
 ```shell
