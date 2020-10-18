@@ -18,6 +18,7 @@
     - [How I can get access to unwatermarked previews medium or high resolution size?](#how-i-can-get-access-to-unwatermarked-previews-medium-or-high-resolution-size)
     - [I am using Fotolia API. How can I migrate to Adobe Stock?](#i-am-using-fotolia-api-how-can-i-migrate-to-adobe-stock)
     - [Are there any framework agreements which govern all Adobe Stock API partnerships?](#are-there-any-framework-agreements-which-govern-all-adobe-stock-api-partnerships)
+    - [Where can I learn about the Adobe Stock integration with Magento?](#stock-integration-with-magento)
 - [Definitions and terms](#definitions-and-terms)
 - [Print on demand FAQ](#print-on-demand-faq)
     - [What are the main objectives of the print on demand use case?](#what-are-the-main-objectives-of-the-print-on-demand-use-case)
@@ -143,6 +144,12 @@ There are two essential documents:
 
 Please note that depending on your use case (see sections below), an additional contract may be required.
 
+<a id="stock-integration-with-magento"></a>
+### Where can I learn about the Adobe Stock integration with Magento?
+
+Users of Magento Commerce 2.3.4 and newer have access to a pre-built integration with Adobe Stock inside the Page Builder. This allows users to search, license, and download Stock assets without leaving the Magento platform. Learn more about the [Adobe Stock Integration] (https://docs.magento.com/user-guide/cms/adobe-stock.html) in the Magento documentation.
+
+
 <a id="definitions-and-terms"></a>
 ## Definitions and terms
 
@@ -218,9 +225,12 @@ Yes. Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Ado
 <a id="is-there-any-software-with-build-in-support-or-software-developers-specialized-in-integrating-adobe-stock-api-for-print-on-demand"></a>
 ### Is there any software with build-in support or software developers specialized in integrating Adobe Stock API for Print-on-demand?
 
-* ResetPro: [https://reset.pro/](https://reset.pro/?lang=8). Learn more at: ["How the Adobe Stock API is Helping Nikkel Art Thrive in the Print-on-Demand Industry"](https://medium.com/adobetech/how-the-adobe-stock-api-is-helping-nikkel-art-thrive-in-the-print-on-demand-industry-c4793e8cd5cd)
+* ResetPro: [https://reset.pro/](https://reset.pro/?lang=8) 
+  * Learn more at: ["How the Adobe Stock API is Helping Nikkel Art Thrive in the Print-on-Demand Industry"](https://medium.com/adobetech/how-the-adobe-stock-api-is-helping-nikkel-art-thrive-in-the-print-on-demand-industry-c4793e8cd5cd)
 
-* Color Alliance: <https://www.ca-web-to-print.com>
+* Durst Smart Shop: https://durst-professional-services.com/en/smart-shop
+
+* OnPrintShop: https://www.onprintshop.com/
 
 <a id="marketing-platforms-faq"></a>
 ## Marketing Platforms FAQ
