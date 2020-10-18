@@ -493,7 +493,7 @@ Please also note that the Free collection can change. An image which is availabl
 2. POD customers who do *offline* curation of Stock assets must use other methods to filter out free assets. For example, any images that are hand curated and saved in the customers database should be reviewed periodically for free content using the [**Files API**](api/19-bulk-metadata-files-reference.md).
 
 #### Filtering free assets with the Files API
-Free assets can be identified by their metadata, specifically by the `premium_level_id` field. **A value of `1` indicates a Free asset.**
+Free assets can be identified by their metadata, specifically by the `premium_level_id` field. **A value of '1' indicates a Free asset.**
 
 <table>
   <tr>
@@ -516,7 +516,10 @@ In this workflow, a scheduled script would periodically check to see if curated 
 For example, your website has assets #171817067 and #171817041 in its collection, both by the same artist. Adobe Stock has asked you to remove any free assets so you search for assets using the Files API. The Files API is used to check if assets are still available and to pull down any metadata needed to populate your database. In this sample URL, `premium_level_id` is one of the fields requested.
 
 ```
-https://stock.adobe.io/Rest/Media/1/Files?locale=en_EN&ids=171817067,171817041&result_columns[0]=id&result_columns[1]=title&result_columns[2]=creator_name&result_columns[3]=content_type&result_columns[4]=width&result_columns[5]=height&result_columns[6]=premium_level_id
+https://stock.adobe.io/Rest/Media/1/Files?locale=en_EN&ids=171817067,171817041
+&result_columns[0]=id&result_columns[1]=title&result_columns[2]=content_type
+&result_columns[3]=width&result_columns[4]=height
+&result_columns[5]=premium_level_id
 ```
 
 Here is the response from the API.
@@ -527,7 +530,6 @@ Here is the response from the API.
         {
             "id": 171817067,
             "title": "Cropped hand of sportsperson holding volleyball",
-            "creator_name": "WavebreakMediaMicro",
             "content_type": "image/jpeg",
             "width": 5760,
             "height": 3840,
@@ -536,7 +538,6 @@ Here is the response from the API.
         {
             "id": 171817041,
             "title": "Cropped hands of players practicing volleyball",
-            "creator_name": "WavebreakMediaMicro",
             "content_type": "image/jpeg",
             "width": 5760,
             "height": 3840,
@@ -546,4 +547,4 @@ Here is the response from the API.
 }
 ```
 
-As shown in the response, the second assets has a `premium_level_id` of 1, which means it is a Free asset. This should be removed from the database at the next update.
+As shown in the response, the second asset has a `premium_level_id` of 1, which means it is a Free asset. This should be removed from the database at the next update.
