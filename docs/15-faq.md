@@ -4,23 +4,25 @@
 
 <!-- MarkdownTOC -->
 
-- [General](#general)
+- [Stock API FAQ](#stock-api-faq)
+  - [General](#general)
     - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
     - [Why are there more search results returned than the 'limit' value?](#why-are-there-more-search-results-returned-than-the-limit-value)
-- [Downloading](#downloading)
+  - [Downloading](#downloading)
     - [How do I download a comp image?](#how-do-i-download-a-comp-image)
     - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
     - [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
-- [Enterprise licensing](#enterprise-licensing)
+  - [Enterprise licensing](#enterprise-licensing)
     - [How do I add license references?](#how-do-i-add-license-references)
     - [Why do I get an error when sending the JWT?](#why-do-i-get-an-error-when-sending-the-jwt)
-- [Print on Demand](#print-on-demand)
+  - [Print on Demand](#print-on-demand)
     - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
     - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
     - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
     - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
     - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
     - [How do I check if the images I am selling are still available on Stock?](#how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock)
+    - [How do I filter out Free content?](#how-do-i-filter-out-free-content)
 
 <!-- /MarkdownTOC -->
 
@@ -479,3 +481,70 @@ When the response comes back, you can see immediately there is an issue because 
     ]
 }
 ```
+
+### How do I filter out Free content?
+
+Adobe Stock has recently released a [large collection of free images, vectors, and video](https://stock.adobe.com/free), which adds to its collection of free templates and 3D assets. However, these assets must be excluded from curated Print on Demand collections. 
+
+Please also note that the Free collection can change. An image which is available today for sale could be made free in the future, and vice versa. Fortunately, the Stock API has some controls which make this easy.
+
+1. Free content is automatically excluded from the Search API by default. For POD customers who use the Stock Search API, these new assets will not appear in regular search results. If Stock Search is exposed directly to users, they will not accidentally find any of the free content. This is by design. They can still get their own free content directly from the Stock website.
+
+2. POD customers who do *offline* curation of Stock assets must use other methods to filter out free assets. For example, any images that are hand curated and saved in the customers database should be reviewed periodically for free content using the [**Files API**](api/19-bulk-metadata-files-reference.md).
+
+#### Filtering free assets with the Files API
+Free assets can be identified by their metadata, specifically by the `premium_level_id` field. **A value of '1' indicates a Free asset.**
+
+<table>
+  <tr>
+   <td><code>premium_level_id</code>
+   </td>
+   <td>Asset's premium (pricing) level. Integer.
+    <ul>
+      <li><code>0</code>: Core/standard</li>
+      <li><code>1</code>: Free &nbsp;&nbsp;<strong><== Filter on this value</strong></li>
+      <li><code>2</code>: Premium level 1</li>
+      <li><code>3</code>: Premium level 2</li>
+      <li><code>4</code>: Premium level 3</li>
+    </ul>
+   </td>
+  </tr>
+</table>
+
+In this workflow, a scheduled script would periodically check to see if curated assets are still available and whether their price status has changed.
+
+For example, your website has assets #171817067 and #171817041 in its collection, both by the same artist. Adobe Stock has asked you to remove any free assets so you search for assets using the Files API. The Files API is used to check if assets are still available and to pull down any metadata needed to populate your database. In this sample URL, `premium_level_id` is one of the fields requested.
+
+```
+https://stock.adobe.io/Rest/Media/1/Files?locale=en_EN&ids=171817067,171817041
+&result_columns[0]=id&result_columns[1]=title&result_columns[2]=content_type
+&result_columns[3]=width&result_columns[4]=height
+&result_columns[5]=premium_level_id
+```
+
+Here is the response from the API.
+
+```
+{
+    "files": [
+        {
+            "id": 171817067,
+            "title": "Cropped hand of sportsperson holding volleyball",
+            "content_type": "image/jpeg",
+            "width": 5760,
+            "height": 3840,
+            "premium_level_id": 0    /* Standard asset */
+        },
+        {
+            "id": 171817041,
+            "title": "Cropped hands of players practicing volleyball",
+            "content_type": "image/jpeg",
+            "width": 5760,
+            "height": 3840,
+            "premium_level_id": 1    /* FREE ASSET! */
+        }
+    ]
+}
+```
+
+As shown in the response, the second asset has a `premium_level_id` of 1, which means it is a Free asset. This should be removed from the database at the next update.
