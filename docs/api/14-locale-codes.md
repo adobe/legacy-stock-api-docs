@@ -52,6 +52,6 @@ Several API methods allow the use of locale codes so that you can retrieve asset
 | ko_KR | Korean - South Korea |
 | en_NZ | English - New Zealand |
 | ru_RU | Russian - Russia |
-| en_UA | English - Ukrain |
+| en_UA | English - Ukraine |
 | en_TH | English - Thailand |
-
+| en_IL | English - Israel |
