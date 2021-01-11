@@ -1,11 +1,9 @@
 # Getting started with the Adobe Stock API
 
-> _**Tl;dr version:** (1) register for an Adobe Stock API key at [console.adobe.io](https://console.adobe.io/), (2) use [curl](https://curl.haxx.se/) to make your first search query, (3) return here to learn more!_
+> _**Tl;dr version:** (1) register for an Adobe Stock API key at [console.adobe.io](https://console.adobe.io/) (Integration -> New Integration -> Access API -> Adobe Stock -> oAuth -> Fill in with fake info) -> copy generated API Key) , (2) Add the api key in the following [curl](https://curl.haxx.se/) command and make your first search query! (3) return here to learn more!_
 
 ```
-curl https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_parameters%5Bwords%5D=kittens 
-  -H 'x-api-key:myAPIKey' 
-  -H 'x-product:myTestApp1.0'
+curl -H 'x-api-key:myAPIKey' -H 'x-product:myTestApp1.0' https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US%26search_parameters%5Bwords%5D=kittens 
 ```
 
 ## Read me first!
