@@ -3,20 +3,27 @@
 
 <!-- MarkdownTOC-->
 
-- [Content and Member requests](#content-and-member-requests)
+- [Licensing reference](#licensing-reference)
+  - [Content and Member requests](#content-and-member-requests)
     - [Authentication](#authentication)
     - [Request headers](#request-headers)
     - [URL parameters](#url-parameters)
-- [Responses](#responses)
+  - [Responses](#responses)
     - [Response JSON summaries](#response-json-summaries)
     - [Response attributes](#response-attributes)
-- [Examples](#examples)
+  - [Examples](#examples)
     - [Content/Info](#contentinfo)
     - [Content/License](#contentlicense)
     - [Member/Profile](#memberprofile)
-- [Error codes](#error-codes)
-- [Downloading licensed files](#downloading-licensed-files)
-- [More information](#more-information)
+  - [Error codes](#error-codes)
+  - [Downloading licensed files](#downloading-licensed-files)
+    - [Authentication](#authentication-1)
+    - [Request headers](#request-headers-1)
+    - [URL parameters](#url-parameters-1)
+    - [Response](#response)
+    - [Examples](#examples-1)
+    - [Download errors](#download-errors)
+  - [More information](#more-information)
 
 <!-- /MarkdownTOC -->
 
@@ -109,6 +116,17 @@ The Adobe Stock licensing state for the asset. String.
     <li><code>Extended</code>: Extended license for the full-resolution image</li>
     </ul>
 </li>
+  <li>Additional license values if Alternative Licenses are available:
+    <ul>
+      <li><code>Internal_Use</code></li>
+      <li><code>Video_HD_Internal_Use</code></li>
+      <li><code>Digital_Use</code></li>
+      <li><code>Video_HD_Digital_Use</code></li>
+      <li><code>Social_Media</code></li>
+      <li><code>Video_HD_Social_Media</code></li>
+      <li><code>Video_HD_Standard</code></li>
+    </ul>
+  </li>
 </ul>
 
    </td>
@@ -219,6 +237,48 @@ Calls return information in JSON structures.
 }
 ```
 
+* **Member/Profile** can also return the attribute `possible_licenses` if Alternative Licenses are enabled on the account.
+
+```javascript
+{
+    "available_entitlement": {
+        "quota": 9733,
+        "license_type_id": 43,
+        "has_credit_model": false,
+        "has_agency_model": true,
+        "is_cce": true,
+        "full_entitlement_quota": {
+            "universal_credits_quota": 9733
+        },
+        "quota_ids": {
+            "universal_credits_quota": "credits"
+        },
+        "user_has_ccpro": false,
+        "organization_has_ccpro": false
+    },
+    "member": {
+        "stock_id": 14357036
+    },
+    "purchase_options": {
+        "state": "possible",
+        "requires_checkout": false,
+        "license": "Extended",
+        "message": "This will use 2 of your 9,733 credits."
+    },
+    "possible_licenses": [
+        {
+            "license": "Social_Media",
+            "license_label": "Social Media",
+            "price_with_unit": "5 Credits"
+        },
+        {
+            "license": "Extended",
+            "license_label": "Extended",
+            "price_with_unit": "2 Credits"
+        }
+    ]
+}
+```
 
 ### Response attributes
 
@@ -425,6 +485,31 @@ All returned messages are localized and generated for you by the Stock API. This
    &nbsp;&nbsp;&nbsp;&nbsp;url
    </td>
    <td>Only displayed if user is not able to license asset. URL directs user to Adobe Stock site to get plan. String.</td>
+  </tr>
+
+  <tr>
+   <td>possible_licenses {...}
+   </td>
+   <td>This block is returned if Alternative Licenses are enabled for the account. Structure.
+   </td>
+  </tr>
+  <tr>
+   <td><em>possible_licenses:</em><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;license
+   </td>
+   <td>License field value. For possible values, see <a href="#url-parameters">URL parameters</a>, above. String.</td>
+  </tr>  
+  <tr>
+   <td><em>possible_licenses:</em><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;license_label
+   </td>
+   <td>Name of license to display to user (text localized by <code>locale</code> command). String.</td>
+  </tr>
+  <tr>
+   <td><em>possible_licenses:</em><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;price_with_unit
+   </td>
+   <td>Cost in credits for user (text localized by <code>locale</code> command). String.</td>
   </tr>
 </table>
 
