@@ -24,7 +24,6 @@
   - [Definitions and terms](#definitions-and-terms)
   - [Print on demand FAQ](#print-on-demand-faq)
     - [What are the main objectives of the print on demand use case?](#what-are-the-main-objectives-of-the-print-on-demand-use-case)
-    - [Who can benefit from implementing the Adobe Stock API for print on demand?](#who-can-benefit-from-implementing-the-adobe-stock-api-for-print-on-demand)
     - [What type of assets can I access by using Adobe Stock API for print on demand?](#what-type-of-assets-can-i-access-by-using-adobe-stock-api-for-print-on-demand)
     - [What is an online example of the Adobe Stock API Print on Demand use case?](#what-is-an-online-example-of-the-adobe-stock-api-print-on-demand-use-case)
     - [What is the Print on demand pricing model?](#what-is-the-print-on-demand-pricing-model)
@@ -74,9 +73,7 @@ Currently we do not limit number of API requests, however we are monitoring usag
 <a id="how-long-does-it-take-to-validate-my-api-key-request"></a>
 ### How long does it take to validate my API key request?
 
-Individual integration doesn’t require validation. If you create integration for your own use, your integration can work without being approved for production use.
-
-If you create an application and need users to sign into their accounts so they could use their own entitlements to purchase Adobe Stock licenses, then this integration would be limited to 25 users signing into Adobe at the same time. To allow more concurrent logins, you would need to apply for a Production key.
+An individual integration doesn’t require validation. If you create an integration for your own use, your integration can work without being approved for production use.
 
 <a id="can-anyone-apply-for-an-api-key"></a>
 ### Can anyone apply for an API key?
@@ -103,12 +100,12 @@ If you are not sure which type of authentication you need for your integration, 
 <a id="where-i-can-find-a-technical-reference"></a>
 ### Where I can find a technical reference?
 
-At: <https://www.adobe.io/apis/creativecloud/stock/docs.html>
+<https://www.adobe.io/apis/creativecloud/stock/docs.html>
 
 <a id="is-there-any-sdk-which-can-facilitate-building-the-adobe-stock-api-integration"></a>
 ### Is there any SDK which can facilitate building the Adobe Stock API integration?
 
-Yes. At <https://github.com/adobe/stock-api-sdk> you can access SDKs for PHP, JavaScript and Java.
+Yes. At <https://github.com/adobe/stock-api-sdk> you can access SDKs for PHP and Java.
 
 <a id="what-standard-size-previews-are-available-via-the-api"></a>
 ### What standard size previews are available via the API?
@@ -163,15 +160,13 @@ Here are the definitions of some standard acronyms and terms used throughout thi
 
 **API.** Application Programming Interface
 
-**SMB (Small/Medium Business) account model.** Entry-level option for Print-on-demand. Requires a low upfront purchase and offers basic options.
-
 **Standard content.** For the purposes of this document, Standard content is a group of images (photos, vectors and illustrations) which consist of Adobe Stock's micro-stock collection, [hosted here](https://stock.adobe.com/images). All assets in this class can be licensed for one credit with a Standard license (see below), and this license allows downloading the asset at full resolution. 
 
 __Standard license.__ This is a limited type of license offered on most Stock assets, including all Standard content (see above). Under the Print on Demand model, a Standard license may be used to print one good. This is different from Extended licenses, which may be used for unlimited prints, but at a much higher cost. For more details see [Adobe Stock License Information](https://stock.adobe.com/license-terms).
 
 **Enterprise account model.** Offers advanced options and volume pricing for Print-on-demand. Requires an Adobe Enterprise contract.
 
-**OAuth integration.** A technical workflow in which users must login to Adobe Stock to authorize their licenses. This is the only method available for the SMB account model.
+**OAuth integration.** A technical workflow in which users must login to Adobe Stock to authorize their licenses.
 
 **Service Account integration**. A technical workflow where the application can authenticate to Adobe Stock without any human user interaction. This method is only available for Enterprise accounts.
 
@@ -183,21 +178,16 @@ __Standard license.__ This is a limited type of license offered on most Stock as
 
 You can implement the Search API and display search results from the Adobe Stock database. When your customer places an order, we require purchase of one standard license\* per each produced item. For example, if you customer order 5 posters with the same image, you need acquire 5 licenses for the image.
 
-\* Licenses must either be from credit packs under _the SMB account model_ (one credit per image), or from Enterprise licenses under _the Enterprise account model_. If you are using the SMB account model, you must purchase in credits – credit packs available at: [https://stock.adobe.com/plans\#get-credits](https://stock.adobe.com/plans)
+\* Licenses must be from Enterprise licenses under _the Enterprise account model_.
 
 Consumer image subscriptions (subscription plans available at: <https://stock.adobe.com/plans> and https://stock.adobe.com/teams) **cannot be used** for print on demand. .
-
-<a id="who-can-benefit-from-implementing-the-adobe-stock-api-for-print-on-demand"></a>
-### Who can benefit from implementing the Adobe Stock API for print on demand?
-
-Anyone from small printing houses to large home décor chains.
 
 <a id="what-type-of-assets-can-i-access-by-using-adobe-stock-api-for-print-on-demand"></a>
 ### What type of assets can I access by using Adobe Stock API for print on demand?
 
 Technically, the API will give access to any kind of asset, including Premium, Video, 3D, Templates, etc.
 
-However, from a Legal standpoint, a Print on Demand customers may access __only Standard assets__ and must therefore *filter out* Premium content and other non-Standard asset types. If you need access to other types of content in your application, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20non%20standard%20assets).
+However, from a Legal standpoint, Print on Demand customers may access __only Standard assets__ and must therefore *filter out* Premium content and other non-Standard asset types. If you need access to other types of content in your application, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20non%20standard%20assets).
 
 **Standard assets**. All Standard photos, vectors and illustrations are found here: <https://stock.adobe.com/images>
 
@@ -210,14 +200,14 @@ To filter out Premium content from Stock API search results, see the [Stock API 
 <a id="what-is-an-online-example-of-the-adobe-stock-api-print-on-demand-use-case"></a>
 ### What is an online example of the Adobe Stock API Print on Demand use case?
 
-See https://nikkel-art.com
+https://nikkel-art.com
+https://www.wallsauce.com/
+
 
 <a id="what-is-the-print-on-demand-pricing-model"></a>
 ### What is the Print on demand pricing model?
 
-There are two available models. Entry level model uses Adobe Stock individual credits with unit price in range between $8 and $10. Please see current pricing details [here](https://stock.adobe.com/plans). Please note that it is forbidden to use regular subscription for API – Print on demand business.
-
-If you need more than 1000 images a year, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20enterprise%20quota) to receive Enterprise offer.
+Pricing is based on volume and assumes a minimum purchase up front. If you need more than 1000 images a year, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20enterprise%20quota) to receive an Enterprise offer.
 
 <a id="do-i-need-a-contract-to-start-my-api-print-on-demand-business"></a>
 ### Do I need a contract to start my API Print on demand business?
@@ -229,10 +219,6 @@ Yes. Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Ado
 
 * ResetPro: [https://reset.pro/](https://reset.pro/?lang=8) 
   * Learn more at: ["How the Adobe Stock API is Helping Nikkel Art Thrive in the Print-on-Demand Industry"](https://medium.com/adobetech/how-the-adobe-stock-api-is-helping-nikkel-art-thrive-in-the-print-on-demand-industry-c4793e8cd5cd)
-
-* Durst Smart Shop: https://durst-professional-services.com/en/smart-shop
-
-* OnPrintShop: https://www.onprintshop.com/
 
 <a id="marketing-platforms-faq"></a>
 ## Marketing Platforms FAQ

@@ -15,7 +15,7 @@
   - [Enterprise licensing](#enterprise-licensing)
     - [How do I add license references?](#how-do-i-add-license-references)
     - [Why do I get an error when sending the JWT?](#why-do-i-get-an-error-when-sending-the-jwt)
-  - [Print on Demand](#print-on-demand)
+  - [Print on Demand (POD)](#print-on-demand-pod)
     - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
     - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
     - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
@@ -252,7 +252,7 @@ openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout myPrivate.ke
 You can set the value `-days` to whatever you want.
 
 <a id="print-on-demand"></a>
-## Print on Demand
+## Print on Demand (POD)
 
 <a id="how-do-you-license-assets-more-than-once"></a>
 ### How do you license assets more than once?
@@ -354,15 +354,14 @@ X-API-Key: YourApiKeyHere
 
 For more details, see [Search API reference](api/11-search-reference.md).
 
+
 <a id="what-type-of-image-quota-do-i-have"></a>
 ### What type of image quota do I have?
-This question only applies to POD Small and Medium Businesses (SMB) customers, not to Enterprise customers.
+This question only applies to Individual and Team customers, not to Enterprise customers.
 
-In the SMB model for Print on Demand, Individual and Team customers must purchase credit packs _instead of_ image subscriptions, and use one credit per image printed. Furthermore, if they already have a Stock image subscription on their account, they must not combine both quota types on the same account; their POD account must use credit packs only. If they combine both types, Stock will automatically deduct image licenses from a subscription instead of the credit pack--there is no way to override this behavior.
+Different types of Stock quotas are easy to distinguish in the Adobe Stock web UI, but are slightly more confusing as displayed in the Stock API. In the Stock web UI, image quota is displayed as "Images," and credit quota as "Credits."
 
-The two types of quota are easy to distinguish in the Adobe Stock web UI, but are slightly more confusing as displayed in the Stock API. In the Stock web UI, image quota is displayed as "Images," and credit quota as "Credits." As noted above, SMB customers must only have credits to use Stock for Print on Demand.
-
-In the examples below, only user #3 has the proper type of quota, because user #1 has an image subscription only, and user #2 has both a subscription and credit pack.
+In the examples below, user #1 has an image subscription only, user #2 has both a subscription and credit pack, and user #3 has a credit pack only.
 
 ![Sample Stock quota types](images/web_pod-quota-types.png)
 
@@ -385,11 +384,11 @@ Individual and Team customers can see two types of `full_entitlement_quota`:
 - `image_quota`: The available images available in an image subscription.
 - `individual_universal_credits_quota`: The available credits available from a credit pack.
 
-The top-level `quota` attribute can be ignored, as it only applies to image subscriptions in this case and is not applicable to Print on Demand.
+The top-level `quota` attribute can be ignored as it only applies to image subscriptions and may be deprecated in the future.
 
 Using the previous screenshot example, the `Member/Profile` responses would look like this when returned by the API:
 
-**BAD** (image subscription only)
+**Image subscription only**
 ```JavaScript
 "available_entitlement": {
     "quota": 3,
@@ -403,7 +402,7 @@ Using the previous screenshot example, the `Member/Profile` responses would look
 },
 ```
 
-**BAD** (image subscriptions + credit pack in same account)
+**Image subscriptions + credit pack in same account**
 ```JavaScript
 "available_entitlement": {
     "quota": 10,
@@ -418,7 +417,7 @@ Using the previous screenshot example, the `Member/Profile` responses would look
 },
 ```
 
-**GOOD** (credit pack only)
+**Credit pack only**
 ```JavaScript
 "available_entitlement": {
     "quota": 0,
@@ -432,7 +431,6 @@ Using the previous screenshot example, the `Member/Profile` responses would look
 },
 ```
 
-If you are building an integration that allows the POD user to sign in, your application must check that the user only has `individual_universal_credits_quota`, or else licensing cannot happen for printed goods.
 
 <a id="how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock"></a>
 ### How do I check if the images I am selling are still available on Stock?
