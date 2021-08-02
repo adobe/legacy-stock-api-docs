@@ -1,4 +1,4 @@
-
+<!-- omit in toc -->
 # Licensing assets and stuff*
 
 ><super>*</super>Not a very catchy title, but there's more to this topic than how to get a license!
@@ -8,32 +8,18 @@ _**Tl;dr version:** Use the Member/Profile API to check the status of an asset y
 <!-- MarkdownTOC -->
 
 - [Licensing workflow](#licensing-workflow)
-    - [1. Get a token](#1-get-a-token)
-    - [2. Get Stock asset ID](#2-get-stock-asset-id)
-    - [3. Check if licensed](#3-check-if-licensed)
-    - [4. Check if licensing is possible](#4-check-if-licensing-is-possible)
-    - [5. License the asset](#5-license-the-asset)
-    - [6. Download the file](#6-download-the-file)
-        - [Follow the redirects...](#follow-the-redirects)
+  - [1. Get a token](#1-get-a-token)
+  - [2. Get Stock asset ID](#2-get-stock-asset-id)
+  - [3. Check if licensed](#3-check-if-licensed)
+  - [4. Check if licensing is possible](#4-check-if-licensing-is-possible)
+  - [5. License the asset](#5-license-the-asset)
+  - [6. Download the file](#6-download-the-file)
 - [Getting license history](#getting-license-history)
 - [Next steps](#next-steps)
 - [Troubleshooting licensing requests](#troubleshooting-licensing-requests)
-    - [Member/Profile issues](#memberprofile-issues)
-        - [Problem: Asset type can't be licensed](#problem-asset-type-cant-be-licensed)
-        - [Solution: Purchase universal credits or upgrade your plan](#solution-purchase-universal-credits-or-upgrade-your-plan)
-        - [Problem: No credits or not enough credits](#problem-no-credits-or-not-enough-credits)
-        - [Solution \(enterprise\): Add quota to your PLC](#solution-enterprise-add-quota-to-your-plc)
-        - [Solution \(non-enterprise\): Buy credits or save payment info](#solution-non-enterprise-buy-credits-or-save-payment-info)
-        - [Solution: Look further or get help](#solution-look-further-or-get-help)
-    - [Other problems](#other-problems)
-        - [Wrong license type](#wrong-license-type)
-        - [Expired or invalid token](#expired-or-invalid-token)
+  - [Member/Profile issues](#memberprofile-issues)
+  - [Other problems](#other-problems)
 - [Q&A](#qa)
-        - [Can I find out how many credits are remaining?](#can-i-find-out-how-many-credits-are-remaining)
-        - [How can I tell if the user has an enterprise entitlement?](#how-can-i-tell-if-the-user-has-an-enterprise-entitlement)
-        - [Is it possible to get an image in different size?](#is-it-possible-to-get-an-image-in-different-size)
-        - [How can I test licensing assets if I do not have an Adobe Stock plan or contract?](#how-can-i-test-licensing-assets-if-i-do-not-have-an-adobe-stock-plan-or-contract)
-        - [How do I license assets more than once?](#how-do-i-license-assets-more-than-once)
 
 <!-- /MarkdownTOC -->
 
@@ -533,7 +519,7 @@ Note that some assets (such as some Creative Cloud templates) are free, and do n
 
 In the unlikely case where you do have credits _and_ licensing is possible, then something else may be happening. Use the [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/) tools to verify that your application is not getting bad or stale data (for example, it is caching previous responses), and the Adobe Stock API is not returning a 400 error (see below).
 
-If none of those things are happening, then contact [Adobe Stock Support](https://helpx.adobe.com/support.html#/product/stock). Note that this support channel is for Stock customers. If you are a developer working on an application, contact the [partner team](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20API%20help) for further direction.
+If none of those things are happening, then contact [Adobe Stock Support](https://helpx.adobe.com/support.html#/product/stock). Note that this support channel is for Stock customers. If you are a developer working on an application, contact the [Stock API team](mailto:stockapis@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20API%20help) for further direction.
 
 <a id="other-problems"></a>
 ### Other problems 

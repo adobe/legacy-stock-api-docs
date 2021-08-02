@@ -1,28 +1,31 @@
+<!-- omit in toc -->
 # Stock API FAQ
 
-> A list of technical frequently asked questions. Don't see your question answered here? Email us at stockapis@adobe.com.
+A list of technical frequently asked questions. Don't see your question answered here? Email us at stockapis@adobe.com.
+
+If you are looking for the Stock API Business FAQ, it is [located here](../supplemental/stock-api-business-faq.md).
 
 <!-- MarkdownTOC -->
 
-- [Stock API FAQ](#stock-api-faq)
-  - [General](#general)
-    - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
-    - [Why are there more search results returned than the 'limit' value?](#why-are-there-more-search-results-returned-than-the-limit-value)
-  - [Downloading](#downloading)
-    - [How do I download a comp image?](#how-do-i-download-a-comp-image)
-    - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
-    - [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
-  - [Enterprise licensing](#enterprise-licensing)
-    - [How do I add license references?](#how-do-i-add-license-references)
-    - [Why do I get an error when sending the JWT?](#why-do-i-get-an-error-when-sending-the-jwt)
-  - [Print on Demand (POD)](#print-on-demand-pod)
-    - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
-    - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
-    - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
-    - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
-    - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
-    - [How do I check if the images I am selling are still available on Stock?](#how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock)
-    - [How do I filter out Free content?](#how-do-i-filter-out-free-content)
+- [General](#general)
+  - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
+  - [Why are there more search results returned than the 'limit' value?](#why-are-there-more-search-results-returned-than-the-limit-value)
+  - [Why don't all assets show up in Search API results?](#why-dont-all-assets-show-up-in-search-api-results)
+- [Downloading](#downloading)
+  - [How do I download a comp image?](#how-do-i-download-a-comp-image)
+  - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
+  - [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
+- [Enterprise licensing](#enterprise-licensing)
+  - [How do I add license references?](#how-do-i-add-license-references)
+  - [Why do I get an error when sending the JWT?](#why-do-i-get-an-error-when-sending-the-jwt)
+- [Print on Demand (POD)](#print-on-demand-pod)
+  - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
+  - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
+  - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
+  - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
+  - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
+  - [How do I check if the images I am selling are still available on Stock?](#how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock)
+  - [How do I filter out Free content?](#how-do-i-filter-out-free-content)
 
 <!-- /MarkdownTOC -->
 
@@ -106,6 +109,21 @@ https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=Flower
         }
     ]
 ```
+
+### Why don't all assets show up in Search API results?
+
+Because of because decisions, it is expected behavior that some assets will be hidden from search results. This can include:
+
+* Editorial: https://stock.adobe.com/editorial
+* Audio: https://stock.adobe.com/audio
+* Free: https://stock.adobe.com/free
+ 
+Free assets are a "rotating" collection, so an image could technically be a paid asset today (and appear in search), and become a free asset tomorrow (and be removed from search).
+
+These assets types will be searchable from the Adobe Stock website because there is business logic in place to make sure that only authorized users or applications can interact with them--Stock partners cannot guarantee these special asset types will be handled correctly so they are blocked by default.
+
+The Search API is the only service affected. If the goal is to retrieve metadata, then Search is not the correct method--instead apps should use the [Files API](api/19-bulk-metadata-files-reference.md). The Files API will retrieve metadata on any ID. Similarly, all the License APIs will work with these assets as well, if given a valid ID.
+
 
 <a id="downloading"></a>
 ## Downloading
