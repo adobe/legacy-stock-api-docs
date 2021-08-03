@@ -1,51 +1,49 @@
+<!-- omit in toc -->
 # Adobe Stock API: Frequently Asked Questions
 
-## Table of Contents 
 <!-- MarkdownTOC -->
 
-- [Adobe Stock API: Frequently Asked Questions](#adobe-stock-api-frequently-asked-questions)
-  - [Table of Contents](#table-of-contents)
-  - [General FAQ](#general-faq)
-    - [How can I contact Adobe Stock to discuss a partnership or get technical assistance?](#how-can-i-contact-adobe-stock-to-discuss-a-partnership-or-get-technical-assistance)
-    - [How much does it cost to access Adobe Stock API?](#how-much-does-it-cost-to-access-adobe-stock-api)
-    - [What are the API calls limits?](#what-are-the-api-calls-limits)
-    - [How long does it take to validate my API key request?](#how-long-does-it-take-to-validate-my-api-key-request)
-    - [Can anyone apply for an API key?](#can-anyone-apply-for-an-api-key)
-    - [What are the criteria for applying for the Adobe Stock API?](#what-are-the-criteria-for-applying-for-the-adobe-stock-api)
-    - [How can I test the Search API?](#how-can-i-test-the-search-api)
-    - [How can I test the Licensing API?](#how-can-i-test-the-licensing-api)
-    - [Where I can find a technical reference?](#where-i-can-find-a-technical-reference)
-    - [Is there any SDK which can facilitate building the Adobe Stock API integration?](#is-there-any-sdk-which-can-facilitate-building-the-adobe-stock-api-integration)
-    - [What standard size previews are available via the API?](#what-standard-size-previews-are-available-via-the-api)
-    - [How I can get access to unwatermarked previews medium or high resolution size?](#how-i-can-get-access-to-unwatermarked-previews-medium-or-high-resolution-size)
-    - [I am using Fotolia API. How can I migrate to Adobe Stock?](#i-am-using-fotolia-api-how-can-i-migrate-to-adobe-stock)
-    - [Are there any framework agreements which govern all Adobe Stock API partnerships?](#are-there-any-framework-agreements-which-govern-all-adobe-stock-api-partnerships)
-    - [Where can I learn about the Adobe Stock integration with Magento?](#where-can-i-learn-about-the-adobe-stock-integration-with-magento)
-  - [Definitions and terms](#definitions-and-terms)
-  - [Print on demand FAQ](#print-on-demand-faq)
-    - [What are the main objectives of the print on demand use case?](#what-are-the-main-objectives-of-the-print-on-demand-use-case)
-    - [What type of assets can I access by using Adobe Stock API for print on demand?](#what-type-of-assets-can-i-access-by-using-adobe-stock-api-for-print-on-demand)
-    - [What is an online example of the Adobe Stock API Print on Demand use case?](#what-is-an-online-example-of-the-adobe-stock-api-print-on-demand-use-case)
-    - [What is the Print on demand pricing model?](#what-is-the-print-on-demand-pricing-model)
-    - [Do I need a contract to start my API Print on demand business?](#do-i-need-a-contract-to-start-my-api-print-on-demand-business)
-    - [Is there any software with build-in support or software developers specialized in integrating Adobe Stock API for Print-on-demand?](#is-there-any-software-with-build-in-support-or-software-developers-specialized-in-integrating-adobe-stock-api-for-print-on-demand)
-  - [Marketing Platforms FAQ](#marketing-platforms-faq)
-    - [What are the common use cases of Marketing Platform integrations?](#what-are-the-common-use-cases-of-marketing-platform-integrations)
-    - [What are the benefits of integrating Adobe Stock into a Marketing Platform?](#what-are-the-benefits-of-integrating-adobe-stock-into-a-marketing-platform)
-    - [Do I need sign a contract to build my marketing platform integration?](#do-i-need-sign-a-contract-to-build-my-marketing-platform-integration)
-  - [DAMs FAQ](#dams-faq)
-    - [Do I need to sign a contract to build my DAM/MAM platform integration?](#do-i-need-to-sign-a-contract-to-build-my-dammam-platform-integration)
-    - [Does Adobe Stock have a pre-built integration with the \_\_\_\_\_ DAM platform? (or) Can Adobe Stock build an integration with \_\_\_\_ platform?](#does-adobe-stock-have-a-pre-built-integration-with-the-_____-dam-platform-or-can-adobe-stock-build-an-integration-with-____-platform)
-  - [Enterprise FAQ](#enterprise-faq)
-    - [Do I need to sign a contract to build my Enterprise integration?](#do-i-need-to-sign-a-contract-to-build-my-enterprise-integration)
-    - [Is there a separate cost to use the Stock API?](#is-there-a-separate-cost-to-use-the-stock-api)
-    - [How can I automate my Stock workflows?](#how-can-i-automate-my-stock-workflows)
-  - [Affiliates FAQ](#affiliates-faq)
-    - [How can I earn affiliate commissions by promoting Adobe Stock?](#how-can-i-earn-affiliate-commissions-by-promoting-adobe-stock)
-    - [How can the Adobe Stock API help me earn by promoting Adobe Stock?](#how-can-the-adobe-stock-api-help-me-earn-by-promoting-adobe-stock)
-    - [What are benefits of Adobe Affiliate Program?](#what-are-benefits-of-adobe-affiliate-program)
-    - [Are there any example scripts to get started?](#are-there-any-example-scripts-to-get-started)
-    - [Are there any examples of Adobe Stock API Affiliates use cases available online?](#are-there-any-examples-of-adobe-stock-api-affiliates-use-cases-available-online)
+- [General FAQ](#general-faq)
+  - [How can I contact Adobe Stock to discuss a partnership or get technical assistance?](#how-can-i-contact-adobe-stock-to-discuss-a-partnership-or-get-technical-assistance)
+  - [How much does it cost to access Adobe Stock API?](#how-much-does-it-cost-to-access-adobe-stock-api)
+  - [What are the API calls limits?](#what-are-the-api-calls-limits)
+  - [How long does it take to validate my API key request?](#how-long-does-it-take-to-validate-my-api-key-request)
+  - [Can anyone apply for an API key?](#can-anyone-apply-for-an-api-key)
+  - [What are the criteria for applying for the Adobe Stock API?](#what-are-the-criteria-for-applying-for-the-adobe-stock-api)
+  - [How can I test the Search API?](#how-can-i-test-the-search-api)
+  - [How can I test the Licensing API?](#how-can-i-test-the-licensing-api)
+  - [Where I can find a technical reference?](#where-i-can-find-a-technical-reference)
+  - [Is there any SDK which can facilitate building the Adobe Stock API integration?](#is-there-any-sdk-which-can-facilitate-building-the-adobe-stock-api-integration)
+  - [What standard size previews are available via the API?](#what-standard-size-previews-are-available-via-the-api)
+  - [How I can get access to unwatermarked previews medium or high resolution size?](#how-i-can-get-access-to-unwatermarked-previews-medium-or-high-resolution-size)
+  - [I am using Fotolia API. How can I migrate to Adobe Stock?](#i-am-using-fotolia-api-how-can-i-migrate-to-adobe-stock)
+  - [Are there any framework agreements which govern all Adobe Stock API partnerships?](#are-there-any-framework-agreements-which-govern-all-adobe-stock-api-partnerships)
+  - [Where can I learn about the Adobe Stock integration with Magento?](#where-can-i-learn-about-the-adobe-stock-integration-with-magento)
+- [Definitions and terms](#definitions-and-terms)
+- [Print on demand FAQ](#print-on-demand-faq)
+  - [What are the main objectives of the print on demand use case?](#what-are-the-main-objectives-of-the-print-on-demand-use-case)
+  - [What type of assets can I access by using Adobe Stock API for print on demand?](#what-type-of-assets-can-i-access-by-using-adobe-stock-api-for-print-on-demand)
+  - [What is an online example of the Adobe Stock API Print on Demand use case?](#what-is-an-online-example-of-the-adobe-stock-api-print-on-demand-use-case)
+  - [What is the Print on demand pricing model?](#what-is-the-print-on-demand-pricing-model)
+  - [Do I need a contract to start my API Print on demand business?](#do-i-need-a-contract-to-start-my-api-print-on-demand-business)
+  - [Is there any software with build-in support or software developers specialized in integrating Adobe Stock API for Print-on-demand?](#is-there-any-software-with-build-in-support-or-software-developers-specialized-in-integrating-adobe-stock-api-for-print-on-demand)
+- [Marketing Platforms FAQ](#marketing-platforms-faq)
+  - [What are the common use cases of Marketing Platform integrations?](#what-are-the-common-use-cases-of-marketing-platform-integrations)
+  - [What are the benefits of integrating Adobe Stock into a Marketing Platform?](#what-are-the-benefits-of-integrating-adobe-stock-into-a-marketing-platform)
+  - [Do I need sign a contract to build my marketing platform integration?](#do-i-need-sign-a-contract-to-build-my-marketing-platform-integration)
+- [DAMs FAQ](#dams-faq)
+  - [Do I need to sign a contract to build my DAM/MAM platform integration?](#do-i-need-to-sign-a-contract-to-build-my-dammam-platform-integration)
+  - [Does Adobe Stock have a pre-built integration with the \_\_\_\_\_ DAM platform? (or) Can Adobe Stock build an integration with \_\_\_\_ platform?](#does-adobe-stock-have-a-pre-built-integration-with-the-_____-dam-platform-or-can-adobe-stock-build-an-integration-with-____-platform)
+- [Enterprise FAQ](#enterprise-faq)
+  - [Do I need to sign a contract to build my Enterprise integration?](#do-i-need-to-sign-a-contract-to-build-my-enterprise-integration)
+  - [Is there a separate cost to use the Stock API?](#is-there-a-separate-cost-to-use-the-stock-api)
+  - [How can I automate my Stock workflows?](#how-can-i-automate-my-stock-workflows)
+- [Affiliates FAQ](#affiliates-faq)
+  - [How can I earn affiliate commissions by promoting Adobe Stock?](#how-can-i-earn-affiliate-commissions-by-promoting-adobe-stock)
+  - [How can the Adobe Stock API help me earn by promoting Adobe Stock?](#how-can-the-adobe-stock-api-help-me-earn-by-promoting-adobe-stock)
+  - [What are benefits of Adobe Affiliate Program?](#what-are-benefits-of-adobe-affiliate-program)
+  - [Are there any example scripts to get started?](#are-there-any-example-scripts-to-get-started)
+  - [Are there any examples of Adobe Stock API Affiliates use cases available online?](#are-there-any-examples-of-adobe-stock-api-affiliates-use-cases-available-online)
 
 <!-- /MarkdownTOC -->
 
@@ -125,7 +123,7 @@ All previews above are served from a content delivery network (CDN) for best per
 <a id="how-i-can-get-access-to-unwatermarked-previews-medium-or-high-resolution-size"></a>
 ### How I can get access to unwatermarked previews medium or high resolution size?
 
-This requires an Adobe Stock Enterprise contract. Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20unwatermark%20previews) to learn more.
+This requires an Adobe Stock Enterprise contract. Please [contact the Stock for Enterprise team](https://stockenterprise.adobe.com/) to learn more.
 
 <a id="i-am-using-fotolia-api-how-can-i-migrate-to-adobe-stock"></a>
 ### I am using Fotolia API. How can I migrate to Adobe Stock?
@@ -207,18 +205,20 @@ https://www.wallsauce.com/
 <a id="what-is-the-print-on-demand-pricing-model"></a>
 ### What is the Print on demand pricing model?
 
-Pricing is based on volume and assumes a minimum purchase up front. If you need more than 1000 images a year, please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20enterprise%20quota) to receive an Enterprise offer.
+Pricing is based on volume and assumes a minimum purchase up front. If you need more than 1000 images a year, please [contact the Stock for Enterprise team](https://stockenterprise.adobe.com/) to receive an Enterprise offer.
 
 <a id="do-i-need-a-contract-to-start-my-api-print-on-demand-business"></a>
 ### Do I need a contract to start my API Print on demand business?
 
-Yes. Please [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20Print-on-demand%20contract) to get a contract.
+Yes. Please [contact the Stock for Enterprise team](https://stockenterprise.adobe.com/) to get a contract.
 
 <a id="is-there-any-software-with-build-in-support-or-software-developers-specialized-in-integrating-adobe-stock-api-for-print-on-demand"></a>
 ### Is there any software with build-in support or software developers specialized in integrating Adobe Stock API for Print-on-demand?
 
 * ResetPro: [https://reset.pro/](https://reset.pro/?lang=8) 
   * Learn more at: ["How the Adobe Stock API is Helping Nikkel Art Thrive in the Print-on-Demand Industry"](https://medium.com/adobetech/how-the-adobe-stock-api-is-helping-nikkel-art-thrive-in-the-print-on-demand-industry-c4793e8cd5cd)
+* Durst Smart Shop: https://durst-professional-services.com/en/smart-shop
+* OnPrintShop: https://www.onprintshop.com/
 
 <a id="marketing-platforms-faq"></a>
 ## Marketing Platforms FAQ
@@ -267,7 +267,7 @@ Adobe will be happy to work with any platform provider or customer who wishes to
 
 If you are an existing Enterprise customer, typically your use of the API is included in the terms of your contract. Please contact your sales representative if you have any doubts.
 
-If you are not an Adobe Stock Enterprise customer, [visit this page](https://landing.adobe.com/en/na/products/creative-cloud/ctir-4625-stock-for-enterprise/index.html) for more information, or [contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=Adobe%20Stock%20API%20FAQ%20-%20enterprise%20quota).
+If you are not an Adobe Stock Enterprise customer, [contact the Stock for Enterprise team](https://stockenterprise.adobe.com/).
 
 <a id="is-there-a-separate-cost-to-use-the-stock-api"></a>
 ### Is there a separate cost to use the Stock API?

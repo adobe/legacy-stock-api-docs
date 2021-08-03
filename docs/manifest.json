@@ -112,8 +112,14 @@
       "importedFileName": "15-faq",
       "pages": [],
       "path": "adobe/stock-api-docs/master/docs/15-faq.md",
-      "title": "FAQ"
+      "title": "API Technical FAQ"
     },
+    {
+      "importedFileName": "stock-api-business-faq",
+      "pages": [],
+      "path": "adobe/stock-api-docs/master/supplemental/stock-api-business-faq.md",
+      "title": "API Business FAQ"
+    },    
     {
       "importedFileName": "18-fotolia-migration-resources",
       "pages": [],
@@ -125,12 +131,6 @@
       "pages": [],
       "path": "adobe/stock-api-docs/master/supplemental/terms-for-adobe-stock-developers.md",
       "title": "Adobe Stock developer terms"
-    },
-    {
-      "importedFileName": "16-app-approval",
-      "pages": [],
-      "path": "adobe/stock-api-docs/master/docs/16-app-approval.md",
-      "title": "Application approval"
     }
   ]
 }

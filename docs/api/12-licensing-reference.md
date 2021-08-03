@@ -1,29 +1,28 @@
-
+<!-- omit in toc -->
 # Licensing reference
 
 <!-- MarkdownTOC-->
 
-- [Licensing reference](#licensing-reference)
-  - [Content and Member requests](#content-and-member-requests)
-    - [Authentication](#authentication)
-    - [Request headers](#request-headers)
-    - [URL parameters](#url-parameters)
-  - [Responses](#responses)
-    - [Response JSON summaries](#response-json-summaries)
-    - [Response attributes](#response-attributes)
-  - [Examples](#examples)
-    - [Content/Info](#contentinfo)
-    - [Content/License](#contentlicense)
-    - [Member/Profile](#memberprofile)
-  - [Error codes](#error-codes)
-  - [Downloading licensed files](#downloading-licensed-files)
-    - [Authentication](#authentication-1)
-    - [Request headers](#request-headers-1)
-    - [URL parameters](#url-parameters-1)
-    - [Response](#response)
-    - [Examples](#examples-1)
-    - [Download errors](#download-errors)
-  - [More information](#more-information)
+- [Content and Member requests](#content-and-member-requests)
+  - [Authentication](#authentication)
+  - [Request headers](#request-headers)
+  - [URL parameters](#url-parameters)
+- [Responses](#responses)
+  - [Response JSON summaries](#response-json-summaries)
+  - [Response attributes](#response-attributes)
+- [Examples](#examples)
+  - [Content/Info](#contentinfo)
+  - [Content/License](#contentlicense)
+  - [Member/Profile](#memberprofile)
+- [Error codes](#error-codes)
+- [Downloading licensed files](#downloading-licensed-files)
+  - [Authentication](#authentication-1)
+  - [Request headers](#request-headers-1)
+  - [URL parameters](#url-parameters-1)
+  - [Response](#response)
+  - [Examples](#examples-1)
+  - [Download errors](#download-errors)
+- [More information](#more-information)
 
 <!-- /MarkdownTOC -->
 

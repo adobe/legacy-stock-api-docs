@@ -137,7 +137,7 @@ Depending on the version of your console, you should see one of the two experien
 
 ### What are the different use cases for the Adobe Stock API?
 
-These are the typical business scenarios for using the Stock API. [Contact us](mailto:Grp-AdobeStockPartnerships@adobe.com?subject=%5BAdobe%20I%2FO%5D%20Stock%20partnership%20request) to learn more about partnering with Adobe Stock.
+These are the typical business scenarios for using the Stock API. See the [API Business FAQ](../../supplemental/stock-api-business-faq.md) to learn more about partnering with Adobe Stock.
 
 
 *   **Enterprise.** This is a broad category that may overlap with some of the other use cases below, where Adobe Stock is used for internal applications, such as for branded websites or internal applications. When it licenses assets, they are available for the entire organization. Adobe Enterprise customers have a more secure authentication method that is only available to them. 
