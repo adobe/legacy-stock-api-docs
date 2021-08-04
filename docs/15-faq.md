@@ -5,29 +5,25 @@ A list of technical frequently asked questions. Don't see your question answered
 
 If you are looking for the Stock API Business FAQ, it is [located here](../supplemental/stock-api-business-faq.md).
 
-<!-- MarkdownTOC -->
-
 - [General](#general)
-  - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
-  - [Why are there more search results returned than the 'limit' value?](#why-are-there-more-search-results-returned-than-the-limit-value)
-  - [Why don't all assets show up in Search API results?](#why-dont-all-assets-show-up-in-search-api-results)
+    - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
+    - [Why are there more search results returned than the 'limit' value?](#why-are-there-more-search-results-returned-than-the-limit-value)
+    - [Why don't all assets show up in Search API results?](#why-dont-all-assets-show-up-in-search-api-results)
 - [Downloading](#downloading)
-  - [How do I download a comp image?](#how-do-i-download-a-comp-image)
-  - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
-  - [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
+    - [How do I download a comp image?](#how-do-i-download-a-comp-image)
+    - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
+    - [Why can't I download an asset from license history?](#why-cant-i-download-an-asset-from-license-history)
 - [Enterprise licensing](#enterprise-licensing)
-  - [How do I add license references?](#how-do-i-add-license-references)
-  - [Why do I get an error when sending the JWT?](#why-do-i-get-an-error-when-sending-the-jwt)
+    - [How do I add license references?](#how-do-i-add-license-references)
+    - [Why do I get an error when sending the JWT?](#why-do-i-get-an-error-when-sending-the-jwt)
 - [Print on Demand (POD)](#print-on-demand-pod)
-  - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
-  - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
-  - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
-  - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
-  - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
-  - [How do I check if the images I am selling are still available on Stock?](#how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock)
-  - [How do I filter out Free content?](#how-do-i-filter-out-free-content)
-
-<!-- /MarkdownTOC -->
+    - [How do you license assets more than once?](#how-do-you-license-assets-more-than-once)
+    - [Why do I see Premium and Video in my search results if I don't have credits?](#why-do-i-see-premium-and-video-in-my-search-results-if-i-dont-have-credits)
+    - [How do I filter out Premium content?](#how-do-i-filter-out-premium-content)
+    - [How do I filter for high-resolution images only?](#how-do-i-filter-for-high-resolution-images-only)
+    - [What type of image quota do I have?](#what-type-of-image-quota-do-i-have)
+    - [How do I check if the images I am selling are still available on Stock?](#how-do-i-check-if-the-images-i-am-selling-are-still-available-on-stock)
+    - [How do I filter out Free content?](#how-do-i-filter-out-free-content)
 
 <a id="general"></a>
 ## General
