@@ -31,12 +31,12 @@
 The Stock API provides the following methods related to licensing and getting more info about licensed assets.  For a guide to usage and additional examples, see [Licensing Stock assets](../getting-started/apps/06-licensing-assets.md).
 
 
-| Endpoints | Method |
-| ----- | ----- |
-| https://stock.adobe.io/Rest/Libraries/1/Content/Info | GET |
-| https://stock.adobe.io/Rest/Libraries/1/Content/License | GET, POST (for adding [license references](#examples)) |
-| https://stock.adobe.io/Rest/Libraries/1/Member/Profile | GET |
-| https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory | GET |
+| Endpoints                                                     | Method                                                 |
+| ------------------------------------------------------------- | ------------------------------------------------------ |
+| https://stock.adobe.io/Rest/Libraries/1/Content/Info          | GET                                                    |
+| https://stock.adobe.io/Rest/Libraries/1/Content/License       | GET, POST (for adding [license references](#examples)) |
+| https://stock.adobe.io/Rest/Libraries/1/Member/Profile        | GET                                                    |
+| https://stock.adobe.io/Rest/Libraries/1/Member/LicenseHistory | GET                                                    |
 
 
 
@@ -758,9 +758,9 @@ Each error generates a JSON array that contains the following keys and values. I
 
 The __Content/License__ method returns a download URL, which uses the __Libraries/Download__ endpoint. This URL can be accessed via a normal GET request over an HTTPS connection.
 
-| Endpoint | Method |
-| ----- | ----- |
-| https://stock.adobe.com/Rest/Libraries/Download/{id}/{license} | GET |
+| Endpoint                                                       | Method |
+| -------------------------------------------------------------- | ------ |
+| https://stock.adobe.com/Rest/Libraries/Download/{id}/{license} | GET    |
 
 In the URL above, the `{id}` value must be substituted with the Adobe Stock ID attribute, while `{license}` is an integer returned by Adobe Stock in the download URL. Because this integer value can change without notice, it is recommended not to _predict_ this value, but to get it by calling the `Content/License` method to first obtain the download URL.
 

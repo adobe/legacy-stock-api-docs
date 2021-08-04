@@ -55,3 +55,14 @@ Several API methods allow the use of locale codes so that you can retrieve asset
 | en_UA | English - Ukraine |
 | en_TH | English - Thailand |
 | en_IL | English - Israel |
+| ru_KZ | Russian - Kazakhstan |
+| ru_UZ | Russian - Uzbekistan |
+| en_EG | English - Egypt |
+| en_SA | English - Saudi Arabia |
+| en_TR | English - Turkey |
+| en_ID | English - Indonesia |
+| en_MY | English - Malaysia |
+| en_VN | English - Vietnam |
+| en_NG | English - Nigeria |
+| en_MA | English - Morocco |
+| es_BO | Spanish - Bolivia |
