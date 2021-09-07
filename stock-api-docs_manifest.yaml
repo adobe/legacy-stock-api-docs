@@ -1,0 +1,47 @@
+---
+type: Adobe Stock
+order: 1
+title: Adobe Stock API documentation
+pages:
+- title: Getting started
+  url: adobe/stock-api-docs/master/docs/01-getting-started.md
+  pages:
+  - title: Register your application
+    url: adobe/stock-api-docs/master/docs/getting-started/02-register-app.md
+  - title: API authentication headers
+    url: adobe/stock-api-docs/master/docs/getting-started/03-api-authentication.md
+  - title: Creating Adobe Stock applications
+    url: adobe/stock-api-docs/master/docs/getting-started/04-creating-apps.md
+  - title: Searching for assets
+    url: adobe/stock-api-docs/master/docs/getting-started/apps/05-search-for-assets.md
+  - title: Licensing assets and stuff
+    url: adobe/stock-api-docs/master/docs/getting-started/apps/06-licensing-assets.md
+  - title: Stock workflow guides
+    url: adobe/stock-api-docs/master/docs/getting-started/07-workflow-guides.md
+  - title: Sample code and SDKs
+    url: adobe/stock-api-docs/master/docs/getting-started/08-sample-code-sdks.md
+- title: API reference
+  url: adobe/stock-api-docs/master/docs/09-api-summary.md
+  pages:
+  - title: Headers for Stock API calls
+    url: adobe/stock-api-docs/master/docs/api/10-headers-for-api-calls.md
+  - title: Search API reference
+    url: adobe/stock-api-docs/master/docs/api/11-search-reference.md
+  - title: Files API for bulk metadata
+    url: adobe/stock-api-docs/master/docs/api/19-bulk-metadata-files-reference.md
+  - title: Licensing reference
+    url: adobe/stock-api-docs/master/docs/api/12-licensing-reference.md
+  - title: License history reference
+    url: adobe/stock-api-docs/master/docs/api/13-license-history.md
+  - title: Category tree reference
+    url: adobe/stock-api-docs/master/docs/api/17-categorytree.md
+  - title: Locale codes
+    url: adobe/stock-api-docs/master/docs/api/14-locale-codes.md
+- title: FAQ
+  url: adobe/stock-api-docs/master/docs/15-faq.md
+- title: Fotolia migration resources
+  url: adobe/stock-api-docs/master/docs/18-fotolia-migration-resources.md
+- title: Adobe Stock developer terms
+  url: adobe/stock-api-docs/master/supplemental/terms-for-adobe-stock-developers.md
+- title: Application approval
+  url: adobe/stock-api-docs/master/docs/16-app-approval.md
