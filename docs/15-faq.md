@@ -9,6 +9,7 @@ If you are looking for the Stock API Business FAQ, it is [located here](../suppl
     - [What thumbnail preview sizes are available?](#what-thumbnail-preview-sizes-are-available)
     - [Why are there more search results returned than the 'limit' value?](#why-are-there-more-search-results-returned-than-the-limit-value)
     - [Why don't all assets show up in Search API results?](#why-dont-all-assets-show-up-in-search-api-results)
+    - [Why am I getting 429 errors from the API?](#why-am-i-getting-429-errors-from-the-api)
 - [Downloading](#downloading)
     - [How do I download a comp image?](#how-do-i-download-a-comp-image)
     - [How do I bulk download all of my license history?](#how-do-i-bulk-download-all-of-my-license-history)
@@ -106,6 +107,7 @@ https://stock.adobe.io/Rest/Media/1/Search/Files?search_parameters[words]=Flower
     ]
 ```
 
+<a id="why-dont-all-assets-show-up-in-search-api-results"></a>
 ### Why don't all assets show up in Search API results?
 
 Because of because decisions, it is expected behavior that some assets will be hidden from search results. This can include:
@@ -120,6 +122,45 @@ These assets types will be searchable from the Adobe Stock website because there
 
 The Search API is the only service affected. If the goal is to retrieve metadata, then Search is not the correct method--instead apps should use the [Files API](api/19-bulk-metadata-files-reference.md). The Files API will retrieve metadata on any ID. Similarly, all the License APIs will work with these assets as well, if given a valid ID.
 
+<a id="why-am-i-getting-429-errors-from-the-api"></a>
+### Why am I getting 429 errors from the API?
+The 429 `Too Many Requests` HTTP response status code indicates the application has made too many queries in a given amount of time. This is not an error, but a message from the server instructing the application to stop sending requests because there are not enough connections to process it. The Adobe Stock service has a finite number of connections available, and when that limit is reached, 429 responses are returned.
+
+Your application should expect these responses and be able to handle them. The simplest way is to wait to send another request. Often, the status code is sent with a `Retry-after` header that specifies a period of time to wait before sending another request. In the example below, the API response requests that you wait one (1) second before attempting the request again.
+
+```javascript
+HTTP/1.1 429 Too Many Requests
+Server: openresty
+Date: Fri, 10 Dec 2021 00:53:46 GMT
+Content-Type: application/json
+Retry-After: 1
+
+{"error_code":"429050","message":"Too many requests"}
+```
+
+A more comprehensive approach is to implement *exponential backoff*. Exponential backoff uses progressively longer waits between retries for consecutive error responses. For example, if the initial wait time was set to 1 second and the application started receiving errors, the app could sequence the requests like this:
+
+* 1st request: *No wait*
+  * Status: `429 Too Many Requests`
+* 2nd request: *Wait 1 second*
+  * Status: `429 Too Many Requests`
+* 3rd request: *Wait 2 seconds*
+  * Status: `429 Too Many Requests`
+* 4th request: *Wait 4 seconds*
+  * Status: `200 OK`
+* 5th request: *No wait*
+  * Status: `429 Too Many Requests`
+* 6th request: *Wait 1 second*
+  * Status: `429 Too Many Requests`
+* 7th request: *Wait 2 seconds*
+  * etc.
+
+In addition, the application would have a maximum retries variable, such that it would only make attempts until the max retries value is reached. 
+
+More information on this topic from external websites:
+* [What an HTTP Error 429 Means & How to Fix It](https://blog.hubspot.com/website/http-error-429)
+* [Implementing exponential backoff](https://cloud.google.com/iot/docs/how-tos/exponential-backoff)
+* [Error retries and exponential backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html)
 
 <a id="downloading"></a>
 ## Downloading
