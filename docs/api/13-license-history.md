@@ -102,7 +102,7 @@ In the table below, fields marked with __*__ are returned by default.
 | *creator_name| Creator Name. String. |
 | *creator_id| Creator unique ID. String. |
 | *content_url| (Deprecated). String. |
-| *media_type_id| Content type of the asset (`1`: Photos, `2`: Illustrations, `3`: Vectors, `4`: Videos, `6`: 3D, `7`: Templates). Integer. |
+| *media_type_id| Content type of the asset (`1`: Photos, `2`: Illustrations, `3`: Vectors, `4`: Videos, `6`: 3D, `7`: Templates, `9`: Audio). Integer. |
 | *vector_type| If the file is a vector indicates if its a svg or a ai/eps (reported as zip). String or Null. |
 | *content_type| Content type of the file (e.g. `image/jpeg`). String. |
 | *height| Item height. Integer. |
