@@ -1,6 +1,6 @@
 # Adobe Stock API documentation
 This repo contains the source files for the [Adobe Stock](https://stock.adobe.com) API documentation. The home page for Adobe Stock API is located here:
-https://www.adobe.io/apis/creativecloud/stock/docs.html.
+https://developer.adobe.com/stock/docs/getting-started/.
 
 Before you begin, be sure to review the [Developer Terms of Use](supplemental/terms-for-adobe-stock-developers.md).
 
